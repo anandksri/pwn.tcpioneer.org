@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 
 import Hero from "@/sections/Hero";
 import EntryPoint from "@/sections/EntryPoint";
-import LearningJourney from "@/sections/LearningJourney";
+import ThePath from "@/sections/ThePath";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <main>
         <Hero />
         <EntryPoint />
-        <LearningJourney />
+        <ThePath />
       </main>
     </>
   );
