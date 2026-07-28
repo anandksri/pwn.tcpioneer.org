@@ -18,19 +18,26 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
   background: var(--background);
   color: var(--text);
   overflow-x: hidden;
+}
+
+main {
+  width: 100%;
 }
 
 a {
