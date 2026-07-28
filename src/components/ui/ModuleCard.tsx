@@ -70,16 +70,18 @@ export default function ModuleCard({
   return (
     <Link
       href={href}
-      className={`group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-950 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-900 ${theme.hoverBorder} ${theme.glow}`}
+      className={`group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-950 p-6 transition-all duration-300 ease-out hover:-translate-y-2 hover:bg-zinc-900 hover:shadow-2xl ${theme.hoverBorder} ${theme.glow}`}
     >
       {/* Top */}
 
       <div className="mb-6 flex items-start justify-between">
 
         <div
-          className={`flex h-14 w-14 items-center justify-center rounded-xl border ${theme.bg} ${theme.border} transition-all duration-300 group-hover:scale-105`}
+          className={`flex h-14 w-14 items-center justify-center rounded-xl border ${theme.bg} ${theme.border} transition-all duration-300`}
         >
-          <Icon className={`h-7 w-7 ${theme.icon}`} />
+          <Icon
+  className={`h-7 w-7 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${theme.icon}`}
+/>
         </div>
 
         <span
@@ -90,7 +92,9 @@ export default function ModuleCard({
 
       </div>
 
-      <h3 className="text-2xl font-semibold text-white">
+      <h3
+  className={`text-2xl font-semibold text-white transition-colors duration-300 ${theme.text}`}
+>
         {title}
       </h3>
 
@@ -98,7 +102,7 @@ export default function ModuleCard({
         {description}
       </p>
 
-      <div className="mt-6 border-t border-zinc-800 pt-5">
+      <div className="mt-6 border-t border-zinc-800 pt-5 transition-colors duration-300 group-hover:border-zinc-700">
 
         <div className="flex gap-6 text-sm text-zinc-400">
 
