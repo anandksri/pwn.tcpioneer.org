@@ -34,11 +34,11 @@ const highlights = [
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#09090B] pt-52 pb-40">
+    <section className="relative isolate overflow-hidden bg-[#09090B] pt-36 pb-24 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
 
       {/* Background */}
 
-      <div className="absolute inset-0 z-0 bg-[#09090B]" />
+      <div className="pointer-events-none absolute inset-0 -z-50 bg-[#09090B]" />
 
       {/* Square Grid */}
 
@@ -79,23 +79,23 @@ export default function Hero() {
 
           {/* Logo */}
 
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:gap-5">
 
-            <h1 className="font-mono text-6xl font-black tracking-tight text-white lg:text-7xl">
-              PWN.
-            </h1>
+  <h1 className="font-mono text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-7xl">
+    PWN.
+  </h1>
 
-            <div className="h-16 w-3 rounded-full bg-violet-500" />
+  <div className="h-10 w-2 rounded-full bg-violet-500 md:h-16 md:w-3" />
 
-            <h1 className="font-mono text-6xl font-black tracking-tight text-violet-400 lg:text-7xl">
-              TCPIONEER
-            </h1>
+  <h1 className="font-mono text-4xl font-black tracking-tight text-violet-400 sm:text-5xl lg:text-7xl">
+    TCPIONEER
+  </h1>
 
-          </div>
+</div>
 
           {/* Tagline */}
 
-          <p className="mt-6 text-xl font-medium text-white lg:text-2xl">
+          <p className="mt-5 text-base font-medium leading-7 text-white sm:text-lg lg:mt-6 lg:text-2xl">
             Learn
             <span className="mx-3 text-zinc-600">•</span>
             Practice
@@ -105,7 +105,7 @@ export default function Hero() {
 
           {/* Description */}
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-zinc-400">
+          <p className="mx-auto mt-6 max-w-xl px-2 text-base leading-7 text-zinc-400 sm:mt-8 sm:max-w-2xl sm:text-lg sm:leading-8 lg:max-w-3xl">
             A modern cybersecurity learning platform built for aspiring
             ethical hackers, students and professionals. Learn through
             structured modules, practical labs, real-world challenges
@@ -114,7 +114,7 @@ export default function Hero() {
 
           {/* Highlights */}
 
-          <div className="mx-auto mt-12 grid max-w-4xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-10 grid max-w-sm gap-3 sm:mt-12 sm:max-w-2xl sm:grid-cols-2 lg:max-w-4xl lg:grid-cols-4">
 
             {highlights.map((item) => {
 
@@ -124,7 +124,7 @@ export default function Hero() {
 
                 <div
                   key={item.title}
-                  className="group cursor-pointer rounded-xl border border-zinc-800/80 bg-black/50 px-4 py-3 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/40 hover:bg-zinc-900/70"
+                  className="group cursor-pointer rounded-xl border border-zinc-800/80 bg-black/50 px-5 py-4 sm:px-4 sm:py-3 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/40 hover:bg-zinc-900/70"
                 >
 
                   <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/80">
