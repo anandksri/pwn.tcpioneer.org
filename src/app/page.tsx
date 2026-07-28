@@ -4,6 +4,7 @@ import Hero from "@/sections/Hero";
 import EntryPoint from "@/sections/EntryPoint";
 import ThePath from "@/sections/ThePath";
 import WhyPwn from "@/sections/WhyPwn";
+import TrainingGrounds from "@/sections/TrainingGrounds";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <EntryPoint />
         <ThePath />
         <WhyPwn />
+        <TrainingGrounds />
       </main>
     </>
   );
