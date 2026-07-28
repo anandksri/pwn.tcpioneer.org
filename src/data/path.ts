@@ -1,27 +1,65 @@
-export const path = [
+import {
+  BookOpen,
+  Shield,
+  FlaskConical,
+  Flag,
+  Briefcase,
+} from "lucide-react";
+
+export type PathColor =
+  | "emerald"
+  | "violet"
+  | "sky"
+  | "orange"
+  | "rose";
+
+export type PathStep = {
+  number: string;
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: PathColor;
+};
+
+export const path: PathStep[] = [
   {
     number: "01",
-    title: "Choose",
-    description: "Select a learning path that matches your goals.",
+    title: "Foundation",
+    description:
+      "Master Linux, networking, programming and cybersecurity fundamentals.",
+    icon: BookOpen,
+    color: "emerald",
   },
   {
     number: "02",
-    title: "Learn",
-    description: "Study structured modules from beginner to advanced.",
+    title: "Offensive Security",
+    description:
+      "Learn web exploitation, privilege escalation and system security.",
+    icon: Shield,
+    color: "violet",
   },
   {
     number: "03",
-    title: "Practice",
-    description: "Complete hands-on labs and real-world exercises.",
+    title: "Hands-on Labs",
+    description:
+      "Practice every concept with guided labs and real-world scenarios.",
+    icon: FlaskConical,
+    color: "sky",
   },
   {
     number: "04",
-    title: "Collaborate",
-    description: "Join discussions, events and the TCPioneer community.",
+    title: "CTFs & Community",
+    description:
+      "Solve challenges, collaborate with others and sharpen your skills.",
+    icon: Flag,
+    color: "orange",
   },
   {
     number: "05",
-    title: "Build",
-    description: "Create projects and prepare for cybersecurity careers.",
+    title: "Career Ready",
+    description:
+      "Build projects, strengthen your portfolio and prepare for cybersecurity roles.",
+    icon: Briefcase,
+    color: "rose",
   },
 ];

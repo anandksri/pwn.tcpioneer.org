@@ -1,103 +1,196 @@
 import Link from "next/link";
 
 import Container from "@/components/Container";
-import Card from "@/components/ui/Card";
-import IconBox from "@/components/ui/IconBox";
 import SectionHeading from "@/components/ui/SectionHeading";
 
+import { ArrowRight, BookOpen, Clock3 } from "lucide-react";
+
 import { trainingGrounds } from "@/data/trainingGrounds";
+
+const colors = {
+  emerald: {
+    icon: "text-emerald-400",
+    bg: "bg-emerald-500/10",
+    border: "border-emerald-500/20",
+    hover: "hover:border-emerald-500/40",
+    text: "group-hover:text-emerald-400",
+    glow:
+      "hover:shadow-[0_0_30px_rgba(16,185,129,0.12)]",
+  },
+
+  sky: {
+    icon: "text-sky-400",
+    bg: "bg-sky-500/10",
+    border: "border-sky-500/20",
+    hover: "hover:border-sky-500/40",
+    text: "group-hover:text-sky-400",
+    glow:
+      "hover:shadow-[0_0_30px_rgba(14,165,233,0.12)]",
+  },
+
+  violet: {
+    icon: "text-violet-400",
+    bg: "bg-violet-500/10",
+    border: "border-violet-500/20",
+    hover: "hover:border-violet-500/40",
+    text: "group-hover:text-violet-400",
+    glow:
+      "hover:shadow-[0_0_30px_rgba(139,92,246,0.12)]",
+  },
+
+  orange: {
+    icon: "text-orange-400",
+    bg: "bg-orange-500/10",
+    border: "border-orange-500/20",
+    hover: "hover:border-orange-500/40",
+    text: "group-hover:text-orange-400",
+    glow:
+      "hover:shadow-[0_0_30px_rgba(249,115,22,0.12)]",
+  },
+
+  cyan: {
+    icon: "text-cyan-400",
+    bg: "bg-cyan-500/10",
+    border: "border-cyan-500/20",
+    hover: "hover:border-cyan-500/40",
+    text: "group-hover:text-cyan-400",
+    glow:
+      "hover:shadow-[0_0_30px_rgba(6,182,212,0.12)]",
+  },
+
+  rose: {
+    icon: "text-rose-400",
+    bg: "bg-rose-500/10",
+    border: "border-rose-500/20",
+    hover: "hover:border-rose-500/40",
+    text: "group-hover:text-rose-400",
+    glow:
+      "hover:shadow-[0_0_30px_rgba(244,63,94,0.12)]",
+  },
+} as const;
 
 export default function TrainingGrounds() {
   return (
     <section className="py-32">
       <Container>
+
         <SectionHeading
           badge="TRAINING GROUNDS"
           title="Choose Your Cybersecurity Domain"
-          description="Build practical skills through structured lessons, guided exercises and hands-on learning paths designed for every stage of your cybersecurity journey."
+          description="Build practical skills through structured lessons, guided exercises and hands-on learning paths designed for every stage."
           align="left"
         />
 
-        <div className="mt-16 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+
           {trainingGrounds.map((ground) => {
+
+            const theme = colors[ground.color];
+
             const Icon = ground.icon;
 
             return (
-              <Card
-                key={ground.title}
-                className="group flex flex-col hover:-translate-y-2 hover:border-violet-500/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.08)]"
-              >
-                <div className="flex items-start justify-between">
-                  <IconBox>
-                    <Icon size={28} />
-                  </IconBox>
 
-                  <span
-                    className={`rounded-full px-3 py-1 text-xs font-medium ${
-                      ground.level === "Beginner"
-                        ? "border border-emerald-500/20 bg-emerald-500/10 text-emerald-400"
-                        : ground.level === "Intermediate"
-                        ? "border border-amber-500/20 bg-amber-500/10 text-amber-400"
-                        : "border border-red-500/20 bg-red-500/10 text-red-400"
-                    }`}
-                  >
-                    {ground.level}
-                  </span>
+              <div
+                key={ground.title}
+                className={`group flex cursor-pointer flex-col rounded-2xl border border-zinc-800 bg-zinc-950 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-900 ${theme.hover} ${theme.glow}`}
+              >
+
+                {/* Header */}
+
+                <div className="flex items-start justify-between">
+
+                  <div className="flex items-center gap-4">
+
+                    <div
+                      className={`flex h-11 w-11 items-center justify-center rounded-xl border ${theme.bg} ${theme.border}`}
+                    >
+                      <Icon
+                        className={`h-5 w-5 transition-all duration-300 group-hover:scale-110 ${theme.icon}`}
+                      />
+                    </div>
+
+                    <div>
+
+                      <h3 className="text-lg font-semibold text-white">
+                        {ground.title}
+                      </h3>
+
+                      <p
+                        className={`mt-1 text-xs font-medium ${theme.icon}`}
+                      >
+                        {ground.level}
+                      </p>
+
+                    </div>
+
+                  </div>
+
                 </div>
 
-                <h3 className="mt-8 text-2xl font-semibold text-white">
-                  {ground.title}
-                </h3>
+                {/* Description */}
 
-                <p className="mt-4 leading-7 text-zinc-400">
+                <p className="mt-5 text-sm leading-7 text-zinc-400">
                   {ground.description}
                 </p>
 
-                <div className="my-8 h-px bg-zinc-800" />
+                {/* Stats */}
 
-                <div className="flex items-center justify-between text-sm">
-                  <div>
-                    <p className="text-zinc-500">Lessons</p>
+                <div className="mt-6 flex items-center gap-6 border-t border-zinc-800 pt-5">
 
-                    <p className="mt-1 font-medium text-white">
-                      {ground.lessons}
-                    </p>
+                  <div className="flex items-center gap-2 text-sm text-zinc-400">
+
+                    <BookOpen className="h-4 w-4" />
+
+                    <span>{ground.lessons} Lessons</span>
+
                   </div>
 
-                  <div className="text-right">
-                    <p className="text-zinc-500">Estimated Time</p>
+                  <div className="flex items-center gap-2 text-sm text-zinc-400">
 
-                    <p className="mt-1 font-medium text-white">
-                      {ground.estimatedTime}
-                    </p>
+                    <Clock3 className="h-4 w-4" />
+
+                    <span>{ground.estimatedTime}</span>
+
                   </div>
+
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-2">
+                {/* Topics */}
+
+                                <div className="mt-6 flex flex-wrap gap-2">
                   {ground.topics.map((topic) => (
                     <span
                       key={topic}
-                      className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs text-zinc-300 transition group-hover:border-violet-500/30"
+                      className={`rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs text-zinc-300 transition-all duration-300 ${theme.hover}`}
                     >
                       {topic}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-auto pt-10">
+                {/* CTA */}
+
+                <div
+                  className={`mt-auto flex items-center gap-2 pt-7 text-sm font-medium text-zinc-300 transition-colors duration-300 ${theme.text}`}
+                >
                   <Link
                     href={ground.href}
-                    className="inline-flex items-center gap-2 font-medium text-violet-400 transition-all duration-300 group-hover:gap-3"
+                    className="group/link inline-flex items-center gap-2"
                   >
-                    Start Learning
+                    <span>Start Learning</span>
 
-                    <span>→</span>
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                   </Link>
                 </div>
-              </Card>
+
+              </div>
+
             );
           })}
+
         </div>
+
       </Container>
     </section>
   );

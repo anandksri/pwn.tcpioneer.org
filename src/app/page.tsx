@@ -7,7 +7,6 @@ import WhyPwn from "@/sections/WhyPwn";
 import TrainingGrounds from "@/sections/TrainingGrounds";
 import Community from "@/sections/Community";
 import FAQ from "@/sections/FAQ";
-import CTA from "@/sections/CTA";
 import Footer from "@/sections/Footer";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
         <TrainingGrounds />
         <Community />
         <FAQ />
-        <CTA />
         <Footer />
       </main>
     </>

@@ -1,3 +1,10 @@
+import {
+  Terminal,
+  Network,
+  Globe,
+  Code2,
+} from "lucide-react";
+
 export const entryPoint = [
   {
     title: "Linux Fundamentals",
@@ -6,8 +13,11 @@ export const entryPoint = [
     modules: 18,
     duration: "12 Hours",
     level: "Beginner",
-    color: "bg-emerald-500",
+    href: "/modules/linux",
+    icon: Terminal,
+    color: "emerald",
   },
+
   {
     title: "Networking",
     description:
@@ -15,8 +25,11 @@ export const entryPoint = [
     modules: 12,
     duration: "8 Hours",
     level: "Beginner",
-    color: "bg-sky-500",
+    href: "/modules/networking",
+    icon: Network,
+    color: "sky",
   },
+
   {
     title: "Web Security",
     description:
@@ -24,8 +37,11 @@ export const entryPoint = [
     modules: 20,
     duration: "16 Hours",
     level: "Beginner",
-    color: "bg-violet-500",
+    href: "/modules/web-security",
+    icon: Globe,
+    color: "violet",
   },
+
   {
     title: "Programming",
     description:
@@ -33,6 +49,8 @@ export const entryPoint = [
     modules: 10,
     duration: "10 Hours",
     level: "Beginner",
-    color: "bg-orange-500",
+    href: "/modules/programming",
+    icon: Code2,
+    color: "orange",
   },
-];
+] as const;
