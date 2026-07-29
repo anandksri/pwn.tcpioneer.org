@@ -1,10 +1,9 @@
 import Navbar from "@/components/Navbar";
-
 import Hero from "@/sections/about/Hero";
-import WhoWeAre from "@/sections/about/WhoWeAre";
 import Mission from "@/sections/about/Mission";
-import CTA from "@/sections/about/CTA";
 import Footer from "@/components/Footer";
+import AboutPWN from "@/sections/about/AboutPWN";
+import Community from "@/sections/about/Community";
 
 export default function AboutPage() {
   return (
@@ -13,9 +12,9 @@ export default function AboutPage() {
 
       <main>
         <Hero />
-        <WhoWeAre />
+        <AboutPWN />
+        <Community />
         <Mission />
-        <CTA />
         <Footer />
       </main>
     </>

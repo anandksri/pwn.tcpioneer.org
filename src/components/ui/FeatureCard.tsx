@@ -1,11 +1,6 @@
 import { LucideIcon } from "lucide-react";
 
-type Color =
-  | "emerald"
-  | "sky"
-  | "violet"
-  | "orange"
-  | "rose";
+type Color = "emerald" | "sky" | "violet" | "orange" | "rose";
 
 type FeatureCardProps = {
   title: string;
@@ -93,13 +88,9 @@ export default function FeatureCard({
         )}
       </div>
 
-      <h3 className="mt-6 text-xl font-semibold text-white">
-        {title}
-      </h3>
+      <h3 className="mt-6 text-xl font-semibold text-white">{title}</h3>
 
-      <p className="mt-4 leading-7 text-zinc-400">
-        {description}
-      </p>
+      <p className="mt-4 leading-7 text-zinc-400">{description}</p>
     </div>
   );
 }

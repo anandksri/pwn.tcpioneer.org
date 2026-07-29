@@ -15,7 +15,7 @@ export default function EntryPoint() {
             </span>
 
             <h2 className="mt-3 text-4xl font-bold text-white">
-              Choose Your First Learning Path
+Start Your Cybersecurity Journey
             </h2>
 
             <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-400">
