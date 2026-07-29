@@ -193,21 +193,21 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-6">
 
             <Link
-              href="/privacy"
+              href="https://tcpioneer.org/privacy"
               className="text-zinc-500 transition hover:text-white"
             >
               Privacy
             </Link>
 
             <Link
-              href="/terms"
+              href="https://tcpioneer.org/terms"
               className="text-zinc-500 transition hover:text-white"
             >
               Terms
             </Link>
 
             <Link
-              href="/contact"
+              href="https://tcpioneer.org/contact"
               className="text-zinc-500 transition hover:text-white"
             >
               Contact
