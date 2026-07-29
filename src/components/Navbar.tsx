@@ -41,7 +41,7 @@ export default function Navbar() {
 
           <Link
             href="/"
-            className="text-lg font-bold tracking-[0.12em] sm:text-xl"
+            className="text-lg font-bold tracking-[0.08em] sm:text-xl"
           >
             <span className="text-white">PWN.</span>
             <span className="text-violet-400">TCPIONEER</span>

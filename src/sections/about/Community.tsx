@@ -12,7 +12,7 @@ export default function Community() {
           {/* LEFT */}
 
           <div className="flex justify-center">
-            <div className="group w-full max-w-sm rounded-3xl border border-zinc-800 bg-[#111114] p-8 transition-all duration-300 hover:border-violet-500/30 hover:shadow-[0_0_35px_rgba(139,92,246,.12)]">
+            <div className="group w-full max-w-sm rounded-3xl border border-zinc-800 bg-[#111114] p-8 transition-all duration-300 hover:border-violet-500/30 hover:shadow-[0_0_35px_rgba(139,92,246,.12)] hover:-translate-y-1">
               <div className="flex flex-col items-center">
                 <Image
                   src="/images/tcp-logo.png"
@@ -59,7 +59,7 @@ export default function Community() {
 
             <Link
               href="https://tcpioneer.org"
-              className="group mt-10 inline-flex cursor-pointer items-center gap-2 font-medium  transition-colors duration-300 hover:text-violet-300"
+              className="group mt-10 inline-flex cursor-pointer items-center gap-2 font-medium  transition-colors duration-300 hover:text-violet-300 "
             >
               <span>Learn More</span>
 

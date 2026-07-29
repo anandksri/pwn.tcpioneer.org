@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import Container from "@/components/Container";
 
 export default function AboutPWN() {
@@ -36,43 +34,40 @@ export default function AboutPWN() {
 
           {/* RIGHT */}
 
-         <div className="flex justify-center">
+      {/* RIGHT */}
 
-  <div className="group relative w-full max-w-sm cursor-pointer overflow-hidden rounded-3xl border border-zinc-800 bg-[#111114] p-8 transition-all duration-300 hover:border-violet-500/30 hover:shadow-[0_0_35px_rgba(139,92,246,.12)]">
+<div className="grid gap-5">
 
-    {/* Background Glow */}
+  <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:border-violet-500/30 hover:bg-[#18181d] hover:-translate-y-1">
+    <span className="text-sm font-semibold uppercase tracking-[0.15em] text-violet-400">
+      Learn
+    </span>
 
-    <div className="absolute inset-0 bg-violet-500/5 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" />
+    <h3 className="mt-3 text-2xl font-semibold text-white cursor-pointer ">
+      Structured Learning Paths
+    </h3>
 
-    {/* Logo */}
+  
+  </div>
 
-    <div className="relative flex justify-center">
+  <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-[#18181d] hover:-translate-y-1">
+    <span className="text-sm font-semibold uppercase tracking-[0.15em] text-emerald-400">
+      Practice
+    </span>
 
-      <Image
-        src="/images/pwn-logo.png"
-        alt="PWN Logo"
-        width={240}
-        height={240}
-        priority
-        className="h-auto w-56 object-contain transition-transform duration-300 group-hover:scale-105"
-      />
+    <h3 className="mt-3 text-2xl font-semibold text-white cursor-pointer ">
+      Hands-on Experience
+    </h3>
+  </div>
 
-    </div>
+  <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:border-sky-500/30 hover:bg-[#18181d] hover:-translate-y-1">
+    <span className="text-sm font-semibold uppercase tracking-[0.15em] text-sky-400">
+      Grow
+    </span>
 
-    {/* Divider */}
-
-    <div className="my-8 h-px bg-zinc-800" />
-
-    {/* Small Caption */}
-
-    <div className="relative text-center">
-
-      <h3 className="text-xl font-semibold text-violet-400">
-        PWN Platform
-      </h3>
-
-    </div>
-
+    <h3 className="mt-3 text-2xl font-semibold text-white cursor-pointer ">
+      Community Driven
+    </h3>
   </div>
 
 </div>
