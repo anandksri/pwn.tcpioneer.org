@@ -137,7 +137,7 @@ export default function Navbar() {
 
               </div>
 
-            </div>
+            </div>npm install framer-motion
           </div>
 
         </nav>
