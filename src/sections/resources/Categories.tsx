@@ -1,17 +1,17 @@
+"use client";
+
 import Container from "@/components/Container";
 
 const categories = [
   "All",
-  "Linux",
-  "Networking",
-  "Web",
-  "Windows",
-  "Active Directory",
-  "Cloud",
-  "Mobile",
-  "Forensics",
-  "OSINT",
-  "Cryptography",
+  "Cheat Sheets",
+  "Tools",
+  "Wordlists",
+  "Books",
+  "Roadmaps",
+  "Write-ups",
+  "References",
+  "Videos",
 ];
 
 type CategoriesProps = {

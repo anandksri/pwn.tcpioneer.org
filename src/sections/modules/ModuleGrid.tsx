@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import ModuleCard from "@/components/modules/ModuleCard";
+import ModuleCard from "@/sections/modules/ModuleCard";
 import { modules } from "@/data/modules";
 
 type Props = {
