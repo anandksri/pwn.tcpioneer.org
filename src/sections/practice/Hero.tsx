@@ -33,24 +33,24 @@ export default function Hero() {
           {/* Badge */}
 
           <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-violet-400">
-            PWN RESOURCES
+            PWN PRACTICE
           </span>
 
           {/* Heading */}
 
           <h1 className="mt-8 text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
-            Everything You Need.
+            Learn by Doing.
             <span className="block bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent">
-              All in One Place.
+              Hack with Confidence.
             </span>
           </h1>
 
           {/* Description */}
 
           <p className="mt-8 max-w-3xl text-lg leading-9 text-zinc-400">
-            Discover a curated collection of cybersecurity resources including
-            cheat sheets, tools, wordlists, write-ups, books, roadmaps and
-            useful references to support your learning journey.{" "}
+            Develop real-world cybersecurity skills through interactive labs,
+            Capture The Flag challenges and guided practice environments
+            designed for learners of every level.
           </p>
 
           {/* Divider */}
