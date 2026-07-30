@@ -31,19 +31,12 @@ export default function AnimatedText({
     const left = Math.floor(total / 2);
     const right = total - left;
 
-    return (
-      " ".repeat(left) +
-      text +
-      " ".repeat(right)
-    ).split("");
+    return (" ".repeat(left) + text + " ".repeat(right)).split("");
   };
 
-  const [display, setDisplay] = useState(
-    centerText(target)
-  );
+  const [display, setDisplay] = useState(centerText(target));
 
-  const randomChar = () =>
-    CHARSET[Math.floor(Math.random() * CHARSET.length)];
+  const randomChar = () => CHARSET[Math.floor(Math.random() * CHARSET.length)];
 
   useEffect(() => {
     const finalText = centerText(target);
@@ -53,10 +46,7 @@ export default function AnimatedText({
     const stopFrames = finalText.map((char) => {
       if (char === " ") return 0;
 
-      return (
-        Math.floor(Math.random() * 14) +
-        Math.floor(Math.random() * 8)
-      );
+      return Math.floor(Math.random() * 14) + Math.floor(Math.random() * 8);
     });
 
     const interval = setInterval(() => {
@@ -64,11 +54,9 @@ export default function AnimatedText({
 
       setDisplay(
         finalText.map((targetChar, i) => {
-          if (targetChar === " ")
-            return " ";
+          if (targetChar === " ") return " ";
 
-          if (frame >= stopFrames[i])
-            return targetChar;
+          if (frame >= stopFrames[i]) return targetChar;
 
           return randomChar();
         })
@@ -85,17 +73,10 @@ export default function AnimatedText({
 
     return () => clearInterval(interval);
   }, [index, target]);
-    return (
+  return (
     <div className="flex w-full justify-center overflow-hidden">
       <div
-        className={`
-          flex
-          items-center
-          justify-center
-          whitespace-nowrap
-          text-center
-          ${className}
-        `}
+        className={`flex items-center justify-center text-center whitespace-nowrap ${className} `}
       >
         {display.map((char, i) => {
           const targetChar = centerText(target)[i];
@@ -117,41 +98,18 @@ export default function AnimatedText({
           return (
             <span
               key={`${i}-${targetChar}`}
-              className={`
-                relative
-                inline-flex
-                items-center
-                justify-center
-                transition-all
-                duration-200
-                ease-out
-                ${
-                  finished
-                    ? "scale-100 opacity-100"
-                    : "scale-95 opacity-60"
-                }
-              `}
+              className={`relative inline-flex items-center justify-center transition-all duration-200 ease-out ${
+                finished ? "scale-100 opacity-100" : "scale-95 opacity-60"
+              } `}
               style={{
-               display: "inline-flex",
+                display: "inline-flex",
                 marginInline: "0.01em",
               }}
             >
               <span
-                className={`
-                  bg-gradient-to-r
-                  from-violet-400
-                  via-violet-300
-                  to-violet-500
-                  bg-clip-text
-                  text-transparent
-                  transition-all
-                  duration-200
-                  ${
-                    finished
-                      ? ""
-                      : "blur-[0.4px]"
-                  }
-                `}
+                className={`bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent transition-all duration-200 ${
+                  finished ? "" : "blur-[0.4px]"
+                } `}
               >
                 {char}
               </span>

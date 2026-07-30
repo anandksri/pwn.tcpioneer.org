@@ -1,11 +1,6 @@
 import Container from "@/components/Container";
 
-import {
-  BookOpen,
-  CalendarDays,
-  Trophy,
-  Users,
-} from "lucide-react";
+import { BookOpen, CalendarDays, Trophy, Users } from "lucide-react";
 
 import { recentActivities } from "@/data/community";
 
@@ -52,7 +47,7 @@ export default function RecentActivity() {
       <Container>
         <div className="flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold uppercase tracking-[0.15em] text-violet-400">
+            <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
               Recent Activity
             </span>
 
@@ -61,7 +56,7 @@ export default function RecentActivity() {
             </h2>
           </div>
 
-          <button className="text-sm font-medium text-zinc-400 transition-colors cursor-pointer duration-300 hover:text-violet-400">
+          <button className="cursor-pointer text-sm font-medium text-zinc-400 transition-colors duration-300 hover:text-violet-400">
             View All →
           </button>
         </div>
@@ -102,7 +97,7 @@ export default function RecentActivity() {
 
                 {/* Time */}
 
-                <span className="ml-8 whitespace-nowrap text-sm text-zinc-500">
+                <span className="ml-8 text-sm whitespace-nowrap text-zinc-500">
                   {activity.time}
                 </span>
               </div>

@@ -9,20 +9,9 @@ import {
   PlayCircle,
 } from "lucide-react";
 
-type Color =
-  | "emerald"
-  | "sky"
-  | "violet"
-  | "orange"
-  | "rose"
-  | "amber";
+type Color = "emerald" | "sky" | "violet" | "orange" | "rose" | "amber";
 
-type ResourceType =
-  | "download"
-  | "link"
-  | "book"
-  | "video"
-  | "read";
+type ResourceType = "download" | "link" | "book" | "video" | "read";
 
 type ResourceCardProps = {
   title: string;

@@ -83,9 +83,7 @@ export async function POST(req: Request) {
       success: true,
       message: "Email verified successfully.",
     });
-
   } catch (error) {
-
     console.error(error);
 
     return NextResponse.json(

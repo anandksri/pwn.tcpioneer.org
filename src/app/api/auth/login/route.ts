@@ -55,10 +55,7 @@ export async function POST(req: Request) {
     }
 
     // Compare password
-    const validPassword = await comparePassword(
-      password,
-      user.password
-    );
+    const validPassword = await comparePassword(password, user.password);
 
     if (!validPassword) {
       return NextResponse.json(
@@ -93,7 +90,6 @@ export async function POST(req: Request) {
       success: true,
       message: "Logged in successfully.",
     });
-
   } catch (error) {
     console.error(error);
 

@@ -8,11 +8,11 @@ export default function AboutPWN() {
           {/* LEFT */}
 
           <div>
-            <span className="text-sm font-semibold uppercase tracking-[0.15em] text-violet-400">
+            <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
               WHY PWN
             </span>
 
-            <h2 className="mt-5 text-4xl font-bold leading-tight text-white lg:text-5xl">
+            <h2 className="mt-5 text-4xl leading-tight font-bold text-white lg:text-5xl">
               Learning Cybersecurity
               <br />
               Should Be Practical.
@@ -34,43 +34,39 @@ export default function AboutPWN() {
 
           {/* RIGHT */}
 
-      {/* RIGHT */}
+          {/* RIGHT */}
 
-<div className="grid gap-5">
+          <div className="grid gap-5">
+            <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/30 hover:bg-[#18181d]">
+              <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
+                Learn
+              </span>
 
-  <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:border-violet-500/30 hover:bg-[#18181d] hover:-translate-y-1">
-    <span className="text-sm font-semibold uppercase tracking-[0.15em] text-violet-400">
-      Learn
-    </span>
+              <h3 className="mt-3 cursor-pointer text-2xl font-semibold text-white">
+                Structured Learning Paths
+              </h3>
+            </div>
 
-    <h3 className="mt-3 text-2xl font-semibold text-white cursor-pointer ">
-      Structured Learning Paths
-    </h3>
+            <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/30 hover:bg-[#18181d]">
+              <span className="text-sm font-semibold tracking-[0.15em] text-emerald-400 uppercase">
+                Practice
+              </span>
 
-  
-  </div>
+              <h3 className="mt-3 cursor-pointer text-2xl font-semibold text-white">
+                Hands-on Experience
+              </h3>
+            </div>
 
-  <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-[#18181d] hover:-translate-y-1">
-    <span className="text-sm font-semibold uppercase tracking-[0.15em] text-emerald-400">
-      Practice
-    </span>
+            <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/30 hover:bg-[#18181d]">
+              <span className="text-sm font-semibold tracking-[0.15em] text-sky-400 uppercase">
+                Grow
+              </span>
 
-    <h3 className="mt-3 text-2xl font-semibold text-white cursor-pointer ">
-      Hands-on Experience
-    </h3>
-  </div>
-
-  <div className="rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:border-sky-500/30 hover:bg-[#18181d] hover:-translate-y-1">
-    <span className="text-sm font-semibold uppercase tracking-[0.15em] text-sky-400">
-      Grow
-    </span>
-
-    <h3 className="mt-3 text-2xl font-semibold text-white cursor-pointer ">
-      Community Driven
-    </h3>
-  </div>
-
-</div>
+              <h3 className="mt-3 cursor-pointer text-2xl font-semibold text-white">
+                Community Driven
+              </h3>
+            </div>
+          </div>
         </div>
       </Container>
     </section>

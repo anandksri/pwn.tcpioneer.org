@@ -42,9 +42,7 @@ export async function getGitHubUser(code: string) {
 
   const { data: emails } = await octokit.users.listEmailsForAuthenticatedUser();
 
-  const primaryEmail =
-    emails.find((e) => e.primary)?.email ??
-    emails[0]?.email;
+  const primaryEmail = emails.find((e) => e.primary)?.email ?? emails[0]?.email;
 
   if (!primaryEmail) {
     throw new Error("GitHub account has no accessible email.");

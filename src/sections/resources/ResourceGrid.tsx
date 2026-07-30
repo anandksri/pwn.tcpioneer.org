@@ -7,24 +7,20 @@ type Props = {
   selectedCategory: string;
 };
 
-export default function ResourceGrid({
-  selectedCategory,
-}: Props) {
+export default function ResourceGrid({ selectedCategory }: Props) {
   const filteredResources =
     selectedCategory === "All"
       ? resources
-      : resources.filter(
-          (resource) => resource.category === selectedCategory
-        );
+      : resources.filter((resource) => resource.category === selectedCategory);
 
   return (
     <section className="bg-[#09090B] py-16">
       <Container>
         {/* Heading */}
 
-        <div className="mb-12 flex items-end justify-between ">
+        <div className="mb-12 flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-400">
+            <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
               Resource Library
             </span>
 

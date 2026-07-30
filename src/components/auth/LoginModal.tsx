@@ -49,14 +49,14 @@ export default function LoginModal({ open, onClose }: Props) {
               duration: 0.3,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="fixed left-1/2 top-1/2 z-[100] w-[92%] max-w-md -translate-x-1/2 -translate-y-1/2"
+            className="fixed top-1/2 left-1/2 z-[100] w-[92%] max-w-md -translate-x-1/2 -translate-y-1/2"
           >
             <div className="relative rounded-3xl border border-white/10 bg-[#111114] p-8 shadow-2xl">
               {/* Close */}
 
               <button
                 onClick={onClose}
-                className="absolute right-5 top-5 rounded-xl p-2 text-zinc-400 transition hover:bg-zinc-800 hover:text-white"
+                className="absolute top-5 right-5 rounded-xl p-2 text-zinc-400 transition hover:bg-zinc-800 hover:text-white"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -84,7 +84,7 @@ export default function LoginModal({ open, onClose }: Props) {
               <div className="my-8 flex items-center gap-4">
                 <div className="h-px flex-1 bg-zinc-800" />
 
-                <span className="text-xs uppercase tracking-[0.3em] text-zinc-500">
+                <span className="text-xs tracking-[0.3em] text-zinc-500 uppercase">
                   OR
                 </span>
 

@@ -28,8 +28,7 @@ export const trainingGrounds = [
     lessons: 14,
     estimatedTime: "8 Hours",
     level: "Beginner",
-    description:
-      "Understand TCP/IP, DNS, HTTP and network communication.",
+    description: "Understand TCP/IP, DNS, HTTP and network communication.",
     topics: ["TCP/IP", "DNS", "HTTP"],
     href: "/modules/networking",
   },
@@ -41,8 +40,7 @@ export const trainingGrounds = [
     lessons: 20,
     estimatedTime: "16 Hours",
     level: "Intermediate",
-    description:
-      "Learn how modern web applications are attacked and secured.",
+    description: "Learn how modern web applications are attacked and secured.",
     topics: ["SQLi", "XSS", "SSRF"],
     href: "/modules/web-security",
   },

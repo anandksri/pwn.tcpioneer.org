@@ -1,10 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  BookOpen,
-  Clock3,
-  LucideIcon,
-} from "lucide-react";
+import { ArrowRight, BookOpen, Clock3, LucideIcon } from "lucide-react";
 
 type ModuleCardProps = {
   title: string;
@@ -75,13 +70,12 @@ export default function ModuleCard({
       {/* Top */}
 
       <div className="mb-6 flex items-start justify-between">
-
         <div
           className={`flex h-14 w-14 items-center justify-center rounded-xl border ${theme.bg} ${theme.border} transition-all duration-300`}
         >
           <Icon
-  className={`h-7 w-7 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${theme.icon}`}
-/>
+            className={`h-7 w-7 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${theme.icon}`}
+          />
         </div>
 
         <span
@@ -89,12 +83,11 @@ export default function ModuleCard({
         >
           {level}
         </span>
-
       </div>
 
       <h3
-  className={`text-2xl font-semibold text-white transition-colors duration-300 ${theme.text}`}
->
+        className={`text-2xl font-semibold text-white transition-colors duration-300 ${theme.text}`}
+      >
         {title}
       </h3>
 
@@ -103,9 +96,7 @@ export default function ModuleCard({
       </p>
 
       <div className="mt-6 border-t border-zinc-800 pt-5 transition-colors duration-300 group-hover:border-zinc-700">
-
         <div className="flex gap-6 text-sm text-zinc-400">
-
           <div className="flex items-center gap-2">
             <BookOpen className="h-4 w-4" />
             {modules} Modules
@@ -115,9 +106,7 @@ export default function ModuleCard({
             <Clock3 className="h-4 w-4" />
             {duration}
           </div>
-
         </div>
-
       </div>
 
       <div
@@ -127,7 +116,6 @@ export default function ModuleCard({
 
         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
-
     </Link>
   );
 }

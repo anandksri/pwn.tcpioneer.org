@@ -16,7 +16,6 @@ export default function GetStartedPage() {
           <Goals />
           <LearningPath />
           <WhyPWN />
-         
         </main>
       </PageWrapper>
       <Footer />

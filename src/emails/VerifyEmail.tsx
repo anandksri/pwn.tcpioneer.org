@@ -13,10 +13,7 @@ interface Props {
   otp: string;
 }
 
-export default function VerifyEmail({
-  username,
-  otp,
-}: Props) {
+export default function VerifyEmail({ username, otp }: Props) {
   return (
     <Html>
       <Head />
@@ -49,13 +46,9 @@ export default function VerifyEmail({
             Hello <b>{username}</b>,
           </Text>
 
-          <Text style={{ color: "#cfcfcf" }}>
-            Welcome to TCPioneer.
-          </Text>
+          <Text style={{ color: "#cfcfcf" }}>Welcome to TCPioneer.</Text>
 
-          <Text style={{ color: "#cfcfcf" }}>
-            Your verification code is:
-          </Text>
+          <Text style={{ color: "#cfcfcf" }}>Your verification code is:</Text>
 
           <Heading
             style={{
@@ -100,7 +93,8 @@ export default function VerifyEmail({
               marginTop: "30px",
             }}
           >
-            If you didn&apos;t create an account, you can safely ignore this email.
+            If you didn&apos;t create an account, you can safely ignore this
+            email.
           </Text>
         </Container>
       </Body>

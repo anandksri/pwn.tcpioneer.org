@@ -1,4 +1,3 @@
-
 type SectionHeadingProps = {
   badge: string;
   title: string;
@@ -14,21 +13,17 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div
-      className={`max-w-3xl ${
-        align === "center" ? "mx-auto text-center" : ""
-      }`}
+      className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
-      <span className="text-sm font-medium uppercase tracking-[0.2em] text-violet-400">
+      <span className="text-sm font-medium tracking-[0.2em] text-violet-400 uppercase">
         {badge}
       </span>
 
-      <h2 className="mt-4 text-5xl font-bold leading-tight text-white">
+      <h2 className="mt-4 text-5xl leading-tight font-bold text-white">
         {title}
       </h2>
 
-      <p className="mt-6 text-lg leading-8 text-zinc-400">
-        {description}
-      </p>
+      <p className="mt-6 text-lg leading-8 text-zinc-400">{description}</p>
     </div>
   );
 }

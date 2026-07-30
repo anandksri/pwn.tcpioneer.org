@@ -1,17 +1,6 @@
-import {
-  BookOpen,
-  Shield,
-  FlaskConical,
-  Flag,
-  Briefcase,
-} from "lucide-react";
+import { BookOpen, Shield, FlaskConical, Flag, Briefcase } from "lucide-react";
 
-export type PathColor =
-  | "emerald"
-  | "violet"
-  | "sky"
-  | "orange"
-  | "rose";
+export type PathColor = "emerald" | "violet" | "sky" | "orange" | "rose";
 
 export type PathStep = {
   number: string;

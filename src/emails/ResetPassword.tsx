@@ -13,10 +13,7 @@ interface Props {
   otp: string;
 }
 
-export default function ResetPasswordEmail({
-  username,
-  otp,
-}: Props) {
+export default function ResetPasswordEmail({ username, otp }: Props) {
   return (
     <Html>
       <Head />
@@ -107,8 +104,8 @@ export default function ResetPasswordEmail({
               lineHeight: "20px",
             }}
           >
-            If you didn&apos;t request a password reset, you can safely ignore this
-            email. Your password will remain unchanged.
+            If you didn&apos;t request a password reset, you can safely ignore
+            this email. Your password will remain unchanged.
           </Text>
         </Container>
       </Body>

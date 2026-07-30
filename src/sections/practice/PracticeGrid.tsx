@@ -7,15 +7,11 @@ type Props = {
   selectedCategory: string;
 };
 
-export default function PracticeGrid({
-  selectedCategory,
-}: Props) {
+export default function PracticeGrid({ selectedCategory }: Props) {
   const filteredPractice =
     selectedCategory === "All"
       ? practice
-      : practice.filter(
-          (item) => item.category === selectedCategory
-        );
+      : practice.filter((item) => item.category === selectedCategory);
 
   return (
     <section className="bg-[#09090B] py-16">
@@ -24,7 +20,7 @@ export default function PracticeGrid({
 
         <div className="mb-12 flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-400">
+            <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
               Hands-on Labs
             </span>
 
@@ -66,9 +62,7 @@ export default function PracticeGrid({
 
         {filteredPractice.length === 0 && (
           <div className="mt-12 rounded-2xl border border-dashed border-zinc-800 py-20 text-center">
-            <h3 className="text-xl font-semibold text-white">
-              No labs found
-            </h3>
+            <h3 className="text-xl font-semibold text-white">No labs found</h3>
 
             <p className="mt-3 text-zinc-500">
               Try selecting another category.

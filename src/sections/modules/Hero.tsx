@@ -32,13 +32,13 @@ export default function Hero() {
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           {/* Badge */}
 
-          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-violet-400">
+          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold tracking-[0.35em] text-violet-400 uppercase">
             PWN Modules
           </span>
 
           {/* Heading */}
 
-          <h1 className="mt-8 text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-8 text-5xl leading-tight font-black text-white sm:text-6xl lg:text-7xl">
             Master Cybersecurity
             <span className="block bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent">
               One Module at a Time.
@@ -48,9 +48,12 @@ export default function Hero() {
           {/* Description */}
 
           <p className="mt-8 max-w-3xl text-lg leading-9 text-zinc-400">
-            Explore carefully structured learning paths designed to help you build practical cybersecurity skills. From Linux and networking fundamentals to web security, cloud security, reverse engineering and exploit development, every module combines theory with hands-on practice.
+            Explore carefully structured learning paths designed to help you
+            build practical cybersecurity skills. From Linux and networking
+            fundamentals to web security, cloud security, reverse engineering
+            and exploit development, every module combines theory with hands-on
+            practice.
           </p>
-
 
           {/* Divider */}
 

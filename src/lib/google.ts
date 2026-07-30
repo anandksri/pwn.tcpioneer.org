@@ -10,11 +10,7 @@ export function getGoogleAuthURL() {
   return googleClient.generateAuthUrl({
     access_type: "offline",
     prompt: "consent",
-    scope: [
-      "openid",
-      "email",
-      "profile",
-    ],
+    scope: ["openid", "email", "profile"],
   });
 }
 

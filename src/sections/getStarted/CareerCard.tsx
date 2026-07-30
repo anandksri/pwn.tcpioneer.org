@@ -73,7 +73,7 @@ export default function CareerCard({
 
   return (
     <div
-      className={`group rounded-3xl  border border-zinc-800 bg-[#111114] p-7 transition-all duration-300 hover:-translate-y-2 hover:bg-[#18181d] ${theme.hover} ${theme.glow}`}
+      className={`group rounded-3xl border border-zinc-800 bg-[#111114] p-7 transition-all duration-300 hover:-translate-y-2 hover:bg-[#18181d] ${theme.hover} ${theme.glow}`}
     >
       {/* Top */}
 

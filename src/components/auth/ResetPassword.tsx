@@ -126,23 +126,7 @@ export default function ResetPassword({ email, otp, onSuccess }: Props) {
         disabled={
           loading || password !== confirmPassword || password.length < 8
         }
-        className="
-          w-full
-          rounded-xl
-          bg-violet-600
-          py-3
-          font-semibold
-          text-white
-          transition-all
-          duration-300
-          hover:-translate-y-0.5
-          hover:bg-violet-500
-          hover:shadow-lg
-          hover:shadow-violet-500/20
-          disabled:cursor-not-allowed
-          disabled:bg-zinc-800
-          disabled:text-zinc-500
-        "
+        className="w-full rounded-xl bg-violet-600 py-3 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20 disabled:cursor-not-allowed disabled:bg-zinc-800 disabled:text-zinc-500"
       >
         {loading ? "Updating..." : "Update Password"}
       </button>

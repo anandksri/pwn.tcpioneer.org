@@ -42,7 +42,7 @@ export default function WhyPwn() {
     <section className="py-32">
       <Container>
         <div className="max-w-3xl">
-          <span className="text-sm font-medium uppercase tracking-[0.2em] text-violet-400">
+          <span className="text-sm font-medium tracking-[0.2em] text-violet-400 uppercase">
             Why PWN.TCPIONEER
           </span>
 

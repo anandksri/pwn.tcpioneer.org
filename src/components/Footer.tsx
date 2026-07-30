@@ -62,53 +62,34 @@ const community = [
 export default function Footer() {
   return (
     <footer className="border-t border-zinc-800 py-10">
-
       <Container>
-
         <div className="grid gap-16 lg:grid-cols-[2fr_1fr_1fr_1fr]">
-
           {/* Brand */}
 
           <div>
+            <Link href="/" className="text-3xl font-bold tracking-[0.10em]">
+              <span className="text-white">PWN.</span>
 
-            <Link
-              href="/"
-              className="text-3xl font-bold tracking-[0.10em]"
-            >
-              <span className="text-white">
-                PWN.
-              </span>
-
-              <span className="text-violet-400">
-                TCPIONEER
-              </span>
-
+              <span className="text-violet-400">TCPIONEER</span>
             </Link>
 
             <p className="mt-6 max-w-md leading-8 text-zinc-400">
-              A modern cybersecurity learning platform focused on
-              structured learning, hands-on practice and
-              community-driven education.
+              A modern cybersecurity learning platform focused on structured
+              learning, hands-on practice and community-driven education.
             </p>
 
             <p className="mt-8 text-sm font-medium tracking-wide text-zinc-500">
               Learn • Practice • Build • Secure
             </p>
-
           </div>
 
           {/* Platform */}
 
           <div>
-
-            <h3 className="mb-6 text-lg font-semibold text-white">
-              Platform
-            </h3>
+            <h3 className="mb-6 text-lg font-semibold text-white">Platform</h3>
 
             <div className="space-y-4">
-
               {platform.map((item) => (
-
                 <Link
                   key={item.label}
                   href={item.href}
@@ -116,25 +97,19 @@ export default function Footer() {
                 >
                   {item.label}
                 </Link>
-
               ))}
-
             </div>
-
           </div>
 
           {/* TCP Ecosystem */}
 
           <div>
-
             <h3 className="mb-6 text-lg font-semibold text-white">
               TCP Ecosystem
             </h3>
 
             <div className="space-y-4">
-
               {ecosystem.map((item) => (
-
                 <Link
                   key={item.label}
                   href={item.href}
@@ -144,24 +119,16 @@ export default function Footer() {
                 >
                   {item.label}
                 </Link>
-
               ))}
-
             </div>
-
           </div>
 
           {/* Community */}
-                    <div>
-
-            <h3 className="mb-6 text-lg font-semibold text-white">
-              Community
-            </h3>
+          <div>
+            <h3 className="mb-6 text-lg font-semibold text-white">Community</h3>
 
             <div className="space-y-4">
-
               {community.map((item) => (
-
                 <Link
                   key={item.label}
                   href={item.href}
@@ -171,27 +138,19 @@ export default function Footer() {
                 >
                   {item.label}
                 </Link>
-
               ))}
-
             </div>
-
           </div>
-
         </div>
-
-  
 
         {/* Bottom */}
 
         <div className="mt-10 flex flex-col items-center justify-between gap-6 border-t border-zinc-800 pt-8 text-sm md:flex-row">
-
           <p className="text-zinc-500">
             © {new Date().getFullYear()} TCPioneer. All Rights Reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
-
             <Link
               href="https://tcpioneer.org/privacy"
               className="text-zinc-500 transition hover:text-white"
@@ -220,13 +179,9 @@ export default function Footer() {
             >
               Visit Main Website →
             </Link>
-
           </div>
-
         </div>
-
       </Container>
-
     </footer>
   );
 }

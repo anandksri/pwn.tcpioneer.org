@@ -81,20 +81,7 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
       <button
         type="submit"
         disabled={loading}
-        className="
-          w-full
-          rounded-xl
-          bg-violet-600
-          py-3
-          font-semibold
-          text-white
-          transition-all
-          duration-300
-          hover:-translate-y-0.5
-          hover:bg-violet-500
-          hover:shadow-lg
-          hover:shadow-violet-500/20
-        "
+        className="w-full rounded-xl bg-violet-600 py-3 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20"
       >
         {loading ? "Logging in..." : "Login"}
       </button>
@@ -104,7 +91,7 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
       <div className="flex items-center gap-4">
         <div className="h-px flex-1 bg-zinc-800" />
 
-        <span className="text-xs uppercase tracking-[0.3em] text-zinc-500">
+        <span className="text-xs tracking-[0.3em] text-zinc-500 uppercase">
           OR
         </span>
 

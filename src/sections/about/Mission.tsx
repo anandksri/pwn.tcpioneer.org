@@ -14,7 +14,7 @@ export default function Mission() {
     <section className="bg-[#09090B] py-16">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-400">
+          <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
             OUR MISSION
           </span>
 

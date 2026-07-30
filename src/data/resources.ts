@@ -41,8 +41,7 @@ export const resources = [
   {
     id: 3,
     title: "Nmap",
-    description:
-      "Powerful network discovery and security auditing tool.",
+    description: "Powerful network discovery and security auditing tool.",
     category: "Tools",
     type: "link",
     href: "https://nmap.org",
@@ -53,8 +52,7 @@ export const resources = [
   {
     id: 4,
     title: "OWASP Testing Guide",
-    description:
-      "Official guide covering web application security testing.",
+    description: "Official guide covering web application security testing.",
     category: "Books",
     type: "book",
     href: "https://owasp.org/www-project-web-security-testing-guide/",
@@ -101,8 +99,7 @@ export const resources = [
   {
     id: 8,
     title: "Wireshark Beginner Guide",
-    description:
-      "Learn packet analysis using Wireshark from scratch.",
+    description: "Learn packet analysis using Wireshark from scratch.",
     category: "Videos",
     type: "video",
     href: "https://youtube.com",
@@ -113,8 +110,7 @@ export const resources = [
   {
     id: 9,
     title: "MITRE ATT&CK Framework",
-    description:
-      "Reference for adversary tactics and attack techniques.",
+    description: "Reference for adversary tactics and attack techniques.",
     category: "References",
     type: "link",
     href: "https://attack.mitre.org",
@@ -125,8 +121,7 @@ export const resources = [
   {
     id: 10,
     title: "OWASP Top 10",
-    description:
-      "Learn the most critical web application security risks.",
+    description: "Learn the most critical web application security risks.",
     category: "References",
     type: "link",
     href: "https://owasp.org/www-project-top-ten/",
@@ -149,8 +144,7 @@ export const resources = [
   {
     id: 12,
     title: "Linux Privilege Escalation",
-    description:
-      "Complete privilege escalation checklist and methodology.",
+    description: "Complete privilege escalation checklist and methodology.",
     category: "Cheat Sheets",
     type: "download",
     href: "/resources/linux-privesc.pdf",

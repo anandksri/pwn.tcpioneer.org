@@ -12,7 +12,7 @@ export default function UpcomingEvents() {
       <Container>
         <div className="flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-400">
+            <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
               Upcoming Events
             </span>
 
@@ -38,7 +38,7 @@ export default function UpcomingEvents() {
               {/* Date */}
 
               <div className="inline-flex rounded-xl border border-violet-500/20 bg-violet-500/10 px-4 py-2">
-                <span className="text-sm font-semibold uppercase tracking-[0.15em] text-violet-400">
+                <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
                   {event.date}
                 </span>
               </div>
@@ -69,10 +69,10 @@ export default function UpcomingEvents() {
 
               <Link
                 href={event.href}
-                className="mt-8 inline-flex items-center gap-2 font-medium text-zinc-300 transition-colors duration-300 group-hover:text-violet-400  "
+                className="mt-8 inline-flex items-center gap-2 font-medium text-zinc-300 transition-colors duration-300 group-hover:text-violet-400"
               >
                 Register
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 " />
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           ))}

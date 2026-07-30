@@ -64,22 +64,7 @@ export default function ForgotPassword({ onBack, onSuccess }: Props) {
       <button
         type="submit"
         disabled={loading}
-        className="
-          w-full
-          rounded-xl
-          bg-violet-600
-          py-3
-          font-semibold
-          text-white
-          transition-all
-          duration-300
-          hover:-translate-y-0.5
-          hover:bg-violet-500
-          hover:shadow-lg
-          hover:shadow-violet-500/20
-          disabled:cursor-not-allowed
-          disabled:opacity-60
-        "
+        className="w-full rounded-xl bg-violet-600 py-3 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? "Sending..." : "Send Verification Code"}
       </button>
@@ -87,18 +72,7 @@ export default function ForgotPassword({ onBack, onSuccess }: Props) {
       <button
         type="button"
         onClick={onBack}
-        className="
-          flex
-          w-full
-          items-center
-          justify-center
-          gap-2
-          text-sm
-          font-medium
-          text-zinc-400
-          transition
-          hover:text-white
-        "
+        className="flex w-full items-center justify-center gap-2 text-sm font-medium text-zinc-400 transition hover:text-white"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Login

@@ -8,20 +8,10 @@ export default function Logo() {
       aria-label="PWN TCPIONEER"
     >
       <div className="flex flex-col leading-none">
-        <span
-          className="
-            text-xl
-            font-black
-            tracking-[0.12em]
-            text-white
-            transition-colors
-            duration-300
-          "
-        >
+        <span className="text-xl font-black tracking-[0.12em] text-white transition-colors duration-300">
           PWN.
           <span className="text-violet-500">TCPIONEER</span>
         </span>
-
       </div>
     </Link>
   );

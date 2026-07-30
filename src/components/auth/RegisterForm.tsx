@@ -150,24 +150,15 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
           <button
             type="submit"
             disabled={loading || !agreed || password !== confirmPassword}
-            className={`
-              w-full
-              rounded-xl
-              py-2.5
-              font-semibold
-              transition-all
-              duration-300
-
-              ${
-                agreed && password === confirmPassword
-                  ? "bg-violet-600 text-white hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20"
-                  : "cursor-not-allowed bg-zinc-800 text-zinc-500"
-              }
-            `}
+            className={`w-full rounded-xl py-2.5 font-semibold transition-all duration-300 ${
+              agreed && password === confirmPassword
+                ? "bg-violet-600 text-white hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20"
+                : "cursor-not-allowed bg-zinc-800 text-zinc-500"
+            } `}
           >
             {loading ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin inline" />
+                <Loader2 className="mr-2 inline h-4 w-4 animate-spin" />
                 Creating Account...
               </>
             ) : (
@@ -184,15 +175,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
               type="checkbox"
               checked={agreed}
               onChange={(e) => setAgreed(e.target.checked)}
-              className="
-                mt-1
-                h-4
-                w-4
-                rounded
-                border-zinc-700
-                bg-zinc-900
-                accent-violet-600
-              "
+              className="mt-1 h-4 w-4 rounded border-zinc-700 bg-zinc-900 accent-violet-600"
             />
 
             <span className="text-sm leading-6 text-zinc-400">
@@ -200,7 +183,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
               <Link
                 href="https://tcpioneer.org/terms"
                 target="_blank"
-                className="text-violet-400 hover:text-violet-300 font-medium underline underline-offset-4"
+                className="font-medium text-violet-400 underline underline-offset-4 hover:text-violet-300"
               >
                 Terms of Service
               </Link>{" "}
@@ -208,7 +191,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
               <Link
                 href="https://tcpioneer.org/privacy"
                 target="_blank"
-                className="text-violet-400 hover:text-violet-300 font-medium underline underline-offset-4"
+                className="font-medium text-violet-400 underline underline-offset-4 hover:text-violet-300"
               >
                 Privacy Policy
               </Link>
@@ -221,14 +204,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
             <button
               type="button"
               onClick={onLogin}
-              className="
-                mt-2
-                text-sm
-                font-semibold
-                text-violet-400
-                transition
-                hover:text-violet-300
-              "
+              className="mt-2 text-sm font-semibold text-violet-400 transition hover:text-violet-300"
             >
               Login
             </button>
@@ -244,15 +220,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
             type="checkbox"
             checked={agreed}
             onChange={(e) => setAgreed(e.target.checked)}
-            className="
-              mt-1
-              h-4
-              w-4
-              rounded
-              border-zinc-700
-              bg-zinc-900
-              accent-violet-600
-            "
+            className="mt-1 h-4 w-4 rounded border-zinc-700 bg-zinc-900 accent-violet-600"
           />
 
           <span className="text-sm leading-6 text-zinc-400">
@@ -276,7 +244,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
         <div className="flex items-center gap-4">
           <div className="h-px flex-1 bg-zinc-800" />
 
-          <span className="text-xs uppercase tracking-[0.3em] text-zinc-500">
+          <span className="text-xs tracking-[0.3em] text-zinc-500 uppercase">
             OR
           </span>
 

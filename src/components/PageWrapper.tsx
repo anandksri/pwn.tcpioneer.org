@@ -3,11 +3,7 @@
 import { motion } from "motion/react";
 import { ReactNode } from "react";
 
-export default function PageWrapper({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function PageWrapper({ children }: { children: ReactNode }) {
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -19,4 +15,4 @@ export default function PageWrapper({
       {children}
     </motion.main>
   );
-} 
+}

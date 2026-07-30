@@ -53,19 +53,13 @@ export async function POST(req: Request) {
       },
     });
 
- await sendResetPasswordEmail(
-  user.email,
-  user.username,
-  otp
-);
+    await sendResetPasswordEmail(user.email, user.username, otp);
 
     return NextResponse.json({
       success: true,
       message: "Password reset code sent.",
     });
-
   } catch (error) {
-
     console.error(error);
 
     return NextResponse.json(

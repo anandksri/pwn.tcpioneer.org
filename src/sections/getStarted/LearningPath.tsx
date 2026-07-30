@@ -49,7 +49,7 @@ export default function LearningPath() {
     <section className="bg-[#09090B] py-24">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.15em] text-violet-400">
+          <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
             Learning Roadmap
           </span>
 
@@ -67,7 +67,7 @@ export default function LearningPath() {
         <div className="relative mx-auto mt-20 max-w-5xl">
           {/* Timeline */}
 
-          <div className="absolute left-8 top-0 h-full w-px bg-gradient-to-b from-violet-500 via-zinc-700 to-transparent lg:left-1/2 lg:-translate-x-1/2" />
+          <div className="absolute top-0 left-8 h-full w-px bg-gradient-to-b from-violet-500 via-zinc-700 to-transparent lg:left-1/2 lg:-translate-x-1/2" />
 
           <div className="space-y-12">
             {path.map((step, index) => {
@@ -90,26 +90,7 @@ export default function LearningPath() {
                   {/* Card */}
 
                   <div
-                    className={`
-                    group
-                    ml-20
-                    w-full
-                    rounded-3xl
-                    border
-                    border-zinc-800
-                    bg-zinc-950/60
-                    p-7
-                    cursor-pointer
-                    backdrop-blur
-                    transition-all
-                    duration-300
-                    hover:-translate-y-2
-                    hover:shadow-2xl
-                    ${style.border}
-                    ${style.shadow}
-                    lg:ml-0
-                    lg:w-[44%]
-                  `}
+                    className={`group ml-20 w-full cursor-pointer rounded-3xl border border-zinc-800 bg-zinc-950/60 p-7 backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${style.border} ${style.shadow} lg:ml-0 lg:w-[44%]`}
                   >
                     {/* Header */}
 

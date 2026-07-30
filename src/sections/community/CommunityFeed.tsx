@@ -10,7 +10,7 @@ export default function CommunityFeed() {
       <Container>
         <div className="flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-400">
+            <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
               Community Feed
             </span>
 
@@ -58,7 +58,7 @@ export default function CommunityFeed() {
 
                 {/* Arrow */}
 
-                <ArrowUpRight className="h-5 w-5 text-zinc-600 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-violet-400" />
+                <ArrowUpRight className="h-5 w-5 text-zinc-600 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-violet-400" />
               </div>
             </div>
           ))}

@@ -3,7 +3,6 @@ import Container from "@/components/Container";
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-[#09090B] pt-36 pb-24">
-
       {/* Background */}
 
       <div className="absolute inset-0 -z-50 bg-[#09090B]" />
@@ -30,18 +29,16 @@ export default function Hero() {
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#09090B] to-transparent" />
 
       <Container>
-
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-
           {/* Badge */}
 
-          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-violet-400">
+          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold tracking-[0.35em] text-violet-400 uppercase">
             About PWN
           </span>
 
           {/* Heading */}
 
-          <h1 className="mt-8 text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-8 text-5xl leading-tight font-black text-white sm:text-6xl lg:text-7xl">
             Building the Future of
             <span className="block bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent">
               Cybersecurity Learning
@@ -52,21 +49,20 @@ export default function Hero() {
 
           <p className="mt-8 max-w-3xl text-lg leading-9 text-zinc-400">
             PWN is an open cybersecurity learning platform created by
-            <span className="font-semibold text-violet-400"> TC Pioneer</span> to
-            provide structured learning paths, practical laboratories,
+            <span className="font-semibold text-violet-400">
+              {" "}
+              TC Pioneer
+            </span>{" "}
+            to provide structured learning paths, practical laboratories,
             real-world challenges, and a collaborative community that helps
-            learners grow from beginners to skilled cybersecurity
-            professionals.
+            learners grow from beginners to skilled cybersecurity professionals.
           </p>
 
           {/* Divider */}
 
           <div className="mt-12 h-px w-40 bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
-
         </div>
-
       </Container>
-
     </section>
   );
 }

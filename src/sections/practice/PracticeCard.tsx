@@ -1,18 +1,7 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Clock3,
-  Flag,
-  LucideIcon,
-} from "lucide-react";
+import { ArrowRight, Clock3, Flag, LucideIcon } from "lucide-react";
 
-type Color =
-  | "emerald"
-  | "sky"
-  | "violet"
-  | "orange"
-  | "rose"
-  | "amber";
+type Color = "emerald" | "sky" | "violet" | "orange" | "rose" | "amber";
 
 type PracticeCardProps = {
   title: string;
@@ -154,7 +143,6 @@ export default function PracticeCard({
         className={`mt-6 inline-flex items-center gap-2 font-medium text-zinc-300 transition-all duration-300 ${theme.text}`}
       >
         Start Practice
-
         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
       </Link>
     </div>

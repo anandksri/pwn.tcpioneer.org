@@ -31,10 +31,7 @@ const quickLinks = [
   },
 ];
 
-export default function SearchModal({
-  open,
-  onClose,
-}: SearchModalProps) {
+export default function SearchModal({ open, onClose }: SearchModalProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -50,39 +47,19 @@ export default function SearchModal({
 
     document.addEventListener("keydown", handleKeyDown);
 
-    return () =>
-      document.removeEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [open, onClose]);
 
   if (!open) return null;
 
   return (
     <div
-      className="
-        fixed
-        inset-0
-        z-[999]
-        flex
-        items-start
-        justify-center
-        bg-black/70
-        pt-24
-        backdrop-blur-md
-      "
+      className="fixed inset-0 z-[999] flex items-start justify-center bg-black/70 pt-24 backdrop-blur-md"
       onClick={onClose}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="
-          w-full
-          max-w-2xl
-          overflow-hidden
-          rounded-3xl
-          border
-          border-white/10
-          bg-zinc-950
-          shadow-2xl
-        "
+        className="w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 shadow-2xl"
       >
         {/* Header */}
 
@@ -93,23 +70,12 @@ export default function SearchModal({
             ref={inputRef}
             type="text"
             placeholder="Search modules, labs, resources..."
-            className="
-              flex-1
-              bg-transparent
-              text-white
-              outline-none
-              placeholder:text-zinc-500
-            "
+            className="flex-1 bg-transparent text-white outline-none placeholder:text-zinc-500"
           />
 
           <button
             onClick={onClose}
-            className="
-              rounded-lg
-              p-2
-              transition
-              hover:bg-white/5
-            "
+            className="rounded-lg p-2 transition hover:bg-white/5"
           >
             <X className="h-5 w-5 text-zinc-400" />
           </button>
@@ -118,7 +84,7 @@ export default function SearchModal({
         {/* Quick Links */}
 
         <div className="p-5">
-          <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+          <h2 className="mb-4 text-xs font-semibold tracking-widest text-zinc-500 uppercase">
             Quick Links
           </h2>
 
@@ -126,25 +92,10 @@ export default function SearchModal({
             {quickLinks.map((item) => (
               <button
                 key={item.title}
-                className="
-                  flex
-                  w-full
-                  items-center
-                  justify-between
-                  rounded-xl
-                  border
-                  border-transparent
-                  p-4
-                  text-left
-                  transition-all
-                  hover:border-violet-500/40
-                  hover:bg-violet-500/10
-                "
+                className="flex w-full items-center justify-between rounded-xl border border-transparent p-4 text-left transition-all hover:border-violet-500/40 hover:bg-violet-500/10"
               >
                 <div>
-                  <h3 className="font-medium text-white">
-                    {item.title}
-                  </h3>
+                  <h3 className="font-medium text-white">{item.title}</h3>
 
                   <p className="mt-1 text-sm text-zinc-500">
                     {item.description}

@@ -48,7 +48,7 @@ export default function ThePath() {
     <section className="py-32">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-medium uppercase tracking-[0.25em] text-violet-400">
+          <span className="text-sm font-medium tracking-[0.25em] text-violet-400 uppercase">
             THE PATH
           </span>
 
@@ -57,18 +57,16 @@ export default function ThePath() {
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-400">
-            Learn progressively through structured stages—from mastering
-            the basics to building real-world offensive security skills.
+            Learn progressively through structured stages—from mastering the
+            basics to building real-world offensive security skills.
           </p>
         </div>
 
         <div className="relative mt-20">
-
           {/* Desktop Timeline */}
-          <div className="absolute left-0 right-0 top-10 hidden border-t border-dashed border-zinc-800 lg:block" />
+          <div className="absolute top-10 right-0 left-0 hidden border-t border-dashed border-zinc-800 lg:block" />
 
           <div className="grid gap-6 lg:grid-cols-5">
-
             {path.map((step, index) => {
               const theme = colors[step.color];
 
@@ -80,7 +78,7 @@ export default function ThePath() {
                   {/* Connection Line */}
 
                   {index !== path.length - 1 && (
-                    <div className="absolute -right-6 top-10 hidden items-center lg:flex">
+                    <div className="absolute top-10 -right-6 hidden items-center lg:flex">
                       <div
                         className={`h-px w-12 bg-zinc-700 transition-colors duration-300 ${theme.line}`}
                       />

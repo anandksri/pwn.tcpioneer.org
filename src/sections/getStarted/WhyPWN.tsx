@@ -40,16 +40,16 @@ export default function WhyPwn() {
     <section className="py-32">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.15em] text-violet-400">
+          <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
             Why PWN.TCPIONEER
           </span>
 
           <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
-           Built for Practical Learning.
+            Built for Practical Learning.
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-400">
-           Learn cybersecurity through structured learning paths, practical
+            Learn cybersecurity through structured learning paths, practical
             labs and real-world challenges.
           </p>
         </div>
@@ -84,7 +84,6 @@ export default function WhyPwn() {
                 <p className="mt-5 text-sm leading-7 text-zinc-400">
                   {item.description}
                 </p>
-
               </div>
             );
           })}

@@ -32,13 +32,13 @@ export default function Hero() {
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           {/* Badge */}
 
-          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-violet-400">
+          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold tracking-[0.35em] text-violet-400 uppercase">
             PWN RESOURCES
           </span>
 
           {/* Heading */}
 
-          <h1 className="mt-8 text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-8 text-5xl leading-tight font-black text-white sm:text-6xl lg:text-7xl">
             Everything You Need.
             <span className="block bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent">
               All in One Place.

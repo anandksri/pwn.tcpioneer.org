@@ -23,21 +23,14 @@ export default function UserMenu() {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
 
-    return () =>
-      document.removeEventListener(
-        "mousedown",
-        handleClickOutside
-      );
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   if (!user) return null;
@@ -49,28 +42,12 @@ export default function UserMenu() {
   }
 
   return (
-    <div
-      ref={menuRef}
-      className="relative"
-    >
+    <div ref={menuRef} className="relative">
       {/* Avatar */}
 
       <button
         onClick={() => setOpen(!open)}
-        className="
-          flex
-          h-11
-          w-11
-          items-center
-          justify-center
-          overflow-hidden
-          rounded-full
-          border
-          border-white/10
-          bg-zinc-900
-          transition
-          hover:border-violet-500
-        "
+        className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-zinc-900 transition hover:border-violet-500"
       >
         {user.avatar ? (
           <Image
@@ -90,21 +67,7 @@ export default function UserMenu() {
       {/* Dropdown */}
 
       {open && (
-        <div
-          className="
-            absolute
-            right-0
-            mt-3
-            w-80
-            overflow-hidden
-            rounded-2xl
-            border
-            border-white/10
-            bg-zinc-950
-            shadow-2xl
-            shadow-black/40
-          "
-        >
+        <div className="absolute right-0 mt-3 w-80 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/40">
           {/* Header */}
 
           <div className="border-b border-white/10 p-5">
@@ -118,30 +81,15 @@ export default function UserMenu() {
                   className="rounded-full"
                 />
               ) : (
-                <div
-                  className="
-                    flex
-                    h-12
-                    w-12
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-violet-600
-                    font-bold
-                  "
-                >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-violet-600 font-bold">
                   {user.username.charAt(0).toUpperCase()}
                 </div>
               )}
 
               <div>
-                <h2 className="font-semibold">
-                  {user.username}
-                </h2>
+                <h2 className="font-semibold">{user.username}</h2>
 
-                <p className="text-sm text-zinc-500">
-                  {user.email}
-                </p>
+                <p className="text-sm text-zinc-500">{user.email}</p>
               </div>
             </div>
           </div>
@@ -149,7 +97,6 @@ export default function UserMenu() {
           {/* Links */}
 
           <div className="p-2">
-
             <MenuItem
               href="/dashboard"
               icon={<LayoutDashboard size={18} />}
@@ -181,31 +128,16 @@ export default function UserMenu() {
                 title="Admin Panel"
               />
             )}
-
           </div>
 
           <div className="border-t border-white/10 p-2">
-
             <button
               onClick={handleLogout}
-              className="
-                flex
-                w-full
-                items-center
-                gap-3
-                rounded-xl
-                px-4
-                py-3
-                text-red-400
-                transition
-                hover:bg-red-500/10
-              "
+              className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-400 transition hover:bg-red-500/10"
             >
               <LogOut size={18} />
-
               Logout
             </button>
-
           </div>
         </div>
       )}
@@ -219,26 +151,11 @@ interface MenuItemProps {
   icon: React.ReactNode;
 }
 
-function MenuItem({
-  href,
-  title,
-  icon,
-}: MenuItemProps) {
+function MenuItem({ href, title, icon }: MenuItemProps) {
   return (
     <Link
       href={href}
-      className="
-        flex
-        items-center
-        gap-3
-        rounded-xl
-        px-4
-        py-3
-        text-zinc-300
-        transition
-        hover:bg-zinc-900
-        hover:text-violet-400
-      "
+      className="flex items-center gap-3 rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-900 hover:text-violet-400"
     >
       {icon}
 

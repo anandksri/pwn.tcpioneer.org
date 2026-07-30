@@ -55,13 +55,13 @@ export async function GET(req: NextRequest) {
 
     console.log("Origin:", req.nextUrl.origin);
 
-const redirectUrl = new URL("/dashboard", req.nextUrl.origin);
+    const redirectUrl = new URL("/dashboard", req.nextUrl.origin);
 
-console.log("Redirect URL:", redirectUrl.toString());
+    console.log("Redirect URL:", redirectUrl.toString());
 
-   const response = NextResponse.redirect(
-  new URL("/dashboard", req.nextUrl.origin)
-);
+    const response = NextResponse.redirect(
+      new URL("/dashboard", req.nextUrl.origin)
+    );
 
     response.cookies.set("token", token, {
       httpOnly: true,
@@ -72,9 +72,7 @@ console.log("Redirect URL:", redirectUrl.toString());
     });
 
     return response;
-
   } catch (error) {
-
     console.error(error);
 
     return NextResponse.json(

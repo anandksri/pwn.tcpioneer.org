@@ -84,36 +84,13 @@ export default function AuthModal({ open, onClose }: Props) {
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
           >
             <div
-              className={`
-    relative
-    w-full
-    overflow-hidden
-    rounded-3xl
-    border
-    border-white/10
-    bg-[#111114]
-    shadow-2xl
-    transition-all
-    duration-300
-    ${view === "register" ? "max-w-sm lg:max-w-2xl" : "max-w-sm"}
-  `}
+              className={`relative w-full overflow-hidden rounded-3xl border border-white/10 bg-[#111114] shadow-2xl transition-all duration-300 ${view === "register" ? "max-w-sm lg:max-w-2xl" : "max-w-sm"} `}
             >
               {/* Close */}
 
               <button
                 onClick={handleClose}
-                className="
-                  absolute
-                  right-5
-                  top-5
-                  z-20
-                  rounded-xl
-                  p-2
-                  text-zinc-500
-                  transition
-                  hover:bg-zinc-800
-                  hover:text-white
-                "
+                className="absolute top-5 right-5 z-20 rounded-xl p-2 text-zinc-500 transition hover:bg-zinc-800 hover:text-white"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -187,7 +164,7 @@ export default function AuthModal({ open, onClose }: Props) {
                                 email,
                                 otp: code,
                               }),
-                            },
+                            }
                           );
 
                           const data = await res.json();

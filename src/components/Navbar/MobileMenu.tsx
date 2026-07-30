@@ -51,7 +51,7 @@ export default function MobileMenu({
   return (
     <AnimatePresence>
       {open && (
-        <div className="lg:hidden fixed inset-0 z-[999]">
+        <div className="fixed inset-0 z-[999] lg:hidden">
           {/* Overlay */}
 
           <motion.div
@@ -60,12 +60,7 @@ export default function MobileMenu({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="
-              absolute
-              inset-0
-              bg-black/70
-              backdrop-blur-2xl
-            "
+            className="absolute inset-0 bg-black/70 backdrop-blur-2xl"
           />
 
           {/* Popup */}
@@ -89,21 +84,7 @@ export default function MobileMenu({
             transition={{
               duration: 0.25,
             }}
-            className="
-              absolute
-              left-1/2
-              top-24
-              w-[92%]
-              max-w-md
-              -translate-x-1/2
-              overflow-hidden
-              rounded-3xl
-              border
-              border-white/10
-              bg-zinc-950/95
-              shadow-2xl
-              backdrop-blur-xl
-            "
+            className="absolute top-24 left-1/2 w-[92%] max-w-md -translate-x-1/2 overflow-hidden rounded-3xl border border-white/10 bg-zinc-950/95 shadow-2xl backdrop-blur-xl"
           >
             {/* Header */}
 
@@ -112,12 +93,7 @@ export default function MobileMenu({
 
               <button
                 onClick={onClose}
-                className="
-                  rounded-xl
-                  p-2
-                  transition
-                  hover:bg-white/5
-                "
+                className="rounded-xl p-2 transition hover:bg-white/5"
               >
                 <X className="h-5 w-5 text-zinc-300" />
               </button>
@@ -130,22 +106,7 @@ export default function MobileMenu({
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className="
-                   w-full
-    max-w-xs
-    rounded-2xl
-    px-4
-    py-3
-    text-center
-    text-zinc-300
-    transition-all
-    duration-300
-    hover:bg-violet-500/10
-    hover:text-violet-400
-    hover:border-violet-500/30
-    border
-    border-transparent
-                  "
+                  className="w-full max-w-xs rounded-2xl border border-transparent px-4 py-3 text-center text-zinc-300 transition-all duration-300 hover:border-violet-500/30 hover:bg-violet-500/10 hover:text-violet-400"
                 >
                   {item.name}
                 </Link>
@@ -154,27 +115,13 @@ export default function MobileMenu({
 
             {/* Footer */}
 
-            <div className="border-t border-white/10 p-6 space-y-3">
+            <div className="space-y-3 border-t border-white/10 p-6">
               <button
                 onClick={() => {
                   onSearch();
                   onClose();
                 }}
-                className="
-                  flex
-                  w-full
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-xl
-                  border
-                  border-white/10
-                  py-3
-                  transition-all
-                  duration-300
-                  hover:border-violet-500
-                  hover:bg-violet-500/10
-                "
+                className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 py-3 transition-all duration-300 hover:border-violet-500 hover:bg-violet-500/10"
               >
                 <Search size={18} />
                 Search
@@ -187,17 +134,7 @@ export default function MobileMenu({
                       onLogin();
                       onClose();
                     }}
-                    className="
-                      w-full
-                      rounded-xl
-                      border
-                      border-white/10
-                      py-3
-                      transition-all
-                      duration-300
-                      hover:border-violet-500
-                      hover:bg-violet-500/10
-                    "
+                    className="w-full rounded-xl border border-white/10 py-3 transition-all duration-300 hover:border-violet-500 hover:bg-violet-500/10"
                   >
                     Login
                   </button>
@@ -205,18 +142,7 @@ export default function MobileMenu({
                   <Link
                     href="/get-started"
                     onClick={onClose}
-                    className="
-                      block
-                      rounded-xl
-                      bg-violet-600
-                      py-3
-                      text-center
-                      font-semibold
-                      text-white
-                      transition-all
-                      duration-300
-                      hover:bg-violet-500
-                    "
+                    className="block rounded-xl bg-violet-600 py-3 text-center font-semibold text-white transition-all duration-300 hover:bg-violet-500"
                   >
                     Get Started
                   </Link>

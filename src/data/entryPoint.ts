@@ -1,9 +1,4 @@
-import {
-  Terminal,
-  Network,
-  Globe,
-  Code2,
-} from "lucide-react";
+import { Terminal, Network, Globe, Code2 } from "lucide-react";
 
 export const entryPoint = [
   {
@@ -20,8 +15,7 @@ export const entryPoint = [
 
   {
     title: "Networking",
-    description:
-      "Understand TCP/IP, DNS, HTTP, routing and packet analysis.",
+    description: "Understand TCP/IP, DNS, HTTP, routing and packet analysis.",
     modules: 12,
     duration: "8 Hours",
     level: "Beginner",
@@ -32,8 +26,7 @@ export const entryPoint = [
 
   {
     title: "Web Security",
-    description:
-      "Start with HTTP, authentication, SQL Injection and XSS.",
+    description: "Start with HTTP, authentication, SQL Injection and XSS.",
     modules: 20,
     duration: "16 Hours",
     level: "Beginner",
@@ -44,8 +37,7 @@ export const entryPoint = [
 
   {
     title: "Programming",
-    description:
-      "Build Python and Bash skills for automation and security.",
+    description: "Build Python and Bash skills for automation and security.",
     modules: 10,
     duration: "10 Hours",
     level: "Beginner",

@@ -89,9 +89,7 @@ export async function POST(req: Request) {
       success: true,
       message: "Password reset successfully.",
     });
-
   } catch (error) {
-
     console.error(error);
 
     return NextResponse.json(

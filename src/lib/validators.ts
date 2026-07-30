@@ -2,25 +2,15 @@ import { z } from "zod";
 
 export const registerSchema = z
   .object({
-    username: z
-      .string()
-      .min(3)
-      .max(20),
+    username: z.string().min(3).max(20),
 
-    email: z
-      .string()
-      .email(),
+    email: z.string().email(),
 
-    password: z
-      .string()
-      .min(8),
+    password: z.string().min(8),
 
     confirmPassword: z.string(),
   })
-  .refine(
-    (data) => data.password === data.confirmPassword,
-    {
-      path: ["confirmPassword"],
-      message: "Passwords do not match.",
-    }
-  );
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ["confirmPassword"],
+    message: "Passwords do not match.",
+  });

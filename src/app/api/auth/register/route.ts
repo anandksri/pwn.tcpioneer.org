@@ -14,20 +14,16 @@ export async function POST(req: Request) {
     const result = registerSchema.safeParse(body);
 
     if (!result.success) {
-     return NextResponse.json(
-  {
-    success: false,
-    message: result.error.issues[0].message,
-  },
-  { status: 400 }
-);
+      return NextResponse.json(
+        {
+          success: false,
+          message: result.error.issues[0].message,
+        },
+        { status: 400 }
+      );
     }
 
-    const {
-      username,
-      email,
-      password,
-    } = result.data;
+    const { username, email, password } = result.data;
 
     // Check username
     const usernameExists = await prisma.user.findUnique({
@@ -76,24 +72,20 @@ export async function POST(req: Request) {
     });
 
     // Generate OTP
-const otp = generateOTP();
+    const otp = generateOTP();
 
-// Save OTP
-await prisma.oTP.create({
-  data: {
-    code: otp,
-    type: "EMAIL_VERIFICATION",
-    expiresAt: new Date(Date.now() + 10 * 60 * 1000),
-    userId: user.id,
-  },
-});
+    // Save OTP
+    await prisma.oTP.create({
+      data: {
+        code: otp,
+        type: "EMAIL_VERIFICATION",
+        expiresAt: new Date(Date.now() + 10 * 60 * 1000),
+        userId: user.id,
+      },
+    });
 
-// Send verification email
-await sendVerificationEmail(
-  user.email,
-  user.username,
-  otp
-);
+    // Send verification email
+    await sendVerificationEmail(user.email, user.username, otp);
     return NextResponse.json(
       {
         success: true,

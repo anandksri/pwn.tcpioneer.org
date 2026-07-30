@@ -1,10 +1,4 @@
-import {
-  Users,
-  MessageSquare,
-  CalendarDays,
-  ShieldCheck,
-} from "lucide-react";
-
+import { Users, MessageSquare, CalendarDays, ShieldCheck } from "lucide-react";
 
 /* ---------------------------------------
    ABOUT PAGE
@@ -36,7 +30,6 @@ export const community = [
     icon: ShieldCheck,
   },
 ];
-
 
 /* ---------------------------------------
    COMMUNITY PAGE - RECENT ACTIVITY
@@ -72,7 +65,6 @@ export const recentActivities = [
   },
 ];
 
-
 /* ---------------------------------------
    COMMUNITY PAGE - UPCOMING EVENTS
 --------------------------------------- */
@@ -102,7 +94,6 @@ export const upcomingEvents = [
     href: "#",
   },
 ];
-
 
 /* ---------------------------------------
    COMMUNITY PAGE - FEED

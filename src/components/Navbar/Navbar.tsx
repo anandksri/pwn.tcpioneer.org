@@ -39,11 +39,11 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
+        className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
           scrolled ? "pt-0" : "pt-4 lg:pt-6"
         }`}
       >
-        <Container className={scrolled ? "!max-w-none !w-full !px-0" : ""}>
+        <Container className={scrolled ? "!w-full !max-w-none !px-0" : ""}>
           <nav
             className={`relative flex h-[72px] items-center justify-between transition-all duration-300 lg:grid lg:h-[72px] lg:grid-cols-[280px_1fr_220px] ${
               scrolled
@@ -57,8 +57,8 @@ export default function Navbar() {
             </div>
             {/* Center */}
             <div className="flex justify-center">
-    <NavLinks />
-</div>
+              <NavLinks />
+            </div>
             {/* Desktop Right */}
             <div className="hidden items-center justify-end gap-3 lg:flex">
               <SearchButton onClick={() => setSearchOpen(true)} />
@@ -70,43 +70,14 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => setAuthOpen(true)}
-                    className="
-                     h-10
-px-6
-rounded-2xl
-border
-cursor-pointer
-border-white/10
-bg-zinc-900/70
-font-medium
-transition-all
-duration-300
-hover:border-violet-500
-hover:bg-violet-500/10
-                    "
+                    className="h-10 cursor-pointer rounded-2xl border border-white/10 bg-zinc-900/70 px-6 font-medium transition-all duration-300 hover:border-violet-500 hover:bg-violet-500/10"
                   >
                     Login
                   </button>
 
                   <Link
                     href="/get-started"
-                    className="
-                     inline-flex
-    h-10
-    items-center
-    justify-center
-    whitespace-nowrap
-    rounded-2xl
-    bg-violet-700
-    px-6
-    text-sm
-    font-semibold
-    text-white-300
-    transition-all
-    duration-300
-    hover:-translate-y-0.5
-    hover:bg-violet-800
-                    "
+                    className="text-white-300 inline-flex h-10 items-center justify-center rounded-2xl bg-violet-700 px-6 text-sm font-semibold whitespace-nowrap transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-800"
                   >
                     Get Started
                   </Link>
@@ -118,22 +89,7 @@ hover:bg-violet-500/10
               type="button"
               aria-label="Open Menu"
               onClick={() => setMobileOpen(true)}
-              className="
-                flex
-                h-11
-                w-11
-                items-center
-                justify-center
-                rounded-xl
-                border
-                border-white/10
-                bg-zinc-900/80
-                text-white
-                transition-all
-                duration-300
-                hover:border-violet-500
-                lg:hidden
-              "
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-zinc-900/80 text-white transition-all duration-300 hover:border-violet-500 lg:hidden"
             >
               <Menu className="h-5 w-5" />
             </button>{" "}

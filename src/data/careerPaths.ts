@@ -10,12 +10,7 @@ import {
 import type { ComponentType } from "react";
 
 export type CareerColor =
-  | "emerald"
-  | "violet"
-  | "sky"
-  | "orange"
-  | "rose"
-  | "cyan";
+  "emerald" | "violet" | "sky" | "orange" | "rose" | "cyan";
 
 export type CareerPath = {
   slug: string;

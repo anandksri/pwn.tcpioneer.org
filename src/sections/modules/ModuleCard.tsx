@@ -1,18 +1,7 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  BookOpen,
-  Clock3,
-  LucideIcon,
-} from "lucide-react";
+import { ArrowRight, BookOpen, Clock3, LucideIcon } from "lucide-react";
 
-type Color =
-  | "emerald"
-  | "sky"
-  | "violet"
-  | "orange"
-  | "rose"
-  | "amber";
+type Color = "emerald" | "sky" | "violet" | "orange" | "rose" | "amber";
 
 type ModuleCardProps = {
   title: string;
@@ -125,9 +114,7 @@ export default function ModuleCard({
 
       {/* Description */}
 
-      <p className="mt-4 leading-6 text-zinc-400">
-        {description}
-      </p>
+      <p className="mt-4 leading-6 text-zinc-400">{description}</p>
 
       {/* Divider */}
 
@@ -154,7 +141,6 @@ export default function ModuleCard({
         className={`mt-6 inline-flex items-center gap-2 font-medium text-zinc-300 transition-all duration-300 ${theme.text}`}
       >
         Enroll Now
-
         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
       </Link>
     </div>

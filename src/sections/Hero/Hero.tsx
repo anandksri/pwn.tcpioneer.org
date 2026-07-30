@@ -50,29 +50,17 @@ export default function Hero() {
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           {/* Badge */}
 
-          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-violet-400">
+          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold tracking-[0.15em] text-violet-400 uppercase">
             PWN • BY TC PIONEER
           </span>
 
           {/* Heading */}
 
-          <h1 className="mt-8 text-4xl font-black leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-8 text-4xl leading-[1.1] font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
             Learn Cybersecurity
             <div className="mt-3 flex h-20 w-full items-center justify-center">
               <AnimatedText
-                className="
-    w-full
-    max-w-full
-    px-4
-    text-center
-    text-2xl
-    font-black
-    leading-tight
-    sm:text-3xl
-    md:text-4xl
-    lg:text-5xl
-    xl:text-6xl
-  "
+                className="w-full max-w-full px-4 text-center text-2xl leading-tight font-black sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                 texts={[
                   "Practical Experience",
                   "Hands-on Labs",
@@ -119,12 +107,12 @@ export default function Hero() {
           {/* Scroll Indicator */}
 
           <div className="mt-8 flex flex-col items-center">
-            <span className="mb-3 text-xs font-medium uppercase tracking-[0.35em] text-zinc-600">
+            <span className="mb-3 text-xs font-medium tracking-[0.35em] text-zinc-600 uppercase">
               Scroll
             </span>
 
             <div className="flex h-10 w-6 justify-center rounded-full border border-zinc-700 p-1">
-              <div className="h-2 w-2 rounded-full bg-violet-400 animate-[scroll_2s_ease-in-out_infinite]" />
+              <div className="h-2 w-2 animate-[scroll_2s_ease-in-out_infinite] rounded-full bg-violet-400" />
             </div>
           </div>
         </div>
