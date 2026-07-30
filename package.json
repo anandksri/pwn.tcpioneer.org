@@ -9,13 +9,21 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/client": "^7.9.1",
+    "bcryptjs": "^3.0.3",
+    "better-auth": "^1.6.25",
     "framer-motion": "^12.43.0",
     "lucide-react": "^1.27.0",
     "motion": "^12.43.0",
     "next": "16.2.12",
+    "prisma": "^7.9.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "react-type-animation": "^3.2.0"
+    "react-email": "^6.9.1",
+    "react-icons": "^5.7.0",
+    "react-type-animation": "^3.2.0",
+    "resend": "^6.18.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
