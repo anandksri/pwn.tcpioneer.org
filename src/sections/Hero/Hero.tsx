@@ -6,21 +6,6 @@ import { ArrowRight } from "lucide-react";
 import Container from "@/components/Container";
 import AnimatedText from "@/components/ui/AnimatedText";
 
-const stats = [
-  {
-    value: "120+",
-    label: "Learning Modules",
-  },
-  {
-    value: "50+",
-    label: "Hands-on Labs",
-  },
-  {
-    value: "3K+",
-    label: "Community Members",
-  },
-];
-
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-[#09090B] pt-36 pb-24 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
