@@ -4,18 +4,21 @@ import UpcomingEvents from "@/sections/community/UpcomingEvents";
 import CommunityFeed from "@/sections/community/CommunityFeed";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function CommunityPage() {
   return (
     <>
-    <Navbar />
-   < main>
-      <Hero />
-      <RecentActivity />
-      <UpcomingEvents />
-      <CommunityFeed />
-     <Footer />
-    </main>
+      <Navbar />
+      <PageWrapper>
+        <main>
+          <Hero />
+          <RecentActivity />
+          <UpcomingEvents />
+          <CommunityFeed />
+        </main>
+      </PageWrapper>
+      <Footer />
     </>
   );
 }

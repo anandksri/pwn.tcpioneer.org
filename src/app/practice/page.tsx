@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/sections/practice/Hero";
 import Categories from "@/sections/practice/Categories";
 import PracticeGrid from "@/sections/practice/PracticeGrid";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function PracticePage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -16,19 +17,18 @@ export default function PracticePage() {
     <>
       <Navbar />
 
-      <main>
-        <Hero />
+      <PageWrapper>
+        <main>
+          <Hero />
 
-        <Categories
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-        />
+          <Categories
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
 
-        <PracticeGrid
-          selectedCategory={selectedCategory}
-        />
-      </main>
-
+          <PracticeGrid selectedCategory={selectedCategory} />
+        </main>
+      </PageWrapper>
       <Footer />
     </>
   );

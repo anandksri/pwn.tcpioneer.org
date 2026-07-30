@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "TC Pioneer",
-  description: "Empowering the next generation of cybersecurity professionals.",
+  description:
+    "Empowering the next generation of cybersecurity professionals.",
 };
 
 export default function RootLayout({
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-[#09090B] text-white antialiased">
+        {children}
+      </body>
     </html>
   );
 }
