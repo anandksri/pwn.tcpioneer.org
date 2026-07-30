@@ -1,17 +1,32 @@
+import {
+  Terminal,
+  Network,
+  Globe,
+  Bug,
+  Shield,
+  Code2,
+  ScanSearch,
+  Fingerprint,
+  Search,
+} from "lucide-react";
+
 export const modules = [
   {
+    id: 1,
     slug: "linux-fundamentals",
     title: "Linux Fundamentals",
     description:
-      "Master the Linux command line, file system, permissions, shell scripting and essential administration skills.",
+      "Master the Linux command line, file systems, permissions, shell scripting and essential administration skills.",
     category: "Linux",
     difficulty: "Beginner",
     lessons: 15,
     duration: "6 Hours",
-    image: "/icons/linux.svg",
+    icon: Terminal,
+    color: "emerald",
   },
 
   {
+    id: 2,
     slug: "networking-basics",
     title: "Networking Basics",
     description:
@@ -20,10 +35,12 @@ export const modules = [
     difficulty: "Beginner",
     lessons: 18,
     duration: "7 Hours",
-    image: "/icons/network.svg",
+    icon: Network,
+    color: "sky",
   },
 
   {
+    id: 3,
     slug: "web-security",
     title: "Web Security",
     description:
@@ -32,10 +49,12 @@ export const modules = [
     difficulty: "Intermediate",
     lessons: 20,
     duration: "8 Hours",
-    image: "/icons/web.svg",
+    icon: Globe,
+    color: "violet",
   },
 
   {
+    id: 4,
     slug: "burp-suite",
     title: "Burp Suite",
     description:
@@ -44,10 +63,12 @@ export const modules = [
     difficulty: "Intermediate",
     lessons: 12,
     duration: "5 Hours",
-    image: "/icons/burp.svg",
+    icon: Bug,
+    color: "orange",
   },
 
   {
+    id: 5,
     slug: "active-directory",
     title: "Active Directory",
     description:
@@ -56,10 +77,12 @@ export const modules = [
     difficulty: "Advanced",
     lessons: 24,
     duration: "10 Hours",
-    image: "/icons/windows.svg",
+    icon: Shield,
+    color: "rose",
   },
 
   {
+    id: 6,
     slug: "python-for-security",
     title: "Python for Security",
     description:
@@ -68,10 +91,12 @@ export const modules = [
     difficulty: "Intermediate",
     lessons: 16,
     duration: "6 Hours",
-    image: "/icons/python.svg",
+    icon: Code2,
+    color: "amber",
   },
 
   {
+    id: 7,
     slug: "wireshark",
     title: "Wireshark",
     description:
@@ -80,10 +105,12 @@ export const modules = [
     difficulty: "Intermediate",
     lessons: 14,
     duration: "5 Hours",
-    image: "/icons/wireshark.svg",
+    icon: ScanSearch,
+    color: "sky",
   },
 
   {
+    id: 8,
     slug: "digital-forensics",
     title: "Digital Forensics",
     description:
@@ -92,10 +119,12 @@ export const modules = [
     difficulty: "Advanced",
     lessons: 18,
     duration: "8 Hours",
-    image: "/icons/forensics.svg",
+    icon: Fingerprint,
+    color: "rose",
   },
 
   {
+    id: 9,
     slug: "osint",
     title: "OSINT",
     description:
@@ -104,6 +133,7 @@ export const modules = [
     difficulty: "Beginner",
     lessons: 10,
     duration: "4 Hours",
-    image: "/icons/osint.svg",
+    icon: Search,
+    color: "violet",
   },
-];
+] as const;

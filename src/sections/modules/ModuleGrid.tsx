@@ -1,27 +1,61 @@
 import Container from "@/components/Container";
-import LearningModuleCard from "@/components/ui/LearningModuleCard";
+import ModuleCard from "@/components/modules/ModuleCard";
 import { modules } from "@/data/modules";
-export default function ModuleGrid() {
+
+type Props = {
+  selectedCategory: string;
+};
+
+export default function ModuleGrid({
+  selectedCategory,
+}: Props) {
+  const filteredModules =
+    selectedCategory === "All"
+      ? modules
+      : modules.filter(
+          (module) => module.category === selectedCategory
+        );
+
   return (
-    <section className="bg-[#09090B] py-12">
-
+    <section className="bg-[#09090B] py-16">
       <Container>
+        {/* Heading */}
 
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mb-12 flex items-end justify-between">
+          <div>
+            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-400">
+              Learning Paths
+            </span>
 
-          {modules.map((module) => (
+            <h2 className="mt-4 text-4xl font-bold text-white">
+              Browse Modules
+            </h2>
 
-            <LearningModuleCard
-              key={module.slug}
-              {...module}
-            />
+          </div>
 
-          ))}
-
+          <span className="hidden text-sm text-zinc-500 lg:block">
+            {filteredModules.length} Modules
+          </span>
         </div>
 
-      </Container>
+        {/* Grid */}
 
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+  {filteredModules.map((module) => (
+    <ModuleCard
+      key={module.id}
+      title={module.title}
+      description={module.description}
+      slug={module.slug}
+      lessons={module.lessons}
+      duration={module.duration}
+      difficulty={module.difficulty}
+      icon={module.icon}
+      color={module.color}
+    />
+  ))}
+</div>
+      </Container>
     </section>
   );
 }
