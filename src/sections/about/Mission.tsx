@@ -11,7 +11,7 @@ import {
 
 export default function Mission() {
   return (
-    <section className="bg-[#09090B] py-20">
+    <section className="bg-[#09090B] py-16">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-400">

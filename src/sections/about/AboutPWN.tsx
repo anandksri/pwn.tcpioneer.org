@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 
 export default function AboutPWN() {
   return (
-    <section className="bg-[#09090B] py-20">
+    <section className="bg-[#09090B] py-4">
       <Container>
         <div className="grid items-center gap-20 lg:grid-cols-2">
           {/* LEFT */}
