@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Mail, AtSign } from "lucide-react";
+import { Mail, AtSign, Loader2 } from "lucide-react";
 
 import AuthInput from "./AuthInput";
 import PasswordField from "./PasswordField";
@@ -20,6 +20,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [agreed, setAgreed] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const strength = useMemo(() => {
     let score = 0;
@@ -53,12 +54,41 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
 
         if (!agreed) return;
 
-        onSuccess(email);
+        try {
+          setLoading(true);
+          const res = await fetch("/api/auth/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username,
+              email,
+              password,
+              confirmPassword,
+            }),
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            alert(data.message);
+            return;
+          }
+
+          onSuccess(email);
+        } catch (err) {
+          console.error(err);
+
+          alert("Something went wrong.");
+        } finally {
+          setLoading(false);
+        }
       }}
     >
       <div className="flex flex-col lg:grid lg:grid-cols-[1fr_1fr] lg:gap-8">
@@ -119,7 +149,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
 
           <button
             type="submit"
-            disabled={!agreed || password !== confirmPassword}
+            disabled={loading || !agreed || password !== confirmPassword}
             className={`
               w-full
               rounded-xl
@@ -135,7 +165,14 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
               }
             `}
           >
-            Create Account
+            {loading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin inline" />
+                Creating Account...
+              </>
+            ) : (
+              "Create Account"
+            )}
           </button>
         </div>{" "}
         {/* RIGHT COLUMN (Desktop Only) */}

@@ -2,7 +2,7 @@
 
 // import Link from "next/link";
 import { Mail } from "lucide-react";
-
+import { useState } from "react";
 import AuthInput from "./AuthInput";
 import PasswordField from "./PasswordField";
 import SocialLogin from "./SocialLogin";
@@ -13,23 +13,60 @@ type Props = {
 };
 
 export default function LoginForm({ onRegister, onForgotPassword }: Props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   return (
     <form
       className="space-y-5"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
 
-        // TODO:
-        // Login with Better Auth
+        try {
+          setLoading(true);
+
+          const res = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email,
+              password,
+            }),
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            alert(data.message);
+            return;
+          }
+
+          alert(data.message);
+
+          window.location.reload();
+        } catch {
+          alert("Something went wrong.");
+        } finally {
+          setLoading(false);
+        }
       }}
     >
       <AuthInput
         label="Email or Username"
         placeholder="Enter your email or username"
         icon={Mail}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
 
-      <PasswordField label="Password" placeholder="Enter your password" />
+      <PasswordField
+        label="Password"
+        placeholder="Enter your password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
 
       <div className="flex justify-end">
         <button
@@ -43,6 +80,7 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
 
       <button
         type="submit"
+        disabled={loading}
         className="
           w-full
           rounded-xl
@@ -58,7 +96,7 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
           hover:shadow-violet-500/20
         "
       >
-        Login
+        {loading ? "Logging in..." : "Login"}
       </button>
 
       {/* Divider */}

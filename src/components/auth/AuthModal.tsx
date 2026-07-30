@@ -83,7 +83,7 @@ export default function AuthModal({ open, onClose }: Props) {
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
           >
             <div
-  className={`
+              className={`
     relative
     w-full
     overflow-hidden
@@ -94,13 +94,9 @@ export default function AuthModal({ open, onClose }: Props) {
     shadow-2xl
     transition-all
     duration-300
-    ${
-      view === "register"
-        ? "max-w-sm lg:max-w-2xl"
-        : "max-w-sm"
-    }
+    ${view === "register" ? "max-w-sm lg:max-w-2xl" : "max-w-sm"}
   `}
->
+            >
               {/* Close */}
 
               <button
@@ -178,8 +174,27 @@ export default function AuthModal({ open, onClose }: Props) {
                     >
                       <VerifyOTP
                         email={email}
-                        onVerify={async () => {
-                          // verify email
+                        onVerify={async (code) => {
+                          const res = await fetch("/api/auth/verify-email", {
+                            method: "POST",
+                            headers: {
+                              "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                              email,
+                              otp: code,
+                            }),
+                          });
+
+                          const data = await res.json();
+
+                          if (!res.ok) {
+                            alert(data.message);
+                            throw new Error(data.message);
+                          }
+
+                          alert(data.message);
+
                           handleClose();
                         }}
                         onBack={() => setView("register")}
