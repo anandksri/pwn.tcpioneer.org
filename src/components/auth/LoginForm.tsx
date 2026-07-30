@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function LoginForm({ onRegister, onForgotPassword }: Props) {
-  const [email, setEmail] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   return (
@@ -31,7 +31,7 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              email,
+              identifier,
               password,
             }),
           });
@@ -57,8 +57,8 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
         label="Email or Username"
         placeholder="Enter your email or username"
         icon={Mail}
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={identifier}
+        onChange={(e) => setIdentifier(e.target.value)}
       />
 
       <PasswordField

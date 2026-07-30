@@ -10,45 +10,55 @@ type Props = {
   onSuccess: (email: string) => void;
 };
 
-export default function ForgotPassword({
-  onBack,
-  onSuccess,
-}: Props) {
+export default function ForgotPassword({ onBack, onSuccess }: Props) {
   const [email, setEmail] = useState("");
 
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       setLoading(true);
 
-      // TODO:
-      // Send OTP using Better Auth / API
+      const res = await fetch("/api/auth/forgot-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message);
+        return;
+      }
+
+      alert(data.message);
 
       onSuccess(email);
+    } catch (error) {
+      console.error(error);
+
+      alert("Internal server error.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-6"
-    >
+    <form onSubmit={handleSubmit} className="space-y-6">
       <AuthInput
         label="Email Address"
         placeholder="john@example.com"
         type="email"
         icon={Mail}
         value={email}
-        onChange={(e) =>
-          setEmail(e.target.value)
-        }
+        onChange={(e) => setEmail(e.target.value)}
       />
 
       <button
@@ -71,9 +81,7 @@ export default function ForgotPassword({
           disabled:opacity-60
         "
       >
-        {loading
-          ? "Sending..."
-          : "Send Verification Code"}
+        {loading ? "Sending..." : "Send Verification Code"}
       </button>
 
       <button
@@ -93,9 +101,7 @@ export default function ForgotPassword({
         "
       >
         <ArrowLeft className="h-4 w-4" />
-
         Back to Login
-
       </button>
     </form>
   );

@@ -27,6 +27,7 @@ export default function AuthModal({ open, onClose }: Props) {
   const [view, setView] = useState<AuthView>("login");
 
   const [email, setEmail] = useState("");
+  const [resetOTP, setResetOTP] = useState("");
 
   const handleClose = () => {
     setView("login");
@@ -175,31 +176,30 @@ export default function AuthModal({ open, onClose }: Props) {
                       <VerifyOTP
                         email={email}
                         onVerify={async (code) => {
-                          const res = await fetch("/api/auth/verify-email", {
-                            method: "POST",
-                            headers: {
-                              "Content-Type": "application/json",
+                          const res = await fetch(
+                            "/api/auth/verify-reset-otp",
+                            {
+                              method: "POST",
+                              headers: {
+                                "Content-Type": "application/json",
+                              },
+                              body: JSON.stringify({
+                                email,
+                                otp: code,
+                              }),
                             },
-                            body: JSON.stringify({
-                              email,
-                              otp: code,
-                            }),
-                          });
+                          );
 
                           const data = await res.json();
 
                           if (!res.ok) {
                             alert(data.message);
-                            throw new Error(data.message);
+                            return false;
                           }
 
-                          alert(data.message);
-
-                          handleClose();
-                        }}
-                        onBack={() => setView("register")}
-                        onResend={async () => {
-                          // resend verification email
+                          setResetOTP(code);
+                          setView("reset");
+                          return true;
                         }}
                       />
                     </motion.div>
@@ -235,8 +235,28 @@ export default function AuthModal({ open, onClose }: Props) {
                         email={email}
                         title="Verify Reset Code"
                         description="Enter the code sent to your email"
-                        onVerify={async () => {
-                          setView("reset");
+                        onVerify={async (code) => {
+                          const res = await fetch("/api/auth/verify-email", {
+                            method: "POST",
+                            headers: {
+                              "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                              email,
+                              otp: code,
+                            }),
+                          });
+
+                          const data = await res.json();
+                          if (!res.ok) {
+                            alert(data.message);
+                            return false;
+                          }
+                          alert("Email verified successfully!");
+
+                          setView("login");
+
+                          return true;
                         }}
                         onBack={() => setView("forgot")}
                         onResend={async () => {
@@ -255,7 +275,10 @@ export default function AuthModal({ open, onClose }: Props) {
                       transition={{ duration: 0.25 }}
                     >
                       <ResetPassword
+                        email={email}
+                        otp={resetOTP}
                         onSuccess={() => {
+                          alert("Password updated successfully.");
                           setView("login");
                         }}
                       />

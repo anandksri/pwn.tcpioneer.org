@@ -5,17 +5,15 @@ import { useMemo, useState } from "react";
 import PasswordField from "./PasswordField";
 
 type Props = {
+  email: string;
+  otp: string;
   onSuccess: () => void;
 };
 
-export default function ResetPassword({
-  onSuccess,
-}: Props) {
+export default function ResetPassword({ email, otp, onSuccess }: Props) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const loading = false;
-
+  const [loading, setLoading] = useState(false);
   const strength = useMemo(() => {
     let score = 0;
 
@@ -46,70 +44,78 @@ export default function ResetPassword({
     "Very Strong",
   ][strength];
 
-  const handleSubmit = (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // TODO:
-    // Reset password API
+    try {
+      setLoading(true);
 
-    onSuccess();
+      const res = await fetch("/api/auth/reset-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          otp,
+          password,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message);
+        return;
+      }
+
+      alert(data.message);
+      onSuccess();
+    } catch (error) {
+      console.error(error);
+      alert("Internal server error.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-5"
-    >
+    <form onSubmit={handleSubmit} className="space-y-5">
       <PasswordField
         label="New Password"
         placeholder="Create a new password"
         value={password}
-        onChange={(e) =>
-          setPassword(e.target.value)
-        }
+        onChange={(e) => setPassword(e.target.value)}
       />
 
       {/* Password Strength */}
 
       <div>
-
         <div className="mb-2 flex items-center justify-between">
-
-          <span className="text-xs text-zinc-500">
-            Password Strength
-          </span>
+          <span className="text-xs text-zinc-500">Password Strength</span>
 
           <span className="text-xs font-medium text-zinc-400">
             {strengthText}
           </span>
-
         </div>
 
         <div className="h-2 overflow-hidden rounded-full bg-zinc-800">
-
           <div
             className={`h-full transition-all duration-500 ${strengthColor}`}
             style={{
               width: `${strength * 20}%`,
             }}
           />
-
         </div>
-
       </div>
 
       <PasswordField
         label="Confirm Password"
         placeholder="Confirm your password"
         value={confirmPassword}
-        onChange={(e) =>
-          setConfirmPassword(e.target.value)
-        }
+        onChange={(e) => setConfirmPassword(e.target.value)}
         error={
-          confirmPassword &&
-          password !== confirmPassword
+          confirmPassword && password !== confirmPassword
             ? "Passwords do not match."
             : undefined
         }
@@ -118,9 +124,7 @@ export default function ResetPassword({
       <button
         type="submit"
         disabled={
-          loading ||
-          password !== confirmPassword ||
-          password.length < 8
+          loading || password !== confirmPassword || password.length < 8
         }
         className="
           w-full
@@ -140,11 +144,8 @@ export default function ResetPassword({
           disabled:text-zinc-500
         "
       >
-        {loading
-          ? "Updating..."
-          : "Update Password"}
+        {loading ? "Updating..." : "Update Password"}
       </button>
-
     </form>
   );
 }

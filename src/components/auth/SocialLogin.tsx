@@ -10,17 +10,10 @@ export default function SocialLogin() {
   const handleLogin = async (provider: "google" | "github") => {
     setLoading(provider);
 
-    // Later:
-    // await signIn.social({
-    //   provider,
-    // });
-
-    setTimeout(() => {
-      setLoading(null);
-    }, 1000);
+    window.location.href = `/api/auth/${provider}`;
   };
 
-const buttonClass = `
+  const buttonClass = `
 group
 flex
 h-12
@@ -52,34 +45,30 @@ disabled:opacity-50
       {/* Google */}
 
       <button
-  type="button"
-  disabled={loading !== null}
-  onClick={() => handleLogin("google")}
-  className={buttonClass}
->
-  <FcGoogle className="h-5 w-5 shrink-0" />
+        type="button"
+        disabled={loading !== null}
+        onClick={() => handleLogin("google")}
+        className={buttonClass}
+      >
+        <FcGoogle className="h-5 w-5 shrink-0" />
 
-  <span className="whitespace-nowrap">
-    {loading === "google"
-      ? "Connecting..."
-      : "Continue with Google"}
-  </span>
-</button>
+        <span className="whitespace-nowrap">
+          {loading === "google" ? "Connecting..." : "Continue with Google"}
+        </span>
+      </button>
 
-<button
-  type="button"
-  disabled={loading !== null}
-  onClick={() => handleLogin("github")}
-  className={buttonClass}
->
-  <FaGithub className="h-5 w-5 shrink-0" />
+      <button
+        type="button"
+        disabled={loading !== null}
+        onClick={() => handleLogin("github")}
+        className={buttonClass}
+      >
+        <FaGithub className="h-5 w-5 shrink-0" />
 
-  <span className="whitespace-nowrap">
-    {loading === "github"
-      ? "Connecting..."
-      : "Continue with GitHub"}
-  </span>
-</button>
+        <span className="whitespace-nowrap">
+          {loading === "github" ? "Connecting..." : "Continue with GitHub"}
+        </span>
+      </button>
     </div>
   );
 }

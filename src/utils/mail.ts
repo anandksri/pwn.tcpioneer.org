@@ -8,7 +8,7 @@ export async function sendVerificationEmail(
   username: string,
   otp: string
 ) {
-  await resend.emails.send({
+  return await resend.emails.send({
     from: process.env.EMAIL_FROM!,
     to: email,
     subject: "Verify your TC Pioneer account",
@@ -24,7 +24,7 @@ export async function sendResetPasswordEmail(
   username: string,
   otp: string
 ) {
-  await resend.emails.send({
+  return await resend.emails.send({
     from: process.env.EMAIL_FROM!,
     to: email,
     subject: "Reset your TC Pioneer password",

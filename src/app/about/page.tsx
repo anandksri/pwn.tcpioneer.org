@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/sections/about/Hero";
 import Mission from "@/sections/about/Mission";
 import Footer from "@/components/Footer";

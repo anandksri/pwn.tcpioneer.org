@@ -27,27 +27,32 @@ export default function OTPInput({
     inputs.current[0]?.focus();
   }, []);
 
-  useEffect(() => {
-    if (otp.every((d) => d !== "")) {
-      onComplete(otp.join(""));
-    }
-  }, [otp, onComplete]);
+const submittedRef = useRef(false);
 
-  const handleChange = (
-    value: string,
-    index: number
-  ) => {
-    if (!/^\d?$/.test(value)) return;
+useEffect(() => {
+  if (otp.every((d) => d !== "") && !submittedRef.current) {
+    submittedRef.current = true;
+    onComplete(otp.join(""));
+  }
+}, [otp, onComplete]);
 
-    const copy = [...otp];
-    copy[index] = value;
+const handleChange = (
+  value: string,
+  index: number
+) => {
+submittedRef.current = false;
 
-    setOtp(copy);
+  if (!/^\d?$/.test(value)) return;
 
-    if (value && index < length - 1) {
-      inputs.current[index + 1]?.focus();
-    }
-  };
+  const copy = [...otp];
+  copy[index] = value;
+
+  setOtp(copy);
+
+  if (value && index < length - 1) {
+    inputs.current[index + 1]?.focus();
+  }
+};
 
   const handleKeyDown = (
     e: KeyboardEvent<HTMLInputElement>,

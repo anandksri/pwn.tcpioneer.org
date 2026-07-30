@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/sections/Hero/Hero";
 import EntryPoint from "@/sections/Hero/EntryPoint";
 import ThePath from "@/sections/Hero/ThePath";
