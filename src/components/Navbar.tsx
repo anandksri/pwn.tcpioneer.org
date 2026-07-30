@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 import Container from "./Container";
 import AuthModal from "@/components/auth/AuthModal";
 import { navigation } from "@/data/navigation";
-// import { actions } from "@/data/actions";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
