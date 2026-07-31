@@ -6,7 +6,8 @@ import { X } from "lucide-react";
 
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
-import VerifyOTP from "./VerifyOTP";
+import VerifyEmailOTP from "./VerifyEmailOTP";
+import VerifyResetOTP from "./VerifyResetOTP";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
 
@@ -32,6 +33,7 @@ export default function AuthModal({ open, onClose }: Props) {
   const handleClose = () => {
     setView("login");
     setEmail("");
+    setResetOTP("");
     onClose();
   };
 
@@ -40,7 +42,7 @@ export default function AuthModal({ open, onClose }: Props) {
     register: "Create Account",
     "verify-register": "Verify Email",
     forgot: "Forgot Password",
-    "verify-reset": "Verify Code",
+    "verify-reset": "Verify Reset Code",
     reset: "Create New Password",
   };
 
@@ -48,18 +50,22 @@ export default function AuthModal({ open, onClose }: Props) {
     <AnimatePresence>
       {open && (
         <>
-          {/* Overlay */}
-
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            transition={{
+              duration: 0.2,
+            }}
             onClick={handleClose}
             className="fixed inset-0 z-[90] bg-black/70 backdrop-blur-md"
           />
-
-          {/* Modal */}
 
           <motion.div
             initial={{
@@ -84,10 +90,10 @@ export default function AuthModal({ open, onClose }: Props) {
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
           >
             <div
-              className={`relative w-full overflow-hidden rounded-3xl border border-white/10 bg-[#111114] shadow-2xl transition-all duration-300 ${view === "register" ? "max-w-sm lg:max-w-2xl" : "max-w-sm"} `}
+              className={`relative w-full overflow-hidden rounded-3xl border border-white/10 bg-[#111114] shadow-2xl transition-all duration-300 ${
+                view === "register" ? "max-w-sm lg:max-w-2xl" : "max-w-sm"
+              }`}
             >
-              {/* Close */}
-
               <button
                 onClick={handleClose}
                 className="absolute top-5 right-5 z-20 rounded-xl p-2 text-zinc-500 transition hover:bg-zinc-800 hover:text-white"
@@ -95,27 +101,32 @@ export default function AuthModal({ open, onClose }: Props) {
                 <X className="h-5 w-5" />
               </button>
 
-              {/* Header */}
-
               <div className="border-b border-zinc-800 p-6">
                 <h2 className="mt-6 text-center text-xl font-bold text-white">
                   {titles[view]}
                 </h2>
               </div>
 
-              {/* Content */}
-
               <div className="p-6">
                 <AnimatePresence mode="wait" initial={false}>
-                  {" "}
-                  {/* Login */}
                   {view === "login" && (
                     <motion.div
                       key="login"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.25 }}
+                      initial={{
+                        opacity: 0,
+                        x: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                        x: -20,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                      }}
                     >
                       <LoginForm
                         onRegister={() => setView("register")}
@@ -123,14 +134,24 @@ export default function AuthModal({ open, onClose }: Props) {
                       />
                     </motion.div>
                   )}
-                  {/* Register */}
                   {view === "register" && (
                     <motion.div
                       key="register"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.25 }}
+                      initial={{
+                        opacity: 0,
+                        x: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                        x: -20,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                      }}
                     >
                       <RegisterForm
                         onLogin={() => setView("login")}
@@ -141,54 +162,53 @@ export default function AuthModal({ open, onClose }: Props) {
                       />
                     </motion.div>
                   )}
-                  {/* Verify Registration */}
                   {view === "verify-register" && (
                     <motion.div
                       key="verify-register"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.25 }}
+                      initial={{
+                        opacity: 0,
+                        x: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                        x: -20,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                      }}
                     >
-                      <VerifyOTP
+                      <VerifyEmailOTP
                         email={email}
-                        onVerify={async (code) => {
-                          const res = await fetch(
-                            "/api/auth/verify-reset-otp",
-                            {
-                              method: "POST",
-                              headers: {
-                                "Content-Type": "application/json",
-                              },
-                              body: JSON.stringify({
-                                email,
-                                otp: code,
-                              }),
-                            }
-                          );
-
-                          const data = await res.json();
-
-                          if (!res.ok) {
-                            alert(data.message);
-                            return false;
-                          }
-
-                          setResetOTP(code);
-                          setView("reset");
-                          return true;
+                        onSuccess={() => {
+                          alert("Email verified successfully.");
+                          setView("login");
                         }}
+                        onBack={() => setView("register")}
                       />
                     </motion.div>
-                  )}
-                  {/* Forgot Password */}
+                  )}{" "}
                   {view === "forgot" && (
                     <motion.div
                       key="forgot"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.25 }}
+                      initial={{
+                        opacity: 0,
+                        x: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                        x: -20,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                      }}
                     >
                       <ForgotPassword
                         onBack={() => setView("login")}
@@ -199,63 +219,60 @@ export default function AuthModal({ open, onClose }: Props) {
                       />
                     </motion.div>
                   )}
-                  {/* Verify Reset */}
                   {view === "verify-reset" && (
                     <motion.div
                       key="verify-reset"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.25 }}
+                      initial={{
+                        opacity: 0,
+                        x: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                        x: -20,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                      }}
                     >
-                      <VerifyOTP
+                      <VerifyResetOTP
                         email={email}
-                        title="Verify Reset Code"
-                        description="Enter the code sent to your email"
-                        onVerify={async (code) => {
-                          const res = await fetch("/api/auth/verify-email", {
-                            method: "POST",
-                            headers: {
-                              "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({
-                              email,
-                              otp: code,
-                            }),
-                          });
-
-                          const data = await res.json();
-                          if (!res.ok) {
-                            alert(data.message);
-                            return false;
-                          }
-                          alert("Email verified successfully!");
-
-                          setView("login");
-
-                          return true;
+                        onSuccess={(otp) => {
+                          setResetOTP(otp);
+                          setView("reset");
                         }}
                         onBack={() => setView("forgot")}
-                        onResend={async () => {
-                          // resend reset OTP
-                        }}
                       />
                     </motion.div>
                   )}
-                  {/* Reset Password */}
                   {view === "reset" && (
                     <motion.div
                       key="reset"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.25 }}
+                      initial={{
+                        opacity: 0,
+                        x: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                        x: -20,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                      }}
                     >
                       <ResetPassword
                         email={email}
                         otp={resetOTP}
                         onSuccess={() => {
                           alert("Password updated successfully.");
+
                           setView("login");
                         }}
                       />
