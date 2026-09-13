@@ -1,6 +1,6 @@
 # PWN TCPioneer
 
-PWN TCPioneer is a cybersecurity learning platform built as part of The Cyber Pioneer project. It is designed to bring practical security learning, user accounts, and security-focused content into one application.
+PWN TCPioneer is a cybersecurity learning platform built as part of the TC Pioneer project. It is designed to bring practical security learning, user accounts, and security-focused content into one application.
 
 ## About
 
@@ -75,7 +75,7 @@ Do not commit secrets or production credentials to the repository.
 
 ## Project
 
-PWN TCPioneer is part of The Cyber Pioneer, my broader work in cybersecurity education, security research, and software development.
+PWN TCPioneer is part of TC Pioneer, my broader work in cybersecurity education, security research, and software development.
 
 ## Contributing
 
