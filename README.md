@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PWN TCPioneer
+
+PWN TCPioneer is a cybersecurity learning platform built as part of The Cyber Pioneer project. It is designed to bring practical security learning, user accounts, and security-focused content into one application.
+
+## About
+
+This repository contains the current PWN TCPioneer web application.
+
+The application includes:
+
+- Cybersecurity learning content
+- User registration and authentication
+- Email verification and password reset flows
+- GitHub and Google authentication
+- Role-based users, moderators, and administrators
+- PostgreSQL database integration with Prisma
+- A dedicated PWN-focused interface and branding
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Prisma
+- PostgreSQL
+- Better Auth and custom authentication flows
+- GitHub and Google OAuth
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
+
+```bash
+git clone https://github.com/anandksri/pwn.tcpioneer.org.git
+cd pwn.tcpioneer.org
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a local environment file and configure the required application and database variables. Do not commit real credentials, OAuth secrets, database credentials, or other sensitive values.
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project uses Prisma with PostgreSQL. The Prisma schema and migrations are available in the `prisma/` directory.
 
-## Learn More
+Before using database-backed features locally, configure `DATABASE_URL` and run the required Prisma setup for your environment.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+src/app/        Next.js application routes and pages
+src/app/api/    API and authentication endpoints
+prisma/         Database schema and migrations
+public/         Static assets and project images
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Security
 
-## Deploy on Vercel
+This project handles authentication, user accounts, OAuth integrations, and password-related workflows. Security issues should be reported responsibly rather than publicly disclosed before they can be investigated.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Do not commit secrets or production credentials to the repository.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project
+
+PWN TCPioneer is part of The Cyber Pioneer, my broader work in cybersecurity education, security research, and software development.
+
+## Contributing
+
+Suggestions, improvements, bug reports, and pull requests are welcome. For larger changes, open an issue first so the proposed change can be discussed before implementation.
+
+## Author
+
+Anand Keshari
