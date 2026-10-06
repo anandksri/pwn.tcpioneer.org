@@ -1,13 +1,21 @@
-"use client";
-import { useState } from "react";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/sections/modules/Hero";
-import Categories from "@/sections/modules/Categories";
-import ModulesGrid from "@/sections/modules/ModuleGrid";
+import ModulesExplorer from "@/sections/modules/ModulesExplorer";
 import PageWrapper from "@/components/PageWrapper";
-export default function ModulesPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+import { listPublishedModules } from "@/lib/content";
+
+export const dynamic = "force-dynamic";
+
+export default async function ModulesPage() {
+  let modules: Awaited<ReturnType<typeof listPublishedModules>> = [];
+  let error = false;
+
+  try {
+    modules = await listPublishedModules();
+  } catch {
+    error = true;
+  }
 
   return (
     <>
@@ -15,13 +23,7 @@ export default function ModulesPage() {
       <PageWrapper>
         <main>
           <Hero />
-
-          <Categories
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-          />
-
-          <ModulesGrid selectedCategory={selectedCategory} />
+          <ModulesExplorer modules={modules} error={error} />
         </main>
       </PageWrapper>
       <Footer />

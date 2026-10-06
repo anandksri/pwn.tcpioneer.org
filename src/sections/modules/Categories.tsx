@@ -1,25 +1,13 @@
 import Container from "@/components/Container";
 
-const categories = [
-  "All",
-  "Linux",
-  "Networking",
-  "Web",
-  "Windows",
-  "Active Directory",
-  "Cloud",
-  "Mobile",
-  "Forensics",
-  "OSINT",
-  "Cryptography",
-];
-
 type CategoriesProps = {
+  categories: string[];
   selectedCategory: string;
   onCategoryChange: (category: string) => void;
 };
 
 export default function Categories({
+  categories,
   selectedCategory,
   onCategoryChange,
 }: CategoriesProps) {
