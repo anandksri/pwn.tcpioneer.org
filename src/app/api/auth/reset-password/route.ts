@@ -4,9 +4,13 @@ import { prisma } from "@/lib/prisma";
 import { hashPassword } from "@/utils/hash";
 import { hashOTP } from "@/lib/otp";
 import { resetPasswordSchema } from "@/lib/validators";
+import { rateLimitResponse } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
   try {
+    const limited = await rateLimitResponse(req, "auth:reset-password", 5, 15 * 60 * 1000);
+    if (limited) return limited;
+
     const result = resetPasswordSchema.safeParse(await req.json());
 
     if (!result.success) {
@@ -78,6 +82,7 @@ export async function POST(req: Request) {
       },
       data: {
         password: hashedPassword,
+        sessionVersion: { increment: 1 },
       },
     });
 

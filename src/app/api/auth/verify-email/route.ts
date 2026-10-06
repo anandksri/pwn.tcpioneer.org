@@ -2,9 +2,13 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { hashOTP } from "@/lib/otp";
 import { otpSchema } from "@/lib/validators";
+import { rateLimitResponse } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
   try {
+    const limited = await rateLimitResponse(req, "auth:verify-email", 10, 15 * 60 * 1000);
+    if (limited) return limited;
+
     const result = otpSchema.safeParse(await req.json());
 
     if (!result.success) {

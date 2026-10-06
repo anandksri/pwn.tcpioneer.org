@@ -26,8 +26,13 @@ export async function getCurrentUser() {
         role: true,
         verified: true,
         avatar: true,
+        sessionVersion: true,
       },
     });
+
+    if (!user || user.sessionVersion !== payload.sessionVersion) {
+      return null;
+    }
 
     return user;
   } catch {

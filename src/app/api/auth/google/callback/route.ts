@@ -51,6 +51,7 @@ export async function GET(req: NextRequest) {
       username: user.username,
       email: user.email,
       role: user.role,
+      sessionVersion: user.sessionVersion,
     });
 
     const response = NextResponse.redirect(

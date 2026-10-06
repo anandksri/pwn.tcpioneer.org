@@ -3,9 +3,13 @@ import { prisma } from "@/lib/prisma";
 import { sendVerificationEmail } from "@/utils/mail";
 import { generateOTP, hashOTP } from "@/lib/otp";
 import { emailSchema } from "@/lib/validators";
+import { rateLimitResponse } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
   try {
+    const limited = await rateLimitResponse(req, "auth:resend-verification", 5, 15 * 60 * 1000);
+    if (limited) return limited;
+
     const result = emailSchema.safeParse(await req.json());
 
     if (!result.success) {

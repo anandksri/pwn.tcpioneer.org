@@ -26,6 +26,7 @@ model User {
 
   verified  Boolean  @default(false)
   role      UserRole @default(USER)
+  sessionVersion Int @default(0)
 
   avatar    String?
 
@@ -33,6 +34,13 @@ model User {
   updatedAt DateTime @updatedAt
 
   otps      OTP[]
+}
+
+model RateLimitBucket {
+  key       String   @id
+  count     Int      @default(0)
+  resetAt   DateTime
+  updatedAt DateTime @updatedAt
 }
 
 model OTP {

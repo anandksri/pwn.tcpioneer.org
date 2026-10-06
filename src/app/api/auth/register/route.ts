@@ -4,9 +4,13 @@ import { registerSchema } from "@/lib/validators";
 import { hashPassword } from "@/utils/hash";
 import { generateOTP, hashOTP } from "@/lib/otp";
 import { sendVerificationEmail } from "@/utils/mail";
+import { rateLimitResponse } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
   try {
+    const limited = await rateLimitResponse(req, "auth:register", 5, 60 * 60 * 1000);
+    if (limited) return limited;
+
     // Read request body
     const body = await req.json();
 

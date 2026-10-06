@@ -4,9 +4,13 @@ import { prisma } from "@/lib/prisma";
 import { generateOTP, hashOTP } from "@/lib/otp";
 import { emailSchema } from "@/lib/validators";
 import { sendResetPasswordEmail } from "@/utils/mail";
+import { rateLimitResponse } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
   try {
+    const limited = await rateLimitResponse(req, "auth:forgot-password", 5, 15 * 60 * 1000);
+    if (limited) return limited;
+
     const result = emailSchema.safeParse(await req.json());
 
     if (!result.success) {

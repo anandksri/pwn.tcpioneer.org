@@ -5,9 +5,13 @@ import { prisma } from "@/lib/prisma";
 import { comparePassword } from "@/utils/hash";
 import { signToken } from "@/lib/jwt";
 import { loginSchema } from "@/lib/validators";
+import { rateLimitResponse } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
   try {
+    const limited = await rateLimitResponse(req, "auth:login", 10, 15 * 60 * 1000);
+    if (limited) return limited;
+
     const result = loginSchema.safeParse(await req.json());
 
     if (!result.success) {
@@ -76,6 +80,7 @@ export async function POST(req: Request) {
       email: user.email,
       username: user.username,
       role: user.role,
+      sessionVersion: user.sessionVersion,
     });
 
     // Save cookie
