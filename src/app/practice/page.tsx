@@ -1,17 +1,21 @@
-"use client";
-
-import { useState } from "react";
-
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
-
-import Hero from "@/sections/practice/Hero";
-import Categories from "@/sections/practice/Categories";
-import PracticeGrid from "@/sections/practice/PracticeGrid";
 import PageWrapper from "@/components/PageWrapper";
+import { listPublishedChallenges } from "@/lib/content";
+import Hero from "@/sections/practice/Hero";
+import PracticeExplorer from "@/sections/practice/PracticeExplorer";
 
-export default function PracticePage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+export const dynamic = "force-dynamic";
+
+export default async function PracticePage() {
+  let challenges: Awaited<ReturnType<typeof listPublishedChallenges>> = [];
+  let error = false;
+
+  try {
+    challenges = await listPublishedChallenges();
+  } catch {
+    error = true;
+  }
 
   return (
     <>
@@ -21,12 +25,7 @@ export default function PracticePage() {
         <main>
           <Hero />
 
-          <Categories
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-          />
-
-          <PracticeGrid selectedCategory={selectedCategory} />
+          <PracticeExplorer challenges={challenges} error={error} />
         </main>
       </PageWrapper>
       <Footer />

@@ -1,72 +1,89 @@
+"use client";
+
+import { useMemo } from "react";
+
 import Container from "@/components/Container";
 import PracticeCard from "./PracticeCard";
 
-import { practice } from "@/data/practice";
-
-type Props = {
-  selectedCategory: string;
+export type PublishedChallenge = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  difficulty: "BEGINNER" | "INTERMEDIATE" | "ADVANCED";
+  points: number;
+  moduleId: string | null;
 };
 
-export default function PracticeGrid({ selectedCategory }: Props) {
-  const filteredPractice =
-    selectedCategory === "All"
-      ? practice
-      : practice.filter((item) => item.category === selectedCategory);
+type Props = {
+  challenges: PublishedChallenge[];
+  selectedCategory: string;
+  selectedDifficulty: string;
+  search: string;
+  error: boolean;
+};
+
+export default function PracticeGrid({
+  challenges,
+  selectedCategory,
+  selectedDifficulty,
+  search,
+  error,
+}: Props) {
+  const filteredChallenges = useMemo(() => {
+    const normalizedSearch = search.trim().toLowerCase();
+
+    return challenges.filter((challenge) => {
+      const matchesCategory =
+        selectedCategory === "All" || challenge.category === selectedCategory;
+      const matchesDifficulty =
+        selectedDifficulty === "All" || challenge.difficulty === selectedDifficulty;
+      const matchesSearch =
+        !normalizedSearch ||
+        `${challenge.title} ${challenge.description} ${challenge.category}`
+          .toLowerCase()
+          .includes(normalizedSearch);
+
+      return matchesCategory && matchesDifficulty && matchesSearch;
+    });
+  }, [challenges, search, selectedCategory, selectedDifficulty]);
 
   return (
     <section className="bg-background py-16">
       <Container>
-        {/* Heading */}
-
         <div className="mb-12 flex items-end justify-between">
           <div>
             <span className="text-sm font-semibold tracking-[0.3em] text-brand-soft uppercase">
-              Hands-on Labs
+              Hands-on Challenges
             </span>
-
-            <h2 className="mt-4 text-4xl font-bold text-foreground">
-              Browse Practice
-            </h2>
-
+            <h2 className="mt-4 text-4xl font-bold text-foreground">Browse Practice</h2>
             <p className="mt-4 max-w-2xl leading-8 text-secondary-foreground">
-              Build real-world cybersecurity skills through interactive labs,
-              Capture The Flag challenges and guided practice environments
-              covering web security, networking, Linux, Windows and more.
+              Solve published challenges and build practical cybersecurity skills through focused,
+              measurable exercises.
             </p>
           </div>
-
           <span className="hidden text-sm text-subtle-foreground lg:block">
-            {filteredPractice.length} Labs
+            {filteredChallenges.length} Challenges
           </span>
         </div>
 
-        {/* Grid */}
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {filteredPractice.map((item) => (
-            <PracticeCard
-              key={item.id}
-              title={item.title}
-              description={item.description}
-              slug={item.slug}
-              duration={item.duration}
-              challenges={item.challenges}
-              difficulty={item.difficulty}
-              icon={item.icon}
-              color={item.color}
-            />
-          ))}
-        </div>
-
-        {/* Empty State */}
-
-        {filteredPractice.length === 0 && (
-          <div className="mt-12 rounded-lg border border-dashed border-border py-20 text-center">
-            <h3 className="text-xl font-semibold text-foreground">No labs found</h3>
-
-            <p className="mt-3 text-subtle-foreground">
-              Try selecting another category.
+        {error ? (
+          <div className="border border-destructive/30 bg-destructive/5 p-8 text-center text-destructive">
+            Challenges are temporarily unavailable. Please try again later.
+          </div>
+        ) : filteredChallenges.length === 0 ? (
+          <div className="border border-dashed border-border bg-card p-12 text-center">
+            <h3 className="text-xl font-semibold text-foreground">No challenges found</h3>
+            <p className="mt-3 text-muted-foreground">
+              Try a different search term or filter.
             </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {filteredChallenges.map((challenge) => (
+              <PracticeCard key={challenge.id} {...challenge} />
+            ))}
           </div>
         )}
       </Container>
