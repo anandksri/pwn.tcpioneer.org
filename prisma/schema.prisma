@@ -50,6 +50,10 @@ model User {
   lessonProgress    LessonProgress[]
   challengeAttempts ChallengeAttempt[]
   notifications     Notification[]
+  communityPosts   CommunityPost[]
+  communityComments CommunityComment[]
+  communityReports CommunityReport[] @relation("CommunityReportReporter")
+  reviewedReports  CommunityReport[] @relation("CommunityReportReviewer")
 }
 
 model RateLimitBucket {
@@ -177,6 +181,83 @@ model Notification {
 
   @@index([userId, createdAt])
   @@index([userId, readAt])
+}
+
+model CommunityEvent {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  category        String
+  startsAt        DateTime
+  endsAt          DateTime?
+  location        String?
+  registrationUrl String?
+  published       Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([published, startsAt])
+}
+
+enum CommunityReportStatus {
+  OPEN
+  DISMISSED
+  ACTIONED
+}
+
+model CommunityPost {
+  id        String    @id @default(cuid())
+  authorId  String
+  body      String
+  removedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  author  User               @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  comments CommunityComment[]
+  reports CommunityReport[]
+
+  @@index([removedAt, createdAt])
+  @@index([authorId, createdAt])
+}
+
+model CommunityComment {
+  id        String    @id @default(cuid())
+  postId    String
+  authorId  String
+  body      String
+  removedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  post    CommunityPost   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author  User            @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  reports CommunityReport[]
+
+  @@index([postId, removedAt, createdAt])
+  @@index([authorId, createdAt])
+}
+
+model CommunityReport {
+  id           String                @id @default(cuid())
+  reporterId   String
+  postId       String?
+  commentId    String?
+  reason       String
+  status       CommunityReportStatus @default(OPEN)
+  reviewedById String?
+  reviewedAt   DateTime?
+  createdAt    DateTime              @default(now())
+
+  reporter   User             @relation("CommunityReportReporter", fields: [reporterId], references: [id], onDelete: Cascade)
+  reviewedBy User?            @relation("CommunityReportReviewer", fields: [reviewedById], references: [id], onDelete: SetNull)
+  post       CommunityPost?   @relation(fields: [postId], references: [id], onDelete: SetNull)
+  comment    CommunityComment? @relation(fields: [commentId], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+  @@index([postId])
+  @@index([commentId])
+  @@index([reporterId, createdAt])
 }
 
 model OTP {

@@ -1,10 +1,11 @@
 import Hero from "@/sections/community/Hero";
-import RecentActivity from "@/sections/community/RecentActivity";
 import UpcomingEvents from "@/sections/community/UpcomingEvents";
 import CommunityFeed from "@/sections/community/CommunityFeed";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
+
+export const dynamic = "force-dynamic";
 
 export default function CommunityPage() {
   return (
@@ -13,7 +14,6 @@ export default function CommunityPage() {
       <PageWrapper>
         <main>
           <Hero />
-          <RecentActivity />
           <UpcomingEvents />
           <CommunityFeed />
         </main>
