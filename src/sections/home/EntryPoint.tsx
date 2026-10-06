@@ -10,15 +10,15 @@ export default function EntryPoint() {
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <span className="text-sm font-medium tracking-[0.2em] text-violet-400 uppercase">
+            <span className="font-mono text-xs font-medium tracking-[0.16em] text-brand-soft uppercase">
               Entry Point
             </span>
 
-            <h2 className="mt-3 text-4xl font-bold text-white">
+            <h2 className="mt-3 text-4xl font-bold text-foreground">
               Start Your Cybersecurity Journey
             </h2>
 
-            <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-400">
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
               Begin with the fundamentals before moving into advanced
               exploitation and real-world cybersecurity challenges.
             </p>
@@ -26,7 +26,7 @@ export default function EntryPoint() {
 
           <Link
             href="/modules"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition-all duration-300 hover:!text-violet-400"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             <span>View All Modules</span>
 

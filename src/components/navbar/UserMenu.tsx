@@ -47,7 +47,7 @@ export default function UserMenu() {
 
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-zinc-900 transition hover:border-violet-500"
+        className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-md border border-border bg-secondary transition-colors hover:border-primary"
       >
         {user.avatar ? (
           <Image
@@ -58,7 +58,7 @@ export default function UserMenu() {
             className="h-full w-full object-cover"
           />
         ) : (
-          <span className="text-sm font-bold text-white">
+          <span className="text-sm font-bold text-foreground">
             {user.username.charAt(0).toUpperCase()}
           </span>
         )}
@@ -67,10 +67,10 @@ export default function UserMenu() {
       {/* Dropdown */}
 
       {open && (
-        <div className="absolute right-0 mt-3 w-80 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/40">
+        <div className="absolute right-0 mt-3 w-80 overflow-hidden rounded-md border border-border bg-popover shadow-lg">
           {/* Header */}
 
-          <div className="border-b border-white/10 p-5">
+          <div className="border-b border-border p-5">
             <div className="flex items-center gap-4">
               {user.avatar ? (
                 <Image
@@ -81,7 +81,7 @@ export default function UserMenu() {
                   className="rounded-full"
                 />
               ) : (
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-violet-600 font-bold">
+                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary font-bold text-primary-foreground">
                   {user.username.charAt(0).toUpperCase()}
                 </div>
               )}
@@ -130,10 +130,10 @@ export default function UserMenu() {
             )}
           </div>
 
-          <div className="border-t border-white/10 p-2">
+          <div className="border-t border-border p-2">
             <button
               onClick={handleLogout}
-              className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-400 transition hover:bg-red-500/10"
+              className="flex w-full items-center gap-3 rounded-sm px-4 py-3 text-red-400 transition-colors hover:bg-red-500/10"
             >
               <LogOut size={18} />
               Logout
@@ -155,7 +155,7 @@ function MenuItem({ href, title, icon }: MenuItemProps) {
   return (
     <Link
       href={href}
-      className="flex items-center gap-3 rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-900 hover:text-violet-400"
+      className="flex items-center gap-3 rounded-sm px-4 py-3 text-secondary-foreground transition-colors hover:bg-secondary hover:text-primary"
     >
       {icon}
 

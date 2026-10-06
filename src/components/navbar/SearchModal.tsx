@@ -54,37 +54,34 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[999] flex items-start justify-center bg-black/70 pt-24 backdrop-blur-md"
+      className="fixed inset-0 z-[999] flex items-start justify-center bg-black/75 pt-24"
       onClick={onClose}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 shadow-2xl"
+        className="w-full max-w-2xl overflow-hidden rounded-md border border-border bg-popover shadow-lg"
       >
         {/* Header */}
 
-        <div className="flex items-center gap-4 border-b border-white/10 p-5">
-          <Search className="h-5 w-5 text-zinc-500" />
+        <div className="flex items-center gap-4 border-b border-border p-5">
+          <Search className="h-5 w-5 text-muted-foreground" />
 
           <input
             ref={inputRef}
             type="text"
             placeholder="Search modules, labs, resources..."
-            className="flex-1 bg-transparent text-white outline-none placeholder:text-zinc-500"
+            className="flex-1 bg-transparent text-foreground outline-none placeholder:text-subtle-foreground"
           />
 
-          <button
-            onClick={onClose}
-            className="rounded-lg p-2 transition hover:bg-white/5"
-          >
-            <X className="h-5 w-5 text-zinc-400" />
+          <button onClick={onClose} className="rounded-sm p-2 transition-colors hover:bg-secondary">
+            <X className="h-5 w-5 text-muted-foreground" />
           </button>
         </div>
 
         {/* Quick Links */}
 
         <div className="p-5">
-          <h2 className="mb-4 text-xs font-semibold tracking-widest text-zinc-500 uppercase">
+          <h2 className="mb-4 font-mono text-xs font-semibold tracking-[0.16em] text-subtle-foreground uppercase">
             Quick Links
           </h2>
 
@@ -92,17 +89,17 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
             {quickLinks.map((item) => (
               <button
                 key={item.title}
-                className="flex w-full items-center justify-between rounded-xl border border-transparent p-4 text-left transition-all hover:border-violet-500/40 hover:bg-violet-500/10"
+                className="flex w-full items-center justify-between rounded-sm border border-transparent p-4 text-left transition-colors hover:border-primary/40 hover:bg-secondary"
               >
                 <div>
-                  <h3 className="font-medium text-white">{item.title}</h3>
+                  <h3 className="font-medium text-foreground">{item.title}</h3>
 
-                  <p className="mt-1 text-sm text-zinc-500">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     {item.description}
                   </p>
                 </div>
 
-                <ArrowRight className="h-5 w-5 text-zinc-500" />
+                <ArrowRight className="h-5 w-5 text-subtle-foreground" />
               </button>
             ))}
           </div>
@@ -110,10 +107,10 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
 
         {/* Footer */}
 
-        <div className="border-t border-white/10 px-5 py-4">
-          <p className="text-xs text-zinc-500">
+        <div className="border-t border-border px-5 py-4">
+          <p className="text-xs text-subtle-foreground">
             Press{" "}
-            <span className="rounded bg-zinc-800 px-1.5 py-0.5 text-zinc-300">
+            <span className="rounded-sm bg-secondary px-1.5 py-0.5 text-secondary-foreground">
               Esc
             </span>{" "}
             to close.

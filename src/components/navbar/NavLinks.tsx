@@ -43,16 +43,16 @@ export default function NavLinks() {
             <li key={item.name}>
               <Link
                 href={item.href}
-                className={`group relative rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                className={`group relative rounded-sm px-4 py-2 text-sm font-medium transition-colors ${
                   active
-                    ? "text-violet-400"
-                    : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                    ? "text-primary"
+                    : "text-secondary-foreground hover:bg-secondary hover:text-foreground"
                 } `}
               >
                 {item.name}
 
                 <span
-                  className={`absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-violet-500 transition-all duration-300 ${
+                  className={`absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 bg-primary transition-all duration-200 ${
                     active ? "w-8 opacity-100" : "w-0 opacity-0 group-hover:w-8"
                   } `}
                 />

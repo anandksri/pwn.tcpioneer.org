@@ -47,8 +47,8 @@ export default function Navbar() {
           <nav
             className={`relative flex h-[72px] items-center justify-between transition-all duration-300 lg:grid lg:h-[72px] lg:grid-cols-[280px_1fr_220px] ${
               scrolled
-                ? "w-full rounded-none border-b border-white/10 bg-zinc-950/90 px-6 backdrop-blur-2xl"
-                : "rounded-2xl border border-white/10 bg-zinc-950/80 px-6 backdrop-blur-xl"
+                ? "w-full border-b border-border bg-background px-6"
+                : "rounded-md border border-border bg-background px-6"
             }`}
           >
             {/* Left */}
@@ -70,14 +70,14 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => setAuthOpen(true)}
-                    className="h-10 cursor-pointer rounded-2xl border border-white/10 bg-zinc-900/70 px-6 font-medium transition-all duration-300 hover:border-violet-500 hover:bg-violet-500/10"
+                    className="h-10 cursor-pointer rounded-md border border-border bg-transparent px-6 text-sm font-medium text-secondary-foreground transition-colors hover:border-primary/60 hover:bg-secondary"
                   >
                     Login
                   </button>
 
                   <Link
                     href="/get-started"
-                    className="text-white-300 inline-flex h-10 items-center justify-center rounded-2xl bg-violet-700 px-6 text-sm font-semibold whitespace-nowrap transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-800"
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold whitespace-nowrap text-primary-foreground transition-colors hover:bg-brand-hover"
                   >
                     Get Started
                   </Link>
@@ -89,7 +89,7 @@ export default function Navbar() {
               type="button"
               aria-label="Open Menu"
               onClick={() => setMobileOpen(true)}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-zinc-900/80 text-white transition-all duration-300 hover:border-violet-500 lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-md border border-border bg-secondary text-secondary-foreground transition-colors hover:border-primary lg:hidden"
             >
               <Menu className="h-5 w-5" />
             </button>{" "}

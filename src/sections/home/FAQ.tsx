@@ -28,33 +28,33 @@ export default function FAQ() {
             return (
               <div
                 key={faq.question}
-                className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/30 hover:bg-zinc-900"
+                className="group overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-primary/40 hover:bg-elevated"
               >
                 <button
                   onClick={() => setActive(open ? null : index)}
                   className="flex w-full cursor-pointer items-center justify-between px-6 py-4 text-left"
                 >
                   <div className="flex items-center gap-5">
-                    <span className="text-sm font-semibold text-violet-400">
+                    <span className="font-mono text-xs font-semibold text-primary">
                       {(index + 1).toString().padStart(2, "0")}
                     </span>
 
-                    <h3 className="text-base font-semibold text-white">
+                    <h3 className="text-base font-semibold text-foreground">
                       {faq.question}
                     </h3>
                   </div>
 
                   <div
-                    className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-300 ${
+                    className={`flex h-9 w-9 items-center justify-center rounded-md border transition-colors ${
                       open
-                        ? "border-violet-500/30 bg-violet-500/10"
-                        : "border-zinc-700 bg-zinc-900"
+                        ? "border-primary/30 bg-primary/10"
+                        : "border-border bg-secondary"
                     }`}
                   >
                     {open ? (
-                      <Minus className="h-4 w-4 text-violet-400" />
+                      <Minus className="h-4 w-4 text-primary" />
                     ) : (
-                      <Plus className="h-4 w-4 text-zinc-400" />
+                      <Plus className="h-4 w-4 text-muted-foreground" />
                     )}
                   </div>
                 </button>
@@ -67,8 +67,8 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="border-t border-zinc-800 px-7 py-6">
-                      <p className="leading-8 text-zinc-400">{faq.answer}</p>
+                    <div className="border-t border-border px-7 py-6">
+                      <p className="leading-8 text-muted-foreground">{faq.answer}</p>
                     </div>
                   </div>
                 </div>
@@ -79,12 +79,12 @@ export default function FAQ() {
 
         {/* Bottom CTA */}
 
-        <div className="mx-auto mt-16 max-w-3xl border-t border-zinc-800 pt-10 text-center">
-          <p className="text-lg font-medium text-white">
+        <div className="mx-auto mt-16 max-w-3xl border-t border-border pt-10 text-center">
+          <p className="text-lg font-medium text-foreground">
             Still have questions?
           </p>
 
-          <p className="mt-3 text-zinc-500">
+          <p className="mt-3 text-muted-foreground">
             Join our Discord community and get help from mentors and fellow
             learners.
           </p>

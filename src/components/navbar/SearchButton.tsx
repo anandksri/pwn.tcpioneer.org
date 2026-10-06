@@ -12,9 +12,9 @@ export default function SearchButton({ onClick }: SearchButtonProps) {
       type="button"
       onClick={onClick}
       aria-label="Search"
-      className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-2xl transition-all duration-300"
+      className="group flex h-10 w-10 cursor-pointer items-center justify-center rounded-md border border-border bg-secondary transition-colors hover:border-primary/50 hover:bg-elevated"
     >
-      <Search className="h-5 w-5 text-zinc-400 transition-colors duration-300 group-hover:text-violet-400" />
+      <Search className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
     </button>
   );
 }

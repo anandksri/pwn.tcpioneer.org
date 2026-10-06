@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
 
 import Hero from "@/sections/practice/Hero";

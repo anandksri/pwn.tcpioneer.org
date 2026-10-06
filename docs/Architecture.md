@@ -14,10 +14,16 @@
 The project uses a small Next.js app structure centered around the `src` directory. The current repository includes:
 
 - `src/app` — application routes and global styling
-- `src/components` — reusable UI and page sections
+- `src/components` — reusable UI and domain components
+  - `ui` — shadcn/Base UI primitives
+  - `pwn` — shared PWN domain components
+  - `navbar` — public navigation components
+  - `dashboard` — dashboard-specific components
+  - `auth` — authentication UI
 - `src/context` — client-side state, including auth and sidebar state
 - `src/data` — static data used for dashboard and content sections
-- `src/lib` — app helpers and navigation data
+- `src/lib` — app helpers and integrations
+- `src/utils` — focused utility functions
 - `prisma` — Prisma schema and migration files
 
 ## Authentication
@@ -35,7 +41,11 @@ The UI is componentized into reusable blocks for:
 - Dashboard cards
 - Auth forms
 - Learning sections
-- Reusable button and card primitives
+- Reusable shadcn primitives and PWN domain wrappers
+
+Public page sections are grouped by feature under `src/sections`. Homepage
+sections live in `src/sections/home`, while route-specific sections remain in
+their own feature directories.
 
 ## Design system intent
 The platform is intentionally moving toward a shadcn-inspired design language with a dark developer-focused aesthetic, square corners, minimal borders, compact spacing, and violet accents.

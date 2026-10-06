@@ -5,35 +5,35 @@ import { why } from "@/data/why";
 
 const colors = {
   emerald: {
-    icon: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
-    hover: "hover:border-emerald-500/40",
-    text: "group-hover:text-emerald-400",
+    icon: "text-muted-foreground group-hover:text-primary",
+    bg: "bg-secondary",
+    border: "border-border",
+    hover: "hover:border-primary/50",
+    text: "group-hover:text-primary",
   },
 
   sky: {
-    icon: "text-sky-400",
-    bg: "bg-sky-500/10",
-    border: "border-sky-500/20",
-    hover: "hover:border-sky-500/40",
-    text: "group-hover:text-sky-400",
+    icon: "text-muted-foreground group-hover:text-primary",
+    bg: "bg-secondary",
+    border: "border-border",
+    hover: "hover:border-primary/50",
+    text: "group-hover:text-primary",
   },
 
   violet: {
-    icon: "text-violet-400",
-    bg: "bg-violet-500/10",
-    border: "border-violet-500/20",
-    hover: "hover:border-violet-500/40",
-    text: "group-hover:text-violet-400",
+    icon: "text-muted-foreground group-hover:text-primary",
+    bg: "bg-secondary",
+    border: "border-border",
+    hover: "hover:border-primary/50",
+    text: "group-hover:text-primary",
   },
 
   orange: {
-    icon: "text-orange-400",
-    bg: "bg-orange-500/10",
-    border: "border-orange-500/20",
-    hover: "hover:border-orange-500/40",
-    text: "group-hover:text-orange-400",
+    icon: "text-muted-foreground group-hover:text-primary",
+    bg: "bg-secondary",
+    border: "border-border",
+    hover: "hover:border-primary/50",
+    text: "group-hover:text-primary",
   },
 } as const;
 
@@ -42,15 +42,15 @@ export default function WhyPwn() {
     <section className="py-32">
       <Container>
         <div className="max-w-3xl">
-          <span className="text-sm font-medium tracking-[0.2em] text-violet-400 uppercase">
+          <span className="font-mono text-xs font-medium tracking-[0.16em] text-brand-soft uppercase">
             Why PWN.TCPIONEER
           </span>
 
-          <h2 className="mt-4 text-5xl font-bold text-white">
+          <h2 className="mt-4 text-5xl font-bold text-foreground">
             Built for Practical Learning.
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-zinc-400">
+          <p className="mt-6 text-lg leading-8 text-muted-foreground">
             Learn cybersecurity through structured learning paths, practical
             labs and real-world challenges.
           </p>
@@ -63,34 +63,34 @@ export default function WhyPwn() {
             return (
               <div
                 key={item.title}
-                className={`group cursor-pointer rounded-2xl border border-zinc-800 bg-zinc-950 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-900 ${theme.hover}`}
+                className={`group cursor-pointer rounded-lg border border-border bg-card p-5 transition-colors hover:bg-elevated ${theme.hover}`}
               >
                 {/* Top */}
 
                 <div className="flex items-center gap-4">
                   <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border ${theme.bg} ${theme.border}`}
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md border ${theme.bg} ${theme.border}`}
                   >
                     <item.icon
                       className={`h-5 w-5 transition-all duration-300 group-hover:scale-110 ${theme.icon}`}
                     />
                   </div>
 
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-card-foreground">
                     {item.title}
                   </h3>
                 </div>
 
                 {/* Description */}
 
-                <p className="mt-5 text-sm leading-7 text-zinc-400">
+                <p className="mt-5 text-sm leading-7 text-muted-foreground">
                   {item.description}
                 </p>
 
                 {/* CTA */}
 
                 <div
-                  className={`mt-6 flex items-center gap-2 text-sm font-medium text-zinc-300 transition-colors duration-300 ${theme.text}`}
+                  className={`mt-6 flex items-center gap-2 text-sm font-medium text-secondary-foreground transition-colors ${theme.text}`}
                 >
                   <span>Learn More</span>
 

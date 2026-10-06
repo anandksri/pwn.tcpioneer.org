@@ -60,7 +60,7 @@ export default function MobileMenu({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/70 backdrop-blur-2xl"
+            className="absolute inset-0 bg-black/75"
           />
 
           {/* Popup */}
@@ -84,18 +84,18 @@ export default function MobileMenu({
             transition={{
               duration: 0.25,
             }}
-            className="absolute top-24 left-1/2 w-[92%] max-w-md -translate-x-1/2 overflow-hidden rounded-3xl border border-white/10 bg-zinc-950/95 shadow-2xl backdrop-blur-xl"
+            className="absolute top-24 left-1/2 w-[92%] max-w-md -translate-x-1/2 overflow-hidden rounded-md border border-border bg-popover shadow-lg"
           >
             {/* Header */}
 
-            <div className="flex items-center justify-between border-b border-white/10 p-6">
+            <div className="flex items-center justify-between border-b border-border p-6">
               <Logo />
 
               <button
                 onClick={onClose}
-                className="rounded-xl p-2 transition hover:bg-white/5"
+                className="rounded-sm p-2 transition-colors hover:bg-secondary"
               >
-                <X className="h-5 w-5 text-zinc-300" />
+                <X className="h-5 w-5 text-secondary-foreground" />
               </button>
             </div>
 
@@ -106,7 +106,7 @@ export default function MobileMenu({
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className="w-full max-w-xs rounded-2xl border border-transparent px-4 py-3 text-center text-zinc-300 transition-all duration-300 hover:border-violet-500/30 hover:bg-violet-500/10 hover:text-violet-400"
+                  className="w-full max-w-xs rounded-sm border border-transparent px-4 py-3 text-center text-secondary-foreground transition-colors hover:border-primary/30 hover:bg-secondary hover:text-primary"
                 >
                   {item.name}
                 </Link>
@@ -115,13 +115,13 @@ export default function MobileMenu({
 
             {/* Footer */}
 
-            <div className="space-y-3 border-t border-white/10 p-6">
+            <div className="space-y-3 border-t border-border p-6">
               <button
                 onClick={() => {
                   onSearch();
                   onClose();
                 }}
-                className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 py-3 transition-all duration-300 hover:border-violet-500 hover:bg-violet-500/10"
+                className="flex w-full items-center justify-center gap-2 rounded-md border border-border py-3 transition-colors hover:border-primary hover:bg-secondary"
               >
                 <Search size={18} />
                 Search
@@ -134,7 +134,7 @@ export default function MobileMenu({
                       onLogin();
                       onClose();
                     }}
-                    className="w-full rounded-xl border border-white/10 py-3 transition-all duration-300 hover:border-violet-500 hover:bg-violet-500/10"
+                    className="w-full rounded-md border border-border py-3 transition-colors hover:border-primary hover:bg-secondary"
                   >
                     Login
                   </button>
@@ -142,7 +142,7 @@ export default function MobileMenu({
                   <Link
                     href="/get-started"
                     onClick={onClose}
-                    className="block rounded-xl bg-violet-600 py-3 text-center font-semibold text-white transition-all duration-300 hover:bg-violet-500"
+                    className="block rounded-md bg-primary py-3 text-center font-semibold text-primary-foreground transition-colors hover:bg-brand-hover"
                   >
                     Get Started
                   </Link>

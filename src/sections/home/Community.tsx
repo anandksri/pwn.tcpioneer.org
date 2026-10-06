@@ -15,37 +15,37 @@ const stats = [
     value: "100+",
     label: "Community Members",
     icon: Users,
-    color: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
-    hover: "group-hover:border-emerald-500/40",
+    color: "text-muted-foreground",
+    bg: "bg-secondary",
+    border: "border-border",
+    hover: "group-hover:border-primary/50",
   },
   {
     value: "10+",
     label: "Community Events",
     icon: CalendarDays,
-    color: "text-orange-400",
-    bg: "bg-orange-500/10",
-    border: "border-orange-500/20",
-    hover: "group-hover:border-orange-500/40",
+    color: "text-muted-foreground",
+    bg: "bg-secondary",
+    border: "border-border",
+    hover: "group-hover:border-primary/50",
   },
   {
     value: "24/7",
     label: "Discussions",
     icon: MessageSquare,
-    color: "text-sky-400",
-    bg: "bg-sky-500/10",
-    border: "border-sky-500/20",
-    hover: "group-hover:border-sky-500/40",
+    color: "text-muted-foreground",
+    bg: "bg-secondary",
+    border: "border-border",
+    hover: "group-hover:border-primary/50",
   },
   {
     value: "Weekly",
     label: "CTF Challenges",
     icon: Trophy,
-    color: "text-violet-400",
-    bg: "bg-violet-500/10",
-    border: "border-violet-500/20",
-    hover: "group-hover:border-violet-500/40",
+    color: "text-primary",
+    bg: "bg-primary/10",
+    border: "border-primary/20",
+    hover: "group-hover:border-primary/50",
   },
 ];
 
@@ -70,21 +70,21 @@ export default function Community() {
               return (
                 <div
                   key={item.label}
-                  className="group cursor-pointer rounded-2xl border border-zinc-800 bg-zinc-950 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-900"
+                  className="group cursor-pointer rounded-lg border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:bg-elevated"
                 >
                   <div className="flex items-center gap-4">
                     <div
-                      className={`flex h-11 w-11 items-center justify-center rounded-xl border ${item.bg} ${item.border} ${item.hover} transition-all duration-300`}
+                      className={`flex h-10 w-10 items-center justify-center rounded-md border ${item.bg} ${item.border} ${item.hover} transition-colors`}
                     >
                       <Icon className={`h-5 w-5 ${item.color}`} />
                     </div>
 
                     <div>
-                      <h3 className="text-2xl font-bold text-white">
+                      <h3 className="text-2xl font-bold text-foreground">
                         {item.value}
                       </h3>
 
-                      <p className="mt-1 text-sm text-zinc-500">{item.label}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{item.label}</p>
                     </div>
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export default function Community() {
             <Link
               href="https://discord.gg/tcpioneer"
               target="_blank"
-              className="group mt-8 inline-flex items-center gap-3 rounded-xl bg-[#5865F2] px-8 py-3.5 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-[#4752C4]"
+              className="group mt-8 inline-flex items-center gap-3 rounded-md bg-primary px-8 py-3.5 font-semibold text-primary-foreground transition-colors hover:bg-brand-hover"
             >
               Join Discord
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
