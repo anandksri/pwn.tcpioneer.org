@@ -92,7 +92,7 @@ export default function Hero() {
             </span>
 
             <div className="flex h-10 w-6 justify-center rounded-sm border border-border p-1">
-              <div className="h-2 w-2 rounded-full bg-primary" />
+              <div className="h-2 w-2 rounded-md bg-primary" />
             </div>
           </div>
         </div>

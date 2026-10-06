@@ -11,20 +11,20 @@ import {
 
 export default function Mission() {
   return (
-    <section className="bg-[#09090B] py-16">
+    <section className="bg-background py-16">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
+          <span className="text-sm font-semibold tracking-[0.3em] text-brand-soft uppercase">
             OUR MISSION
           </span>
 
-          <h2 className="mt-5 text-4xl font-bold text-white lg:text-5xl">
+          <h2 className="mt-5 text-4xl font-bold text-foreground lg:text-5xl">
             Learn. Practice.
             <br />
             Grow. Contribute.
           </h2>
 
-          <p className="mt-8 text-lg leading-9 text-zinc-400">
+          <p className="mt-8 text-lg leading-9 text-secondary-foreground">
             Our mission is to empower every learner with the knowledge,
             practical skills and community support needed to thrive in the
             ever-evolving world of cybersecurity.
@@ -47,7 +47,7 @@ export default function Mission() {
               />
 
               <div className="hidden items-center justify-center xl:flex">
-                <ArrowRight className="h-8 w-8 text-violet-500/60" />
+                <ArrowRight className="h-8 w-8 text-primary/60" />
               </div>
 
               {/* Practice */}

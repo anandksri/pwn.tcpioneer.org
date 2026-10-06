@@ -61,24 +61,24 @@ const community = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-800 py-10">
+    <footer className="border-t border-border py-10">
       <Container>
         <div className="grid gap-16 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Brand */}
 
           <div>
             <Link href="/" className="text-3xl font-bold tracking-[0.10em]">
-              <span className="text-white">PWN.</span>
+              <span className="text-foreground">PWN.</span>
 
-              <span className="text-violet-400">TCPIONEER</span>
+              <span className="text-primary">TCPIONEER</span>
             </Link>
 
-            <p className="mt-6 max-w-md leading-8 text-zinc-400">
+            <p className="mt-6 max-w-md leading-8 text-muted-foreground">
               A modern cybersecurity learning platform focused on structured
               learning, hands-on practice and community-driven education.
             </p>
 
-            <p className="mt-8 text-sm font-medium tracking-wide text-zinc-500">
+            <p className="mt-8 text-sm font-medium tracking-wide text-subtle-foreground">
               Learn • Practice • Build • Secure
             </p>
           </div>
@@ -86,14 +86,14 @@ export default function Footer() {
           {/* Platform */}
 
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-white">Platform</h3>
+            <h3 className="mb-6 text-lg font-semibold text-foreground">Platform</h3>
 
             <div className="space-y-4">
               {platform.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block text-zinc-400 transition hover:text-violet-400"
+                  className="block text-muted-foreground transition-colors hover:text-primary"
                 >
                   {item.label}
                 </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
           {/* TCP Ecosystem */}
 
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-white">
+            <h3 className="mb-6 text-lg font-semibold text-foreground">
               TCP Ecosystem
             </h3>
 
@@ -115,7 +115,7 @@ export default function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-zinc-400 transition hover:text-violet-400"
+                  className="block text-muted-foreground transition-colors hover:text-primary"
                 >
                   {item.label}
                 </Link>
@@ -125,7 +125,7 @@ export default function Footer() {
 
           {/* Community */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-white">Community</h3>
+            <h3 className="mb-6 text-lg font-semibold text-foreground">Community</h3>
 
             <div className="space-y-4">
               {community.map((item) => (
@@ -134,7 +134,7 @@ export default function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-zinc-400 transition hover:text-violet-400"
+                  className="block text-muted-foreground transition-colors hover:text-primary"
                 >
                   {item.label}
                 </Link>
@@ -145,29 +145,29 @@ export default function Footer() {
 
         {/* Bottom */}
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-6 border-t border-zinc-800 pt-8 text-sm md:flex-row">
-          <p className="text-zinc-500">
+        <div className="mt-10 flex flex-col items-center justify-between gap-6 border-t border-border pt-8 text-sm md:flex-row">
+          <p className="text-subtle-foreground">
             © {new Date().getFullYear()} TCPioneer. All Rights Reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
             <Link
               href="https://tcpioneer.org/privacy"
-              className="text-zinc-500 transition hover:text-white"
+              className="text-subtle-foreground transition-colors hover:text-foreground"
             >
               Privacy
             </Link>
 
             <Link
               href="https://tcpioneer.org/terms"
-              className="text-zinc-500 transition hover:text-white"
+              className="text-subtle-foreground transition-colors hover:text-foreground"
             >
               Terms
             </Link>
 
             <Link
               href="https://tcpioneer.org/contact"
-              className="text-zinc-500 transition hover:text-white"
+              className="text-subtle-foreground transition-colors hover:text-foreground"
             >
               Contact
             </Link>
@@ -175,7 +175,7 @@ export default function Footer() {
             <Link
               href="https://tcpioneer.org"
               target="_blank"
-              className="text-violet-400 transition hover:text-violet-300"
+              className="text-primary transition-colors hover:text-brand-soft"
             >
               Visit Main Website →
             </Link>

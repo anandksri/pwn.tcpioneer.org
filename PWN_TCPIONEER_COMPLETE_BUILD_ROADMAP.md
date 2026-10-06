@@ -60,9 +60,9 @@ Muted #71717A
 - [x] Dark theme is default
 - [x] Soft white instead of pure white for normal text
 - [x] Violet is primary brand accent
-- [ ] Remove remaining inconsistent direct colors
-- [ ] Remove unnecessary gradients/glows
-- [ ] Normalize excessive rounded cards/pills
+- [x] Remove remaining inconsistent direct colors
+- [x] Remove unnecessary gradients/glows
+- [x] Normalize excessive rounded cards/pills
 
 ## Phase 3 — Shared PWN Components
 - [x] Finalize `PwnButton`

@@ -35,12 +35,12 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
   }, [password]);
 
   const strengthColor = [
-    "bg-zinc-800",
-    "bg-red-500",
-    "bg-orange-500",
-    "bg-yellow-500",
+    "bg-elevated",
+    "bg-destructive",
+    "bg-warning",
+    "bg-info",
     "bg-emerald-500",
-    "bg-green-500",
+    "bg-success",
   ][strength];
 
   const strengthText = [
@@ -132,12 +132,12 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
 
           <div>
             <div className="mb-2 flex items-center justify-between">
-              <span className="text-xs text-zinc-500">Password Strength</span>
+              <span className="text-xs text-subtle-foreground">Password Strength</span>
 
-              <span className="text-xs text-zinc-400">{strengthText}</span>
+              <span className="text-xs text-secondary-foreground">{strengthText}</span>
             </div>
 
-            <div className="h-1.5 overflow-hidden rounded-full bg-zinc-800">
+            <div className="h-1.5 overflow-hidden rounded-full bg-elevated">
               <div
                 className={`h-full transition-all duration-500 ${strengthColor}`}
                 style={{
@@ -150,10 +150,10 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
           <button
             type="submit"
             disabled={loading || !agreed || password !== confirmPassword}
-            className={`w-full rounded-xl py-2.5 font-semibold transition-all duration-300 ${
+            className={`w-full rounded-md py-2.5 font-semibold transition-all duration-300 ${
               agreed && password === confirmPassword
-                ? "bg-violet-600 text-white hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20"
-                : "cursor-not-allowed bg-zinc-800 text-zinc-500"
+                ? "bg-primary text-foreground hover:bg-primary hover:shadow-lg"
+                : "cursor-not-allowed bg-elevated text-subtle-foreground"
             } `}
           >
             {loading ? (
@@ -167,7 +167,7 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
           </button>
         </div>{" "}
         {/* RIGHT COLUMN (Desktop Only) */}
-        <div className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center lg:border-l lg:border-white/10 lg:px-8">
+        <div className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center lg:border-l lg:border-border/50 lg:px-8">
           <SocialLogin />
 
           <label className="mt-8 flex items-start gap-3">
@@ -175,15 +175,15 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
               type="checkbox"
               checked={agreed}
               onChange={(e) => setAgreed(e.target.checked)}
-              className="mt-1 h-4 w-4 rounded border-zinc-700 bg-zinc-900 accent-violet-600"
+              className="mt-1 h-4 w-4 rounded border-border bg-card accent-primary"
             />
 
-            <span className="text-sm leading-6 text-zinc-400">
+            <span className="text-sm leading-6 text-secondary-foreground">
               I agree to the{" "}
               <Link
                 href="https://tcpioneer.org/terms"
                 target="_blank"
-                className="font-medium text-violet-400 underline underline-offset-4 hover:text-violet-300"
+                className="font-medium text-brand-soft underline underline-offset-4 hover:text-brand-soft"
               >
                 Terms of Service
               </Link>{" "}
@@ -191,20 +191,20 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
               <Link
                 href="https://tcpioneer.org/privacy"
                 target="_blank"
-                className="font-medium text-violet-400 underline underline-offset-4 hover:text-violet-300"
+                className="font-medium text-brand-soft underline underline-offset-4 hover:text-brand-soft"
               >
                 Privacy Policy
               </Link>
             </span>
           </label>
 
-          <div className="mt-8 border-t border-white/10 pt-6">
-            <p className="text-sm text-zinc-400">Already have an account?</p>
+          <div className="mt-8 border-t border-border/50 pt-6">
+            <p className="text-sm text-secondary-foreground">Already have an account?</p>
 
             <button
               type="button"
               onClick={onLogin}
-              className="mt-2 text-sm font-semibold text-violet-400 transition hover:text-violet-300"
+              className="mt-2 text-sm font-semibold text-brand-soft transition hover:text-brand-soft"
             >
               Login
             </button>
@@ -220,21 +220,21 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
             type="checkbox"
             checked={agreed}
             onChange={(e) => setAgreed(e.target.checked)}
-            className="mt-1 h-4 w-4 rounded border-zinc-700 bg-zinc-900 accent-violet-600"
+            className="mt-1 h-4 w-4 rounded border-border bg-card accent-primary"
           />
 
-          <span className="text-sm leading-6 text-zinc-400">
+          <span className="text-sm leading-6 text-secondary-foreground">
             I agree to the{" "}
             <button
               type="button"
-              className="font-medium text-violet-400 hover:text-violet-300"
+              className="font-medium text-brand-soft hover:text-brand-soft"
             >
               Terms of Service
             </button>{" "}
             and{" "}
             <button
               type="button"
-              className="font-medium text-violet-400 hover:text-violet-300"
+              className="font-medium text-brand-soft hover:text-brand-soft"
             >
               Privacy Policy
             </button>
@@ -242,23 +242,23 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
         </label>
 
         <div className="flex items-center gap-4">
-          <div className="h-px flex-1 bg-zinc-800" />
+          <div className="h-px flex-1 bg-elevated" />
 
-          <span className="text-xs tracking-[0.3em] text-zinc-500 uppercase">
+          <span className="text-xs tracking-[0.3em] text-subtle-foreground uppercase">
             OR
           </span>
 
-          <div className="h-px flex-1 bg-zinc-800" />
+          <div className="h-px flex-1 bg-elevated" />
         </div>
 
         <SocialLogin />
 
-        <p className="text-center text-sm text-zinc-400">
+        <p className="text-center text-sm text-secondary-foreground">
           Already have an account?{" "}
           <button
             type="button"
             onClick={onLogin}
-            className="font-semibold text-violet-400 hover:text-violet-300"
+            className="font-semibold text-brand-soft hover:text-brand-soft"
           >
             Login
           </button>

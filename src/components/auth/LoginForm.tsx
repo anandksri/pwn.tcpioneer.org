@@ -72,7 +72,7 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
         <button
           type="button"
           onClick={onForgotPassword}
-          className="text-sm font-medium text-violet-400 transition hover:text-violet-300"
+          className="text-sm font-medium text-brand-soft transition hover:text-brand-soft"
         >
           Forgot Password?
         </button>
@@ -81,7 +81,7 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-xl bg-violet-600 py-3 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20"
+        className="w-full rounded-md bg-primary py-3 font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:shadow-lg"
       >
         {loading ? "Logging in..." : "Login"}
       </button>
@@ -89,23 +89,23 @@ export default function LoginForm({ onRegister, onForgotPassword }: Props) {
       {/* Divider */}
 
       <div className="flex items-center gap-4">
-        <div className="h-px flex-1 bg-zinc-800" />
+        <div className="h-px flex-1 bg-elevated" />
 
-        <span className="text-xs tracking-[0.3em] text-zinc-500 uppercase">
+        <span className="text-xs tracking-[0.3em] text-subtle-foreground uppercase">
           OR
         </span>
 
-        <div className="h-px flex-1 bg-zinc-800" />
+        <div className="h-px flex-1 bg-elevated" />
       </div>
 
       <SocialLogin />
 
-      <p className="pt-2 text-center text-sm text-zinc-400">
+      <p className="pt-2 text-center text-sm text-secondary-foreground">
         Don&apos;t have an account?{" "}
         <button
           type="button"
           onClick={onRegister}
-          className="font-semibold text-violet-400 transition hover:text-violet-300"
+          className="font-semibold text-brand-soft transition hover:text-brand-soft"
         >
           Create Account
         </button>

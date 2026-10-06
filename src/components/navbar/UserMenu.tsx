@@ -89,7 +89,7 @@ export default function UserMenu() {
               <div>
                 <h2 className="font-semibold">{user.username}</h2>
 
-                <p className="text-sm text-zinc-500">{user.email}</p>
+                <p className="text-sm text-subtle-foreground">{user.email}</p>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function UserMenu() {
           <div className="border-t border-border p-2">
             <button
               onClick={handleLogout}
-              className="flex w-full items-center gap-3 rounded-sm px-4 py-3 text-red-400 transition-colors hover:bg-red-500/10"
+              className="flex w-full items-center gap-3 rounded-sm px-4 py-3 text-destructive transition-colors hover:bg-destructive/10"
             >
               <LogOut size={18} />
               Logout

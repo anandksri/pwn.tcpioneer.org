@@ -107,7 +107,7 @@ export default function AnimatedText({
               }}
             >
               <span
-                className={`bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent transition-all duration-200 ${
+                className={`text-primary transition-all duration-200 ${
                   finished ? "" : "blur-[0.4px]"
                 } `}
               >

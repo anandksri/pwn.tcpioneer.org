@@ -47,7 +47,7 @@ export default function WelcomeBanner() {
           </div>
         </div>
 
-        <button className="inline-flex items-center justify-center gap-2 border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#7C3AED]">
+        <button className="inline-flex items-center justify-center gap-2 border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-hover">
           Continue Learning
           <ArrowRight className="h-4 w-4" />
         </button>

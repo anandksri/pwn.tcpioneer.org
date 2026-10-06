@@ -2,10 +2,10 @@ import Container from "@/components/Container";
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#09090B] pt-36 pb-24">
+    <section className="relative isolate overflow-hidden bg-background pt-36 pb-24">
       {/* Background */}
 
-      <div className="absolute inset-0 -z-50 bg-[#09090B]" />
+      <div className="absolute inset-0 -z-50 bg-background" />
 
       {/* Grid */}
 
@@ -22,34 +22,32 @@ export default function Hero() {
 
       {/* Top Fade */}
 
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#09090B] to-transparent" />
 
       {/* Bottom Fade */}
 
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#09090B] to-transparent" />
 
       <Container>
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           {/* Badge */}
 
-          <span className="rounded-full border border-violet-500/20 bg-violet-500/10 px-5 py-2 text-xs font-semibold tracking-[0.35em] text-violet-400 uppercase">
+          <span className="rounded-md border border-primary/20 bg-primary/10 px-5 py-2 text-xs font-semibold tracking-[0.35em] text-brand-soft uppercase">
             About PWN
           </span>
 
           {/* Heading */}
 
-          <h1 className="mt-8 text-5xl leading-tight font-black text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-8 text-5xl leading-tight font-black text-foreground sm:text-6xl lg:text-7xl">
             Building the Future of
-            <span className="block bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent">
+            <span className="block text-brand-soft">
               Cybersecurity Learning
             </span>
           </h1>
 
           {/* Description */}
 
-          <p className="mt-8 max-w-3xl text-lg leading-9 text-zinc-400">
+          <p className="mt-8 max-w-3xl text-lg leading-9 text-secondary-foreground">
             PWN is an open cybersecurity learning platform created by
-            <span className="font-semibold text-violet-400">
+            <span className="font-semibold text-brand-soft">
               {" "}
               TC Pioneer
             </span>{" "}
@@ -60,7 +58,7 @@ export default function Hero() {
 
           {/* Divider */}
 
-          <div className="mt-12 h-px w-40 bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
+          <div className="mt-12 h-px w-40 bg-primary" />
         </div>
       </Container>
     </section>

@@ -29,7 +29,6 @@ const colors = {
     border: "border-emerald-500/20",
     hover: "hover:border-emerald-500/40",
     text: "group-hover:text-emerald-400",
-    glow: "hover:shadow-[0_20px_45px_rgba(16,185,129,.12)]",
   },
 
   sky: {
@@ -38,25 +37,22 @@ const colors = {
     border: "border-sky-500/20",
     hover: "hover:border-sky-500/40",
     text: "group-hover:text-sky-400",
-    glow: "hover:shadow-[0_20px_45px_rgba(14,165,233,.12)]",
   },
 
   violet: {
-    icon: "text-violet-400",
-    bg: "bg-violet-500/10",
-    border: "border-violet-500/20",
-    hover: "hover:border-violet-500/40",
-    text: "group-hover:text-violet-400",
-    glow: "hover:shadow-[0_20px_45px_rgba(139,92,246,.12)]",
+    icon: "text-brand-soft",
+    bg: "bg-primary/10",
+    border: "border-primary/20",
+    hover: "hover:border-primary/40",
+    text: "group-hover:text-brand-soft",
   },
 
   orange: {
-    icon: "text-orange-400",
-    bg: "bg-orange-500/10",
-    border: "border-orange-500/20",
-    hover: "hover:border-orange-500/40",
-    text: "group-hover:text-orange-400",
-    glow: "hover:shadow-[0_20px_45px_rgba(249,115,22,.12)]",
+    icon: "text-warning",
+    bg: "bg-warning/10",
+    border: "border-warning/20",
+    hover: "hover:border-warning/40",
+    text: "group-hover:text-warning",
   },
 
   rose: {
@@ -65,7 +61,6 @@ const colors = {
     border: "border-rose-500/20",
     hover: "hover:border-rose-500/40",
     text: "group-hover:text-rose-400",
-    glow: "hover:shadow-[0_20px_45px_rgba(244,63,94,.12)]",
   },
 
   amber: {
@@ -74,7 +69,6 @@ const colors = {
     border: "border-amber-500/20",
     hover: "hover:border-amber-500/40",
     text: "group-hover:text-amber-400",
-    glow: "hover:shadow-[0_20px_45px_rgba(245,158,11,.12)]",
   },
 };
 
@@ -120,11 +114,11 @@ export default function ResourceCard({
 
   return (
     <div
-      className={`group rounded-2xl border border-zinc-800 bg-[#111114] p-5 transition-all duration-300 hover:-translate-y-2 hover:bg-[#18181d] ${theme.hover} ${theme.glow}`}
+      className={`group rounded-lg border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-2 hover:bg-secondary ${theme.hover}`}
     >
       <div className="flex items-center justify-between">
         <div
-          className={`flex h-12 w-12 items-center justify-center rounded-xl border ${theme.bg} ${theme.border}`}
+          className={`flex h-12 w-12 items-center justify-center rounded-md border ${theme.bg} ${theme.border}`}
         >
           <Icon
             className={`h-6 w-6 transition-transform duration-300 group-hover:scale-110 ${theme.icon}`}
@@ -132,29 +126,29 @@ export default function ResourceCard({
         </div>
 
         <span
-          className={`rounded-full border px-3 py-1 text-xs font-medium ${theme.bg} ${theme.border} ${theme.icon}`}
+          className={`rounded-md border px-3 py-1 text-xs font-medium ${theme.bg} ${theme.border} ${theme.icon}`}
         >
           {category}
         </span>
       </div>
 
       <h3
-        className={`mt-5 text-xl font-semibold text-white transition-colors duration-300 ${theme.text}`}
+        className={`mt-5 text-xl font-semibold text-foreground transition-colors duration-300 ${theme.text}`}
       >
         {title}
       </h3>
 
-      <p className="mt-3 line-clamp-2 text-sm leading-6 text-zinc-400">
+      <p className="mt-3 line-clamp-2 text-sm leading-6 text-secondary-foreground">
         {description}
       </p>
 
-      <div className="my-5 h-px bg-zinc-800" />
+      <div className="my-5 h-px bg-elevated" />
 
       <Link
         href={href}
         target={type === "link" ? "_blank" : undefined}
         rel={type === "link" ? "noopener noreferrer" : undefined}
-        className={`inline-flex items-center gap-2 font-medium text-zinc-300 transition-all duration-300 ${theme.text}`}
+        className={`inline-flex items-center gap-2 font-medium text-secondary-foreground transition-all duration-300 ${theme.text}`}
       >
         {action.text}
 

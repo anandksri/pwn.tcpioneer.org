@@ -64,7 +64,7 @@ export default function AuthModal({ open, onClose }: Props) {
               duration: 0.2,
             }}
             onClick={handleClose}
-            className="fixed inset-0 z-[90] bg-black/70 backdrop-blur-md"
+            className="fixed inset-0 z-[90] bg-background/70 backdrop-blur-md"
           />
 
           <motion.div
@@ -90,19 +90,19 @@ export default function AuthModal({ open, onClose }: Props) {
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
           >
             <div
-              className={`relative w-full overflow-hidden rounded-3xl border border-white/10 bg-[#111114] shadow-2xl transition-all duration-300 ${
+              className={`relative w-full overflow-hidden rounded-lg border border-border/50 bg-card shadow-2xl transition-all duration-300 ${
                 view === "register" ? "max-w-sm lg:max-w-2xl" : "max-w-sm"
               }`}
             >
               <button
                 onClick={handleClose}
-                className="absolute top-5 right-5 z-20 rounded-xl p-2 text-zinc-500 transition hover:bg-zinc-800 hover:text-white"
+                className="absolute top-5 right-5 z-20 rounded-md p-2 text-subtle-foreground transition hover:bg-elevated hover:text-foreground"
               >
                 <X className="h-5 w-5" />
               </button>
 
-              <div className="border-b border-zinc-800 p-6">
-                <h2 className="mt-6 text-center text-xl font-bold text-white">
+              <div className="border-b border-border p-6">
+                <h2 className="mt-6 text-center text-xl font-bold text-foreground">
                   {titles[view]}
                 </h2>
               </div>

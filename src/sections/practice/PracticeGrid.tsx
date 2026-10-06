@@ -14,28 +14,28 @@ export default function PracticeGrid({ selectedCategory }: Props) {
       : practice.filter((item) => item.category === selectedCategory);
 
   return (
-    <section className="bg-[#09090B] py-16">
+    <section className="bg-background py-16">
       <Container>
         {/* Heading */}
 
         <div className="mb-12 flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
+            <span className="text-sm font-semibold tracking-[0.3em] text-brand-soft uppercase">
               Hands-on Labs
             </span>
 
-            <h2 className="mt-4 text-4xl font-bold text-white">
+            <h2 className="mt-4 text-4xl font-bold text-foreground">
               Browse Practice
             </h2>
 
-            <p className="mt-4 max-w-2xl leading-8 text-zinc-400">
+            <p className="mt-4 max-w-2xl leading-8 text-secondary-foreground">
               Build real-world cybersecurity skills through interactive labs,
               Capture The Flag challenges and guided practice environments
               covering web security, networking, Linux, Windows and more.
             </p>
           </div>
 
-          <span className="hidden text-sm text-zinc-500 lg:block">
+          <span className="hidden text-sm text-subtle-foreground lg:block">
             {filteredPractice.length} Labs
           </span>
         </div>
@@ -61,10 +61,10 @@ export default function PracticeGrid({ selectedCategory }: Props) {
         {/* Empty State */}
 
         {filteredPractice.length === 0 && (
-          <div className="mt-12 rounded-2xl border border-dashed border-zinc-800 py-20 text-center">
-            <h3 className="text-xl font-semibold text-white">No labs found</h3>
+          <div className="mt-12 rounded-lg border border-dashed border-border py-20 text-center">
+            <h3 className="text-xl font-semibold text-foreground">No labs found</h3>
 
-            <p className="mt-3 text-zinc-500">
+            <p className="mt-3 text-subtle-foreground">
               Try selecting another category.
             </p>
           </div>

@@ -24,7 +24,7 @@ export default function LoginModal({ open, onClose }: Props) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="fixed inset-0 z-[90] bg-black/70 backdrop-blur-md"
+            className="fixed inset-0 z-[90] bg-background/70 backdrop-blur-md"
           />
 
           {/* Modal */}
@@ -51,12 +51,12 @@ export default function LoginModal({ open, onClose }: Props) {
             }}
             className="fixed top-1/2 left-1/2 z-[100] w-[92%] max-w-md -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="relative rounded-3xl border border-white/10 bg-[#111114] p-8 shadow-2xl">
+            <div className="relative rounded-lg border border-border/50 bg-card p-8 shadow-2xl">
               {/* Close */}
 
               <button
                 onClick={onClose}
-                className="absolute top-5 right-5 rounded-xl p-2 text-zinc-400 transition hover:bg-zinc-800 hover:text-white"
+                className="absolute top-5 right-5 rounded-md p-2 text-secondary-foreground transition hover:bg-elevated hover:text-foreground"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -64,15 +64,15 @@ export default function LoginModal({ open, onClose }: Props) {
               {/* Logo */}
 
               <div className="text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-violet-500/10">
-                  <span className="text-2xl font-black text-violet-400">P</span>
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-primary/10">
+                  <span className="text-2xl font-black text-brand-soft">P</span>
                 </div>
 
-                <h2 className="mt-6 text-3xl font-bold text-white">
+                <h2 className="mt-6 text-3xl font-bold text-foreground">
                   Welcome Back
                 </h2>
 
-                <p className="mt-3 text-zinc-400">
+                <p className="mt-3 text-secondary-foreground">
                   Sign in to continue your cybersecurity journey.
                 </p>
               </div>
@@ -82,20 +82,20 @@ export default function LoginModal({ open, onClose }: Props) {
               </div>
 
               <div className="my-8 flex items-center gap-4">
-                <div className="h-px flex-1 bg-zinc-800" />
+                <div className="h-px flex-1 bg-elevated" />
 
-                <span className="text-xs tracking-[0.3em] text-zinc-500 uppercase">
+                <span className="text-xs tracking-[0.3em] text-subtle-foreground uppercase">
                   OR
                 </span>
 
-                <div className="h-px flex-1 bg-zinc-800" />
+                <div className="h-px flex-1 bg-elevated" />
               </div>
 
               <SocialLogin />
 
-              <p className="mt-8 text-center text-sm text-zinc-400">
+              <p className="mt-8 text-center text-sm text-secondary-foreground">
                 Don&apos;t have an account?{" "}
-                <button className="font-semibold text-violet-400 hover:text-violet-300">
+                <button className="font-semibold text-brand-soft hover:text-brand-soft">
                   Create Account
                 </button>
               </p>

@@ -15,16 +15,16 @@ export default function SidebarToggle() {
         w-12
         items-center
         justify-center
-        rounded-2xl
+        rounded-lg
         border
-        border-zinc-800
-        bg-zinc-900/50
-        text-zinc-400
+        border-border
+        bg-card/50
+        text-secondary-foreground
         transition-all
         duration-300
-        hover:border-violet-500/30
-        hover:bg-zinc-800
-        hover:text-white
+        hover:border-primary/30
+        hover:bg-elevated
+        hover:text-foreground
       "
       aria-label="Toggle sidebar"
     >

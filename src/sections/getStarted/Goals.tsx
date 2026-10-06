@@ -6,7 +6,7 @@ import { careerPaths } from "@/data/careerPaths";
 
 export default function Goals() {
   return (
-    <section className="bg-[#09090B] lg:py-6">
+    <section className="bg-background lg:py-6">
       <Container>
         {/* Cards */}
 

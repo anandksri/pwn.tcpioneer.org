@@ -23,7 +23,7 @@ export default function StatsCard({
   const Icon = icons[icon as keyof typeof icons];
 
   return (
-    <div className="border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:bg-[#121214]">
+    <div className="border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:bg-secondary">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-sm text-muted-foreground">{title}</p>

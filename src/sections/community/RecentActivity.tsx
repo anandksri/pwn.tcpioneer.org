@@ -13,50 +13,46 @@ const icons = {
 
 const colors = {
   Workshop: {
-    icon: "text-violet-400 bg-violet-500/10 border-violet-500/20",
-    hoverBorder: "hover:border-violet-500/40",
-    hoverText: "group-hover:text-violet-400",
-    glow: "hover:shadow-[0_15px_35px_rgba(139,92,246,.12)]",
+    icon: "text-brand-soft bg-primary/10 border-primary/20",
+    hoverBorder: "hover:border-primary/40",
+    hoverText: "group-hover:text-brand-soft",
   },
 
   CTF: {
     icon: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
     hoverBorder: "hover:border-emerald-500/40",
     hoverText: "group-hover:text-emerald-400",
-    glow: "hover:shadow-[0_15px_35px_rgba(16,185,129,.12)]",
   },
 
   Learning: {
     icon: "text-sky-400 bg-sky-500/10 border-sky-500/20",
     hoverBorder: "hover:border-sky-500/40",
     hoverText: "group-hover:text-sky-400",
-    glow: "hover:shadow-[0_15px_35px_rgba(14,165,233,.12)]",
   },
 
   Community: {
-    icon: "text-orange-400 bg-orange-500/10 border-orange-500/20",
-    hoverBorder: "hover:border-orange-500/40",
-    hoverText: "group-hover:text-orange-400",
-    glow: "hover:shadow-[0_15px_35px_rgba(249,115,22,.12)]",
+    icon: "text-warning bg-warning/10 border-warning/20",
+    hoverBorder: "hover:border-warning/40",
+    hoverText: "group-hover:text-warning",
   },
 };
 
 export default function RecentActivity() {
   return (
-    <section className="bg-[#09090B] py-14">
+    <section className="bg-background py-14">
       <Container>
         <div className="flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
+            <span className="text-sm font-semibold tracking-[0.15em] text-brand-soft uppercase">
               Recent Activity
             </span>
 
-            <h2 className="mt-4 text-4xl font-bold text-white">
+            <h2 className="mt-4 text-4xl font-bold text-foreground">
               Whats happening now
             </h2>
           </div>
 
-          <button className="cursor-pointer text-sm font-medium text-zinc-400 transition-colors duration-300 hover:text-violet-400">
+          <button className="cursor-pointer text-sm font-medium text-secondary-foreground transition-colors duration-300 hover:text-brand-soft">
             View All →
           </button>
         </div>
@@ -69,13 +65,13 @@ export default function RecentActivity() {
             return (
               <div
                 key={index}
-                className={`group flex cursor-pointer items-start justify-between rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-[#18181d] ${theme.hoverBorder} ${theme.glow}`}
+                className={`group flex cursor-pointer items-start justify-between rounded-lg border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-secondary ${theme.hoverBorder}`}
               >
                 <div className="flex items-start gap-5">
                   {/* Icon */}
 
                   <div
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 ${theme.icon}`}
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-md border transition-all duration-300 ${theme.icon}`}
                   >
                     <Icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                   </div>
@@ -84,12 +80,12 @@ export default function RecentActivity() {
 
                   <div>
                     <h3
-                      className={`text-lg font-semibold text-white transition-colors duration-300 ${theme.hoverText}`}
+                      className={`text-lg font-semibold text-foreground transition-colors duration-300 ${theme.hoverText}`}
                     >
                       {activity.title}
                     </h3>
 
-                    <p className="mt-2 max-w-2xl leading-7 text-zinc-400">
+                    <p className="mt-2 max-w-2xl leading-7 text-secondary-foreground">
                       {activity.description}
                     </p>
                   </div>
@@ -97,7 +93,7 @@ export default function RecentActivity() {
 
                 {/* Time */}
 
-                <span className="ml-8 text-sm whitespace-nowrap text-zinc-500">
+                <span className="ml-8 text-sm whitespace-nowrap text-subtle-foreground">
                   {activity.time}
                 </span>
               </div>

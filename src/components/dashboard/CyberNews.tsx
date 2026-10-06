@@ -70,7 +70,7 @@ export default function CyberNews() {
         ))}
       </div>
 
-      <button className="mt-6 w-full border border-border bg-secondary px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-[#1a1a1e]">
+      <button className="mt-6 w-full border border-border bg-secondary px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-elevated">
         View All News
       </button>
     </section>

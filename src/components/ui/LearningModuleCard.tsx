@@ -33,7 +33,7 @@ export default function LearningModuleCard({
 }: LearningModuleCardProps) {
   const badge =
     difficultyColors[difficulty as keyof typeof difficultyColors] ??
-    "bg-violet-500/10 border-violet-500/20 text-violet-400";
+    "bg-primary/10 border-primary/20 text-brand-soft";
 
   return (
     <Link

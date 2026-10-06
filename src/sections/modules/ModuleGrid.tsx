@@ -13,22 +13,22 @@ export default function ModuleGrid({ selectedCategory }: Props) {
       : modules.filter((module) => module.category === selectedCategory);
 
   return (
-    <section className="bg-[#09090B] py-16">
+    <section className="bg-background py-16">
       <Container>
         {/* Heading */}
 
         <div className="mb-12 flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
+            <span className="text-sm font-semibold tracking-[0.3em] text-brand-soft uppercase">
               Learning Paths
             </span>
 
-            <h2 className="mt-4 text-4xl font-bold text-white">
+            <h2 className="mt-4 text-4xl font-bold text-foreground">
               Browse Modules
             </h2>
           </div>
 
-          <span className="hidden text-sm text-zinc-500 lg:block">
+          <span className="hidden text-sm text-subtle-foreground lg:block">
             {filteredModules.length} Modules
           </span>
         </div>

@@ -80,7 +80,7 @@ export default function ThePath() {
                   {index !== path.length - 1 && (
                     <div className="absolute top-10 -right-6 hidden items-center lg:flex">
                       <div
-                        className={`h-px w-12 bg-zinc-700 transition-colors duration-300 ${theme.line}`}
+                        className={`h-px w-12 bg-border transition-colors duration-300 ${theme.line}`}
                       />
 
                       <div

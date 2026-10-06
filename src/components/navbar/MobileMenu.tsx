@@ -60,7 +60,7 @@ export default function MobileMenu({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/75"
+            className="absolute inset-0 bg-background/75"
           />
 
           {/* Popup */}

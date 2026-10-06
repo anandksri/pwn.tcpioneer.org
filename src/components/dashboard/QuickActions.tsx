@@ -57,7 +57,7 @@ export default function QuickActions() {
                 p-4
                 transition-colors
                 hover:border-primary/40
-                hover:bg-[#1a1a1e]
+                hover:bg-elevated
               "
             >
               <div className="flex items-center gap-4">
