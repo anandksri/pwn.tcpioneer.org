@@ -1,10 +1,36 @@
-export default function NotificationsPage() {
+import { redirect } from "next/navigation";
+
+import NotificationList from "@/components/notifications/NotificationList";
+import { getCurrentUser } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
+
+export default async function NotificationsPage() {
+  const user = await getCurrentUser();
+  if (!user) redirect("/");
+
+  const notifications = await prisma.notification.findMany({
+    where: { userId: user.id },
+    orderBy: { createdAt: "desc" },
+    take: 50,
+    select: {
+      id: true,
+      title: true,
+      message: true,
+      href: true,
+      readAt: true,
+      createdAt: true,
+    },
+  });
+
   return (
-    <div className="space-y-3">
-      <h1 className="text-4xl font-bold text-foreground">Notifications</h1>
-      <p className="text-secondary-foreground">
-        You&apos;re all caught up. New notifications will appear here.
-      </p>
-    </div>
+    <NotificationList
+      notifications={notifications.map((notification) => ({
+        ...notification,
+        readAt: notification.readAt?.toISOString() ?? null,
+        createdAt: notification.createdAt.toISOString(),
+      }))}
+    />
   );
 }

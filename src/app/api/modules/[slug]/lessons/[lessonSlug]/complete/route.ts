@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getCurrentUser } from "@/lib/auth";
+import { createNotification } from "@/lib/notifications";
 import { prisma } from "@/lib/prisma";
 import { apiError } from "@/utils/api-error";
 
@@ -34,6 +35,11 @@ export async function POST(
         { status: 404 },
       );
     }
+
+    const existingProgress = await prisma.lessonProgress.findUnique({
+      where: { userId_lessonId: { userId: user.id, lessonId: lesson.id } },
+      select: { completedAt: true },
+    });
 
     await prisma.lessonProgress.upsert({
       where: { userId_lessonId: { userId: user.id, lessonId: lesson.id } },
@@ -72,6 +78,15 @@ export async function POST(
         completedAt: completed ? new Date() : null,
       },
     });
+
+    if (!existingProgress?.completedAt) {
+      await createNotification({
+        userId: user.id,
+        title: "Lesson completed",
+        message: "Your lesson progress has been saved.",
+        href: `/modules/${slug}/lessons/${lessonSlug}`,
+      });
+    }
 
     return NextResponse.json({ success: true, completed });
   } catch {

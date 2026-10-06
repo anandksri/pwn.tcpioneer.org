@@ -29,8 +29,8 @@ export default function ProfileMenu() {
 
   return (
     <div className="flex items-center gap-3">
-      <button
-        type="button"
+      <Link
+        href="/notifications"
         aria-label="Notifications"
         className="
           relative
@@ -50,7 +50,7 @@ export default function ProfileMenu() {
       >
         <Bell className="h-4 w-4" />
         <span className="absolute right-2.5 top-2.5 h-2 w-2 bg-primary" />
-      </button>
+      </Link>
 
       <div ref={menuRef} className="relative">
         <button

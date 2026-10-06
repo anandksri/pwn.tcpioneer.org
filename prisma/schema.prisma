@@ -49,6 +49,7 @@ model User {
   moduleProgress    ModuleProgress[]
   lessonProgress    LessonProgress[]
   challengeAttempts ChallengeAttempt[]
+  notifications     Notification[]
 }
 
 model RateLimitBucket {
@@ -161,6 +162,21 @@ model ChallengeAttempt {
   challenge Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
 
   @@index([userId, challengeId, submittedAt])
+}
+
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  href      String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([userId, readAt])
 }
 
 model OTP {

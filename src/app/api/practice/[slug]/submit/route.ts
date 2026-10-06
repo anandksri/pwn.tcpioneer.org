@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 
 import { getCurrentUser } from "@/lib/auth";
+import { createNotification } from "@/lib/notifications";
 import { prisma } from "@/lib/prisma";
 import { rateLimitResponse } from "@/lib/rate-limit";
 import { challengeFlagSchema } from "@/lib/validators";
@@ -53,6 +54,12 @@ export async function POST(
     }
 
     const isCorrect = await comparePassword(result.data.flag, challenge.flagHash);
+    const previousCorrectAttempt = isCorrect
+      ? await prisma.challengeAttempt.findFirst({
+          where: { userId: user.id, challengeId: challenge.id, isCorrect: true },
+          select: { id: true },
+        })
+      : null;
     const submittedHash = createHash("sha256").update(result.data.flag).digest("hex");
 
     await prisma.challengeAttempt.create({
@@ -63,6 +70,15 @@ export async function POST(
         isCorrect,
       },
     });
+
+    if (isCorrect && !previousCorrectAttempt) {
+      await createNotification({
+        userId: user.id,
+        title: "Challenge solved",
+        message: "You solved a published challenge and earned points.",
+        href: `/practice/${slug}`,
+      });
+    }
 
     return NextResponse.json({
       success: true,
