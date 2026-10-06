@@ -2,14 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import {
-  Bell,
-  ChevronDown,
-  LogOut,
-  Settings,
-  Shield,
-  User,
-} from "lucide-react";
+import { Bell, ChevronDown, LogOut, Settings, Shield, User } from "lucide-react";
 
 export default function ProfileMenu() {
   const [open, setOpen] = useState(false);
@@ -17,27 +10,18 @@ export default function ProfileMenu() {
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(e.target as Node)
-      ) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setOpen(false);
       }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
 
-    return () =>
-      document.removeEventListener(
-        "mousedown",
-        handleClickOutside
-      );
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <div className="flex items-center gap-4">
-      {/* Notifications */}
-
+    <div className="flex items-center gap-3">
       <button
         className="
           relative
@@ -46,83 +30,51 @@ export default function ProfileMenu() {
           w-10
           items-center
           justify-center
-          rounded-xl
           border
-          border-zinc-800
-          bg-zinc-900
-          text-zinc-400
-          transition-all
-          duration-300
-          hover:border-violet-500/30
-          hover:bg-zinc-800
-          hover:text-white
+          border-border
+          bg-card
+          text-muted-foreground
+          transition-colors
+          hover:border-primary/40
+          hover:text-foreground
         "
       >
-        <Bell className="h-5 w-5" />
-
-        <span className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-cyan-400" />
+        <Bell className="h-4 w-4" />
+        <span className="absolute right-2.5 top-2.5 h-2 w-2 bg-primary" />
       </button>
 
-      {/* Profile */}
-
-      <div
-        ref={menuRef}
-        className="relative"
-      >
+      <div ref={menuRef} className="relative">
         <button
           onClick={() => setOpen((v) => !v)}
           className="
             flex
             items-center
             gap-3
-            rounded-xl
             border
-            border-zinc-800
-            bg-zinc-900
+            border-border
+            bg-card
             px-3
             py-2
-            transition-all
-            duration-300
-            hover:border-violet-500/30
-            hover:bg-zinc-800
+            text-left
+            transition-colors
+            hover:border-primary/40
           "
         >
-          <div
-            className="
-              flex
-              h-10
-              w-10
-              items-center
-              justify-center
-              rounded-full
-              bg-gradient-to-br
-              from-violet-500
-              to-cyan-500
-              font-bold
-              text-white
-            "
-          >
+          <div className="flex h-9 w-9 items-center justify-center border border-border bg-primary/10 font-bold text-primary">
             A
           </div>
 
           <div className="hidden text-left lg:block">
-            <p className="text-sm font-semibold text-white">
-              Anand Keshari
-            </p>
-
-            <p className="text-xs text-zinc-500">
-              Cybersecurity Student
-            </p>
+            <p className="text-sm font-semibold text-foreground">Anand Keshari</p>
+            <p className="text-[11px] text-muted-foreground">Cybersecurity Student</p>
           </div>
 
           <ChevronDown
-            className={`h-4 w-4 text-zinc-500 transition-transform duration-300 ${
+            className={`h-4 w-4 text-muted-foreground transition-transform ${
               open ? "rotate-180" : ""
             }`}
           />
         </button>
-
-        {/* Dropdown */}
 
         <div
           className={`
@@ -131,14 +83,11 @@ export default function ProfileMenu() {
             mt-3
             w-64
             origin-top-right
-            rounded-2xl
             border
-            border-zinc-800
-            bg-[#111113]
+            border-border
+            bg-card
             p-2
-            shadow-2xl
             transition-all
-            duration-200
             ${
               open
                 ? "visible translate-y-0 opacity-100"
@@ -148,45 +97,32 @@ export default function ProfileMenu() {
         >
           <Link
             href="/profile"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
+            className="flex items-center gap-3 px-3 py-2.5 text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
           >
-            <User className="h-5 w-5" />
+            <User className="h-4 w-4" />
             My Profile
           </Link>
 
           <Link
             href="/settings"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
+            className="flex items-center gap-3 px-3 py-2.5 text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
           >
-            <Settings className="h-5 w-5" />
+            <Settings className="h-4 w-4" />
             Settings
           </Link>
 
           <Link
             href="/security"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
+            className="flex items-center gap-3 px-3 py-2.5 text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
           >
-            <Shield className="h-5 w-5" />
+            <Shield className="h-4 w-4" />
             Security
           </Link>
 
-          <div className="my-2 border-t border-zinc-800" />
+          <div className="my-2 border-t border-border" />
 
-          <button
-            className="
-              flex
-              w-full
-              items-center
-              gap-3
-              rounded-xl
-              px-4
-              py-3
-              text-red-400
-              transition
-              hover:bg-red-500/10
-            "
-          >
-            <LogOut className="h-5 w-5" />
+          <button className="flex w-full items-center gap-3 px-3 py-2.5 text-sm text-destructive transition hover:bg-destructive/5">
+            <LogOut className="h-4 w-4" />
             Logout
           </button>
         </div>

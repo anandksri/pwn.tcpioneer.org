@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 interface AnimatedTextProps {
   texts: string[];
@@ -25,14 +25,14 @@ export default function AnimatedText({
     return Math.max(...texts.map((t) => t.length));
   }, [texts]);
 
-  const centerText = (text: string) => {
+  const centerText = useCallback((text: string) => {
     const total = maxLength - text.length;
 
     const left = Math.floor(total / 2);
     const right = total - left;
 
     return (" ".repeat(left) + text + " ".repeat(right)).split("");
-  };
+  }, [maxLength]);
 
   const [display, setDisplay] = useState(centerText(target));
 
@@ -72,7 +72,7 @@ export default function AnimatedText({
     }, FRAME_SPEED);
 
     return () => clearInterval(interval);
-  }, [index, target]);
+  }, [centerText, index, target, texts.length]);
   return (
     <div className="flex w-full justify-center overflow-hidden">
       <div

@@ -20,9 +20,7 @@ export default function SidebarItem({
   const pathname = usePathname();
   const { collapsed } = useSidebar();
 
-  const active =
-    pathname === href ||
-    pathname.startsWith(`${href}/`);
+  const active = pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <Link
@@ -33,72 +31,41 @@ export default function SidebarItem({
         relative
         flex
         items-center
-        rounded-xl
-        transition-all
-        duration-300
-        ease-out
-        ${
-          collapsed
-            ? "h-12 justify-center"
-            : "h-12 gap-3 px-4"
-        }
+        border-l
+        transition-colors
+        ${collapsed ? "h-11 justify-center px-0" : "h-11 gap-3 px-3"}
         ${
           active
-            ? "bg-zinc-900 text-white"
-            : "text-zinc-400 hover:bg-zinc-900/80 hover:text-white hover:translate-x-1"
+            ? "border-primary bg-secondary text-foreground"
+            : "border-transparent text-muted hover:bg-secondary hover:text-foreground"
         }
       `}
     >
-      {/* Active Indicator */}
-
       <span
         className={`
           absolute
           left-0
-          top-2
-          bottom-2
-          w-1
-          rounded-r-full
-          bg-violet-500
-          transition-all
-          duration-300
-          ${
-            active
-              ? "opacity-100"
-              : "opacity-0 group-hover:opacity-60"
-          }
+          top-0
+          h-full
+          w-0.5
+          ${active ? "bg-primary" : "bg-transparent group-hover:bg-primary/40"}
         `}
       />
-
-      {/* Icon */}
 
       <Icon
         className={`
-          h-5
-          w-5
-          transition-all
-          duration-300
-          ${
-            active
-              ? "text-violet-400"
-              : "text-zinc-500 group-hover:text-white"
-          }
+          h-4
+          w-4
+          ${active ? "text-primary" : "text-muted group-hover:text-foreground"}
         `}
       />
-
-      {/* Label */}
 
       {!collapsed && (
         <span
           className={`
+            text-sm
             font-medium
-            transition-all
-            duration-300
-            ${
-              active
-                ? "text-white"
-                : ""
-            }
+            ${active ? "text-foreground" : "text-muted"}
           `}
         >
           {title}

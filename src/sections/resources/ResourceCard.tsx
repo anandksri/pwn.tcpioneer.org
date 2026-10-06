@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   BookOpen,
   ExternalLink,
-  FileText,
   LucideIcon,
   PlayCircle,
 } from "lucide-react";

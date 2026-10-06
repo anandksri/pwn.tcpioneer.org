@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#09090B] text-white antialiased">
+      <body className="bg-background text-foreground antialiased">
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

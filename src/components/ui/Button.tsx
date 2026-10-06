@@ -16,8 +16,8 @@ export default function Button({
       href={href}
       className={
         variant === "primary"
-          ? "rounded-xl bg-violet-600 px-7 py-3 font-medium text-white transition hover:bg-violet-500"
-          : "rounded-xl border border-white/10 px-7 py-3 font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white"
+          ? "border border-primary bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#7C3AED]"
+          : "border border-border bg-card px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-secondary"
       }
     >
       {children}

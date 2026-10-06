@@ -11,130 +11,46 @@ export default function WelcomeBanner() {
   else if (hour < 18) greeting = "Good Afternoon";
 
   return (
-    <section
-      className="
-        rounded-3xl
-        border
-        border-zinc-800
-        bg-zinc-900/50
-        backdrop-blur-xl
-        p-8
-        transition-all
-        duration-300
-        hover:border-violet-500/30
-      "
-    >
-      <div className="flex items-center justify-between gap-10">
-        {/* Left */}
-
+    <section className="border border-border bg-card p-6 md:p-8">
+      <div className="flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between">
         <div className="space-y-6">
-
           <div>
-
-            <p className="text-sm font-medium text-violet-400">
-              {greeting}
-            </p>
-
-            <h1 className="mt-2 text-4xl font-bold text-white">
-              Welcome back, Anand 👋
+            <p className="text-sm font-medium uppercase tracking-[0.12em] text-primary">{greeting}</p>
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              Welcome back, Anand
             </h1>
-
-            <p className="mt-4 max-w-2xl text-zinc-400">
-              Continue your cybersecurity journey by completing
-              modules, solving labs and participating in CTF
-              challenges.
+            <p className="mt-4 max-w-2xl text-sm text-muted-foreground md:text-base">
+              Continue your cybersecurity journey by completing modules, solving labs, and participating in CTF challenges.
             </p>
-
           </div>
 
-          <div className="flex items-center gap-10">
-
+          <div className="flex flex-wrap items-center gap-8">
             <div className="flex items-center gap-3">
-
-              <div
-                className="
-                  rounded-2xl
-                  border
-                  border-zinc-800
-                  bg-zinc-950
-                  p-3
-                "
-              >
-                <Flame className="h-5 w-5 text-orange-400" />
+              <div className="flex h-11 w-11 items-center justify-center border border-border bg-secondary">
+                <Flame className="h-5 w-5 text-warning" />
               </div>
-
               <div>
-
-                <p className="text-xl font-bold text-white">
-                  7
-                </p>
-
-                <p className="text-sm text-zinc-500">
-                  Day Streak
-                </p>
-
+                <p className="text-xl font-semibold text-foreground">7</p>
+                <p className="text-sm text-muted-foreground">Day Streak</p>
               </div>
-
             </div>
 
             <div className="flex items-center gap-3">
-
-              <div
-                className="
-                  rounded-2xl
-                  border
-                  border-zinc-800
-                  bg-zinc-950
-                  p-3
-                "
-              >
-                <Target className="h-5 w-5 text-violet-400" />
+              <div className="flex h-11 w-11 items-center justify-center border border-border bg-secondary">
+                <Target className="h-5 w-5 text-primary" />
               </div>
-
               <div>
-
-                <p className="text-xl font-bold text-white">
-                  82%
-                </p>
-
-                <p className="text-sm text-zinc-500">
-                  Weekly Goal
-                </p>
-
+                <p className="text-xl font-semibold text-foreground">82%</p>
+                <p className="text-sm text-muted-foreground">Weekly Goal</p>
               </div>
-
             </div>
-
           </div>
-
         </div>
 
-        {/* Right */}
-
-        <button
-          className="
-            flex
-            items-center
-            gap-2
-            rounded-2xl
-            bg-violet-600
-            px-6
-            py-3
-            font-medium
-            text-white
-            transition-all
-            duration-300
-            hover:-translate-y-0.5
-            hover:bg-violet-500
-            hover:shadow-lg
-            hover:shadow-violet-500/20
-          "
-        >
+        <button className="inline-flex items-center justify-center gap-2 border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#7C3AED]">
           Continue Learning
-
-          <ArrowRight className="h-5 w-5" />
+          <ArrowRight className="h-4 w-4" />
         </button>
-
       </div>
     </section>
   );

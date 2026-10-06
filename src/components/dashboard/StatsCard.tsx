@@ -1,9 +1,4 @@
-import {
-  Trophy,
-  BookOpen,
-  FlaskConical,
-  Target,
-} from "lucide-react";
+import { Trophy, BookOpen, FlaskConical, Target } from "lucide-react";
 
 type StatsCardProps = {
   title: string;
@@ -28,45 +23,18 @@ export default function StatsCard({
   const Icon = icons[icon as keyof typeof icons];
 
   return (
-    <div
-      className="
-        rounded-2xl
-        border
-        border-zinc-800
-        bg-zinc-900/50
-        backdrop-blur-xl
-        p-6
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:border-violet-500/30
-      "
-    >
-      <div className="flex items-start justify-between">
+    <div className="border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:bg-[#121214]">
+      <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm text-zinc-500">
-            {title}
-          </p>
-
-          <h2 className="mt-3 text-3xl font-bold text-white">
+          <p className="text-sm text-muted-foreground">{title}</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground">
             {value}
           </h2>
-
-          <p className="mt-2 text-sm text-zinc-400">
-            {subtitle}
-          </p>
+          <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>
         </div>
 
-        <div
-          className="
-            rounded-xl
-            border
-            border-zinc-800
-            bg-zinc-950
-            p-3
-          "
-        >
-          <Icon className="h-6 w-6 text-violet-400" />
+        <div className="flex h-11 w-11 items-center justify-center border border-border bg-secondary">
+          <Icon className="h-5 w-5 text-primary" />
         </div>
       </div>
     </div>

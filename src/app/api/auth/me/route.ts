@@ -51,7 +51,7 @@ export async function GET() {
       success: true,
       user,
     });
-  } catch (err) {
+  } catch {
     return NextResponse.json(
       {
         success: false,

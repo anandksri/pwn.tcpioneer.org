@@ -15,41 +15,30 @@ const events = [
 
 export default function UpcomingEvents() {
   return (
-    <section className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+    <section className="border border-border bg-card p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-bold text-white">
+        <h2 className="text-xl font-semibold tracking-tight text-foreground">
           Upcoming Events
         </h2>
-
-        <p className="mt-1 text-sm text-zinc-500">
-          Stay updated with the latest events
-        </p>
+        <p className="mt-1 text-sm text-muted-foreground">Stay updated with the latest events</p>
       </div>
 
       <div className="space-y-4">
         {events.map((event) => (
-          <div
-            key={event.title}
-            className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 transition-all duration-300 hover:border-violet-500/30"
-          >
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3">
-                <div className="rounded-lg bg-violet-500/10 p-3">
-                  <Calendar className="h-5 w-5 text-violet-400" />
+          <div key={event.title} className="border border-border bg-secondary p-4">
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 items-center justify-center border border-border bg-card">
+                  <Calendar className="h-4 w-4 text-primary" />
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-white">
-                    {event.title}
-                  </h3>
-
-                  <p className="mt-1 text-sm text-zinc-500">
-                    {event.date}
-                  </p>
+                  <h3 className="text-sm font-medium text-foreground">{event.title}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">{event.date}</p>
                 </div>
               </div>
 
-              <span className="rounded-full bg-violet-500/10 px-3 py-1 text-xs text-violet-400">
+              <span className="border border-primary/30 bg-primary/10 px-2 py-1 text-[10px] uppercase tracking-[0.08em] text-primary">
                 {event.status}
               </span>
             </div>
@@ -57,29 +46,8 @@ export default function UpcomingEvents() {
         ))}
       </div>
 
-      <button
-        className="
-          mt-6
-          flex
-          w-full
-          items-center
-          justify-center
-          gap-2
-          rounded-xl
-          border
-          border-zinc-800
-          bg-zinc-900
-          py-3
-          text-sm
-          font-medium
-          text-white
-          transition
-          hover:border-violet-500/30
-          hover:bg-zinc-800
-        "
-      >
+      <button className="mt-6 inline-flex w-full items-center justify-center gap-2 border border-border bg-secondary px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-[#1a1a1e]">
         View All Events
-
         <ArrowRight className="h-4 w-4" />
       </button>
     </section>

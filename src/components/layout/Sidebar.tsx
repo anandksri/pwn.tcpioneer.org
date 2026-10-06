@@ -1,11 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  ChevronLeft,
-  ChevronRight,
-  LogOut,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
 
 import { useSidebar } from "@/context/SidebarContext";
 import { navigation } from "@/lib/navigation";
@@ -25,17 +21,15 @@ export default function Sidebar() {
         shrink-0
         flex-col
         border-r
-        border-zinc-800
-        bg-[#09090B]
+        border-border
+        bg-background
         transition-all
         duration-200
         ease-in-out
-        ${collapsed ? "w-[72px]" : "w-[260px]"}
+        ${collapsed ? "w-[88px]" : "w-[280px]"}
       `}
     >
-      {/* Header */}
-
-      <div className="border-b border-zinc-800">
+      <div className="border-b border-border">
         <div
           className={`
             flex
@@ -43,25 +37,20 @@ export default function Sidebar() {
             items-center
             transition-all
             duration-300
-            ${
-              collapsed
-                ? "justify-center px-2"
-                : "justify-between px-5"
-            }
+            ${collapsed ? "justify-center px-2" : "justify-between px-4"}
           `}
         >
-          {!collapsed && (
-            <Link
-              href="/dashboard"
-              className="select-none"
-            >
-              <span className="text-xl font-black tracking-[0.08em] text-white">
-                PWN.
-                <span className="text-violet-500">
-                  TCPIONEER
-                </span>
+          {!collapsed ? (
+            <Link href="/dashboard" className="select-none">
+              <span className="text-[0.7rem] font-semibold tracking-[0.15em] text-foreground">
+                PWN<span className="text-primary">.</span>
+                <span className="ml-1 text-muted-foreground">TCPIONEER</span>
               </span>
             </Link>
+          ) : (
+            <div className="flex h-9 w-9 items-center justify-center border border-border bg-card text-[9px] font-bold tracking-[0.2em] text-primary">
+              PWN
+            </div>
           )}
 
           <button
@@ -69,28 +58,27 @@ export default function Sidebar() {
             aria-label="Toggle Sidebar"
             className="
               flex
-              h-9
-              w-9
+              h-8
+              w-8
               items-center
               justify-center
-              rounded-lg
-              text-zinc-500
-              transition-all
-              duration-300
-              hover:bg-zinc-800
-              hover:text-white
+              border
+              border-border
+              bg-card
+              text-muted
+              transition-colors
+              hover:border-primary/50
+              hover:text-foreground
             "
           >
             {collapsed ? (
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-4 w-4" />
             ) : (
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-4 w-4" />
             )}
           </button>
         </div>
       </div>
-
-      {/* Navigation */}
 
       <nav
         className={`
@@ -99,52 +87,39 @@ export default function Sidebar() {
           py-4
           transition-all
           duration-300
-          ${
-            collapsed
-              ? "px-2"
-              : "px-3"
-          }
+          ${collapsed ? "px-2" : "px-3"}
         `}
       >
         <div className="space-y-1">
           {navigation.map((item) => (
-            <SidebarItem
-              key={item.href}
-              {...item}
-            />
+            <SidebarItem key={item.href} {...item} />
           ))}
         </div>
       </nav>
-
-      {/* Footer */}
 
       <div
         className={`
           overflow-hidden
           border-t
-          border-zinc-800
+          border-border
           transition-all
-          duration-500
-          ${
-            collapsed
-              ? "max-h-0 opacity-0"
-              : "max-h-60 opacity-100"
-          }
+          duration-300
+          ${collapsed ? "max-h-0 opacity-0" : "max-h-40 opacity-100"}
         `}
       >
         <div className="p-4">
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4">
+          <div className="border border-border bg-secondary p-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-cyan-500 text-sm font-bold text-white">
+              <div className="flex h-10 w-10 items-center justify-center border border-border bg-primary/10 text-sm font-semibold text-primary">
                 A
               </div>
 
               <div className="min-w-0">
-                <p className="truncate text-sm font-semibold text-white">
+                <p className="truncate text-sm font-semibold text-foreground">
                   Anand Keshari
                 </p>
 
-                <p className="truncate text-xs text-zinc-500">
+                <p className="truncate text-[11px] text-muted-foreground">
                   anand@example.com
                 </p>
               </div>
@@ -158,17 +133,15 @@ export default function Sidebar() {
                 items-center
                 justify-center
                 gap-2
-                rounded-xl
                 border
-                border-red-500/20
-                bg-red-500/10
-                py-3
+                border-destructive/30
+                bg-destructive/5
+                py-2.5
                 text-sm
                 font-medium
-                text-red-400
-                transition-all
-                duration-300
-                hover:bg-red-500/20
+                text-destructive
+                transition-colors
+                hover:bg-destructive/10
               "
             >
               <LogOut className="h-4 w-4" />
