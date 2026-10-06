@@ -1,33 +1,49 @@
 import { OAuth2Client } from "google-auth-library";
 
-export const googleClient = new OAuth2Client(
-  process.env.GOOGLE_CLIENT_ID!,
-  process.env.GOOGLE_CLIENT_SECRET!,
-  process.env.GOOGLE_REDIRECT_URI!
-);
+function getGoogleConfig() {
+  const clientId = process.env.GOOGLE_CLIENT_ID;
+  const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+  const redirectUri = process.env.GOOGLE_REDIRECT_URI;
+
+  if (!clientId || !clientSecret || !redirectUri) {
+    throw new Error("Google OAuth is not configured.");
+  }
+
+  return { clientId, clientSecret, redirectUri };
+}
+
+function createGoogleClient() {
+  const { clientId, clientSecret, redirectUri } = getGoogleConfig();
+  return new OAuth2Client(clientId, clientSecret, redirectUri);
+}
 
 export function getGoogleAuthURL() {
-  return googleClient.generateAuthUrl({
+  const { clientId } = getGoogleConfig();
+  return createGoogleClient().generateAuthUrl({
     access_type: "offline",
-    prompt: "consent",
+    prompt: "select_account",
     scope: ["openid", "email", "profile"],
+    client_id: clientId,
   });
 }
 
 export async function getGoogleUser(code: string) {
-  const { tokens } = await googleClient.getToken(code);
+  const { clientId } = getGoogleConfig();
+  const client = createGoogleClient();
+  const { tokens } = await client.getToken(code);
 
-  googleClient.setCredentials(tokens);
+  if (!tokens.id_token) {
+    throw new Error("Google did not return an identity token.");
+  }
 
-  const ticket = await googleClient.verifyIdToken({
-    idToken: tokens.id_token!,
-    audience: process.env.GOOGLE_CLIENT_ID!,
+  const ticket = await client.verifyIdToken({
+    idToken: tokens.id_token,
+    audience: clientId,
   });
-
   const payload = ticket.getPayload();
 
-  if (!payload) {
-    throw new Error("Unable to fetch Google profile.");
+  if (!payload?.email || payload.email_verified === false) {
+    throw new Error("Google account email is unavailable or unverified.");
   }
 
   return payload;
