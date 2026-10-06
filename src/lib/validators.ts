@@ -63,3 +63,18 @@ export const adminChallengeUpdateSchema = z
     flag: z.string().trim().min(1).max(256).optional(),
   })
   .partial();
+
+export const changePasswordSchema = z
+  .object({
+    currentPassword: z.string().min(1).max(128),
+    password: z.string().min(8).max(128),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ["confirmPassword"],
+    message: "Passwords do not match.",
+  })
+  .refine((data) => data.currentPassword !== data.password, {
+    path: ["password"],
+    message: "New password must be different from your current password.",
+  });
