@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-
 import Container from "@/components/Container";
 import { why } from "@/data/why";
 
@@ -87,15 +85,6 @@ export default function WhyPwn() {
                   {item.description}
                 </p>
 
-                {/* CTA */}
-
-                <div
-                  className={`mt-6 flex items-center gap-2 text-sm font-medium text-secondary-foreground transition-colors ${theme.text}`}
-                >
-                  <span>Learn More</span>
-
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
               </div>
             );
           })}

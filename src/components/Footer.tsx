@@ -8,6 +8,10 @@ const platform = [
     href: "/modules",
   },
   {
+    label: "Resources",
+    href: "/resources",
+  },
+  {
     label: "Learning Paths",
     href: "/roadmaps",
   },

@@ -12,8 +12,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const stats = [
   {
-    value: "100+",
-    label: "Community Members",
+    value: "Open",
+    label: "Community",
     icon: Users,
     color: "text-muted-foreground",
     bg: "bg-secondary",
@@ -21,8 +21,8 @@ const stats = [
     hover: "group-hover:border-primary/50",
   },
   {
-    value: "10+",
-    label: "Community Events",
+    value: "Live",
+    label: "Events and workshops",
     icon: CalendarDays,
     color: "text-muted-foreground",
     bg: "bg-secondary",
@@ -30,8 +30,8 @@ const stats = [
     hover: "group-hover:border-primary/50",
   },
   {
-    value: "24/7",
-    label: "Discussions",
+    value: "Active",
+    label: "Peer discussions",
     icon: MessageSquare,
     color: "text-muted-foreground",
     bg: "bg-secondary",
@@ -39,8 +39,8 @@ const stats = [
     hover: "group-hover:border-primary/50",
   },
   {
-    value: "Weekly",
-    label: "CTF Challenges",
+    value: "Hands-on",
+    label: "CTF practice",
     icon: Trophy,
     color: "text-primary",
     bg: "bg-primary/10",

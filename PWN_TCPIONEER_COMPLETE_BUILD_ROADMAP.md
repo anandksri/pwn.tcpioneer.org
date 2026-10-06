@@ -105,69 +105,69 @@ Architecture:
 Sections: Navbar, Hero, EntryPoint, ThePath, WhyPwn, TrainingGrounds, Community, FAQ, Footer.
 
 ### Hero
-- [ ] Cybersecurity positioning
-- [ ] Soft-white heading
-- [ ] Violet emphasis
-- [ ] Supporting text
-- [ ] Primary CTA
-- [ ] Secondary CTA
-- [ ] Existing stats/metadata if applicable
-- [ ] Responsive layout
-- [ ] Restrained animation
-- [ ] No giant gradients/white background
+- [x] Cybersecurity positioning
+- [x] Soft-white heading
+- [x] Violet emphasis
+- [x] Supporting text
+- [x] Primary CTA
+- [x] Secondary CTA
+- [x] Existing stats/metadata if applicable
+- [x] Responsive layout
+- [x] Restrained animation
+- [x] No giant gradients/white background
 
 ### EntryPoint
-- [ ] Starting paths
-- [ ] Beginner/intermediate/advanced entry
-- [ ] PWN cards
-- [ ] Difficulty hierarchy
-- [ ] CTAs
-- [ ] Responsive
+- [x] Starting paths
+- [x] Beginner/intermediate/advanced entry
+- [x] PWN cards
+- [x] Difficulty hierarchy
+- [x] CTAs
+- [x] Responsive
 
 ### ThePath
-- [ ] Learning journey
-- [ ] Beginner → intermediate → advanced progression
-- [ ] Module relationships
-- [ ] Progress indicators
-- [ ] Violet active/progress states
+- [x] Learning journey
+- [x] Beginner → intermediate → advanced progression
+- [x] Module relationships
+- [x] Progress indicators
+- [x] Violet active/progress states
 
 ### WhyPwn
-- [ ] Platform value
-- [ ] Practical learning
-- [ ] Labs/challenges
-- [ ] Community
-- [ ] Real-world skills
-- [ ] No generic/fake marketing claims
+- [x] Platform value
+- [x] Practical learning
+- [x] Labs/challenges
+- [x] Community
+- [x] Real-world skills
+- [x] No generic/fake marketing claims
 
 ### Training Grounds
-- [ ] Module showcase
-- [ ] Linux
-- [ ] Networking
-- [ ] Web security
-- [ ] OSINT
-- [ ] Pentesting
-- [ ] Defensive/SOC where supported
-- [ ] Difficulty/progress/CTA
-- [ ] Only use real supported categories
+- [x] Module showcase
+- [x] Linux
+- [x] Networking
+- [x] Web security
+- [x] OSINT
+- [x] Pentesting
+- [x] Defensive/SOC where supported
+- [x] Difficulty/progress/CTA
+- [x] Only use real supported categories
 
 ### Community
-- [ ] Community introduction
-- [ ] Discord CTA
-- [ ] Events/workshops/CTFs
-- [ ] Real data only
-- [ ] No fake statistics
+- [x] Community introduction
+- [x] Discord CTA
+- [x] Events/workshops/CTFs
+- [x] Real data only
+- [x] No fake statistics
 
 ### FAQ
-- [ ] Accessible accordion
-- [ ] Clear answers
-- [ ] Mobile friendly
+- [x] Accessible accordion
+- [x] Clear answers
+- [x] Mobile friendly
 
 ### Footer
-- [ ] Brand
-- [ ] Navigation
-- [ ] Resources
-- [ ] Community/social links
-- [ ] Legal
+- [x] Brand
+- [x] Navigation
+- [x] Resources
+- [x] Community/social links
+- [x] Legal
 - [ ] Copyright
 
 ## Phase 6 — About `/about`

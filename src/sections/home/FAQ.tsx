@@ -31,6 +31,9 @@ export default function FAQ() {
                 className="group overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-primary/40 hover:bg-elevated"
               >
                 <button
+                  type="button"
+                  aria-expanded={open}
+                  aria-controls={`faq-answer-${index}`}
                   onClick={() => setActive(open ? null : index)}
                   className="flex w-full cursor-pointer items-center justify-between px-6 py-4 text-left"
                 >
@@ -62,6 +65,9 @@ export default function FAQ() {
                 {/* Answer */}
 
                 <div
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-hidden={!open}
                   className={`grid transition-all duration-300 ease-in-out ${
                     open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
