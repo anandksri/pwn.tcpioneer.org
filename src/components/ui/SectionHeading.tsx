@@ -15,15 +15,15 @@ export default function SectionHeading({
     <div
       className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
-      <span className="text-sm font-medium tracking-[0.2em] text-violet-400 uppercase">
+      <span className="font-mono text-xs font-medium tracking-[0.16em] text-brand-soft uppercase">
         {badge}
       </span>
 
-      <h2 className="mt-4 text-5xl leading-tight font-bold text-white">
+      <h2 className="mt-4 text-4xl leading-tight font-bold text-foreground md:text-5xl">
         {title}
       </h2>
 
-      <p className="mt-6 text-lg leading-8 text-zinc-400">{description}</p>
+      <p className="mt-6 text-lg leading-8 text-muted-foreground">{description}</p>
     </div>
   );
 }

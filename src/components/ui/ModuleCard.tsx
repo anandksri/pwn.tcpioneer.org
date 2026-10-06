@@ -14,39 +14,35 @@ type ModuleCardProps = {
 
 const colors = {
   emerald: {
-    icon: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
-    hoverBorder: "group-hover:border-emerald-500/40",
-    glow: "group-hover:shadow-[0_0_30px_rgba(16,185,129,0.12)]",
-    text: "group-hover:text-emerald-400",
+    icon: "text-muted-foreground group-hover:text-primary",
+    bg: "bg-secondary",
+    border: "border-border",
+    hoverBorder: "group-hover:border-primary/50",
+    text: "group-hover:text-primary",
   },
 
   sky: {
-    icon: "text-sky-400",
-    bg: "bg-sky-500/10",
-    border: "border-sky-500/20",
-    hoverBorder: "group-hover:border-sky-500/40",
-    glow: "group-hover:shadow-[0_0_30px_rgba(14,165,233,0.12)]",
-    text: "group-hover:text-sky-400",
+    icon: "text-muted-foreground group-hover:text-primary",
+    bg: "bg-secondary",
+    border: "border-border",
+    hoverBorder: "group-hover:border-primary/50",
+    text: "group-hover:text-primary",
   },
 
   violet: {
-    icon: "text-violet-400",
-    bg: "bg-violet-500/10",
-    border: "border-violet-500/20",
-    hoverBorder: "group-hover:border-violet-500/40",
-    glow: "group-hover:shadow-[0_0_30px_rgba(139,92,246,0.12)]",
-    text: "group-hover:text-violet-400",
+    icon: "text-muted-foreground group-hover:text-primary",
+    bg: "bg-secondary",
+    border: "border-border",
+    hoverBorder: "group-hover:border-primary/50",
+    text: "group-hover:text-primary",
   },
 
   orange: {
-    icon: "text-orange-400",
-    bg: "bg-orange-500/10",
-    border: "border-orange-500/20",
-    hoverBorder: "group-hover:border-orange-500/40",
-    glow: "group-hover:shadow-[0_0_30px_rgba(249,115,22,0.12)]",
-    text: "group-hover:text-orange-400",
+    icon: "text-muted-foreground group-hover:text-primary",
+    bg: "bg-secondary",
+    border: "border-border",
+    hoverBorder: "group-hover:border-primary/50",
+    text: "group-hover:text-primary",
   },
 };
 
@@ -65,38 +61,38 @@ export default function ModuleCard({
   return (
     <Link
       href={href}
-      className={`group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-950 p-6 transition-all duration-300 ease-out hover:-translate-y-2 hover:bg-zinc-900 hover:shadow-2xl ${theme.hoverBorder} ${theme.glow}`}
+      className={`group flex h-full flex-col rounded-lg border border-border bg-card p-6 transition-colors hover:bg-elevated ${theme.hoverBorder}`}
     >
       {/* Top */}
 
       <div className="mb-6 flex items-start justify-between">
         <div
-          className={`flex h-14 w-14 items-center justify-center rounded-xl border ${theme.bg} ${theme.border} transition-all duration-300`}
+          className={`flex h-12 w-12 items-center justify-center rounded-md border ${theme.bg} ${theme.border} transition-colors`}
         >
           <Icon
-            className={`h-7 w-7 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${theme.icon}`}
+            className={`h-5 w-5 transition-colors ${theme.icon}`}
           />
         </div>
 
         <span
-          className={`rounded-full border px-3 py-1 text-xs font-medium ${theme.border} ${theme.bg} ${theme.icon}`}
+          className={`rounded-sm border px-3 py-1 text-xs font-medium text-muted-foreground ${theme.border} ${theme.bg}`}
         >
           {level}
         </span>
       </div>
 
       <h3
-        className={`text-2xl font-semibold text-white transition-colors duration-300 ${theme.text}`}
+        className={`text-2xl font-semibold text-card-foreground transition-colors duration-300 ${theme.text}`}
       >
         {title}
       </h3>
 
-      <p className="mt-4 flex-1 text-sm leading-8 text-zinc-400">
+      <p className="mt-4 flex-1 text-sm leading-8 text-muted-foreground">
         {description}
       </p>
 
-      <div className="mt-6 border-t border-zinc-800 pt-5 transition-colors duration-300 group-hover:border-zinc-700">
-        <div className="flex gap-6 text-sm text-zinc-400">
+      <div className="mt-6 border-t border-border pt-5">
+        <div className="flex gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <BookOpen className="h-4 w-4" />
             {modules} Modules
@@ -110,7 +106,7 @@ export default function ModuleCard({
       </div>
 
       <div
-        className={`mt-6 flex items-center gap-2 font-medium text-zinc-200 transition-colors duration-300 ${theme.text}`}
+        className={`mt-6 flex items-center gap-2 font-medium text-secondary-foreground transition-colors ${theme.text}`}
       >
         <span>Start Learning</span>
 
