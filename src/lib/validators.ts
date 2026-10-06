@@ -78,3 +78,29 @@ export const changePasswordSchema = z
     path: ["password"],
     message: "New password must be different from your current password.",
   });
+
+const moduleFields = {
+  slug: z.string().trim().min(2).max(120).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  title: z.string().trim().min(2).max(120),
+  description: z.string().trim().min(10).max(2000),
+  category: z.string().trim().min(2).max(60),
+  difficulty: z.enum(["BEGINNER", "INTERMEDIATE", "ADVANCED"]),
+  estimatedMinutes: z.number().int().min(1).max(10000),
+  sortOrder: z.number().int().min(0).max(100000),
+  published: z.boolean().optional(),
+};
+
+export const adminModuleCreateSchema = z.object(moduleFields);
+export const adminModuleUpdateSchema = z.object(moduleFields).partial();
+
+const lessonFields = {
+  slug: z.string().trim().min(2).max(120).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  title: z.string().trim().min(2).max(160),
+  summary: z.string().trim().min(10).max(500),
+  content: z.string().trim().min(20).max(50000),
+  sortOrder: z.number().int().min(0).max(100000),
+  published: z.boolean().optional(),
+};
+
+export const adminLessonCreateSchema = z.object(lessonFields);
+export const adminLessonUpdateSchema = z.object(lessonFields).partial();
