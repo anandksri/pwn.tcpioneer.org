@@ -11,6 +11,9 @@ import {
 type SidebarContextType = {
   collapsed: boolean;
   toggleSidebar: () => void;
+  mobileOpen: boolean;
+  toggleMobileSidebar: () => void;
+  closeMobileSidebar: () => void;
 };
 
 const SidebarContext = createContext<
@@ -30,6 +33,7 @@ export function SidebarProvider({
 
     return localStorage.getItem("sidebar") === "true";
   });
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   // Save whenever it changes
   useEffect(() => {
@@ -43,11 +47,22 @@ export function SidebarProvider({
     setCollapsed((prev) => !prev);
   };
 
+  const toggleMobileSidebar = () => {
+    setMobileOpen((prev) => !prev);
+  };
+
+  const closeMobileSidebar = () => {
+    setMobileOpen(false);
+  };
+
   return (
     <SidebarContext.Provider
       value={{
         collapsed,
         toggleSidebar,
+        mobileOpen,
+        toggleMobileSidebar,
+        closeMobileSidebar,
       }}
     >
       {children}

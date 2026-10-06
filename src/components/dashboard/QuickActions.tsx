@@ -11,13 +11,13 @@ const actions = [
   {
     title: "Start a Lab",
     description: "Practice in hands-on labs",
-    href: "/labs",
+    href: "/practice",
     icon: FlaskConical,
   },
   {
     title: "Join a CTF",
     description: "Compete with the community",
-    href: "/ctf",
+    href: "/community",
     icon: Flag,
   },
   {

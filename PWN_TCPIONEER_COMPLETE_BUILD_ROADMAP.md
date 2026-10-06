@@ -249,32 +249,32 @@ Possible categories only if actually supported: Linux, Networking, Web Security,
 
 ## Phase 12 — Dashboard `/dashboard`
 ### Sidebar
-- [ ] Dark sidebar
-- [ ] PWN logo
-- [ ] Navigation hierarchy
-- [ ] Active violet accent
-- [ ] Collapse control INSIDE sidebar
-- [ ] Expanded/collapsed states
-- [ ] Mobile sidebar/sheet
-- [ ] Keyboard accessibility
+- [x] Dark sidebar
+- [x] PWN logo
+- [x] Navigation hierarchy
+- [x] Active violet accent
+- [x] Collapse control INSIDE sidebar
+- [x] Expanded/collapsed states
+- [x] Mobile sidebar/sheet
+- [x] Keyboard accessibility
 
 ### Header
-- [ ] Search
-- [ ] Notifications
-- [ ] Profile menu
-- [ ] Responsive
-- [ ] Minimal/no excessive blur
+- [x] Search
+- [x] Notifications
+- [x] Profile menu
+- [x] Responsive
+- [x] Minimal/no excessive blur
 
 ### Content
-- [ ] Welcome banner
-- [ ] Stats
-- [ ] Continue learning
-- [ ] Recent activity
-- [ ] Upcoming events
-- [ ] Quick actions
-- [ ] Cyber news
+- [x] Welcome banner
+- [x] Stats
+- [x] Continue learning
+- [x] Recent activity
+- [x] Upcoming events
+- [x] Quick actions
+- [x] Cyber news
 - [ ] Loading/empty/error states
-- [ ] Preserve existing behavior
+- [x] Preserve existing behavior
 
 ## Phase 13 — Profile `/profile`
 - [ ] Profile header

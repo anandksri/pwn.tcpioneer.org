@@ -18,13 +18,14 @@ export default function SidebarItem({
   icon: Icon,
 }: SidebarItemProps) {
   const pathname = usePathname();
-  const { collapsed } = useSidebar();
+  const { collapsed, closeMobileSidebar } = useSidebar();
 
   const active = pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <Link
       href={href}
+      onClick={closeMobileSidebar}
       title={collapsed ? title : ""}
       className={`
         group

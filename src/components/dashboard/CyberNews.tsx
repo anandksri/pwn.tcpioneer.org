@@ -6,19 +6,19 @@ const news = [
     title: "Critical Zero-Day Vulnerability Discovered in Popular VPN Software",
     source: "The Hacker News",
     time: "2 hours ago",
-    url: "#",
+    url: "https://thehackernews.com/",
   },
   {
     title: "Microsoft Releases Emergency Security Updates",
     source: "Microsoft Security",
     time: "5 hours ago",
-    url: "#",
+    url: "https://msrc.microsoft.com/blog/",
   },
   {
     title: "OWASP Releases Updated Top 10 API Security Risks",
     source: "OWASP",
     time: "Yesterday",
-    url: "#",
+    url: "https://owasp.org/API-Security/editions/2023/en/0x00-header/",
   },
 ];
 
@@ -41,6 +41,8 @@ export default function CyberNews() {
           <Link
             key={item.title}
             href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="
               group
               flex
@@ -70,9 +72,9 @@ export default function CyberNews() {
         ))}
       </div>
 
-      <button className="mt-6 w-full border border-border bg-secondary px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-elevated">
+      <Link href="/resources" className="mt-6 block w-full border border-border bg-secondary px-4 py-3 text-center text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-elevated">
         View All News
-      </button>
+      </Link>
     </section>
   );
 }

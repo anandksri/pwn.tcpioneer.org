@@ -18,6 +18,7 @@ export default function DashboardSearch() {
       <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
 
       <input
+        aria-label="Search dashboard"
         type="text"
         placeholder="Search modules, labs, challenges..."
         className="

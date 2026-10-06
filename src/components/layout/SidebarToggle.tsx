@@ -4,11 +4,11 @@ import { Menu } from "lucide-react";
 import { useSidebar } from "@/context/SidebarContext";
 
 export default function SidebarToggle() {
-  const { toggleSidebar } = useSidebar();
+  const { toggleMobileSidebar, mobileOpen } = useSidebar();
 
   return (
     <button
-      onClick={toggleSidebar}
+      onClick={toggleMobileSidebar}
       className="
         flex
         h-12
@@ -26,7 +26,8 @@ export default function SidebarToggle() {
         hover:bg-elevated
         hover:text-foreground
       "
-      aria-label="Toggle sidebar"
+      aria-label={mobileOpen ? "Close sidebar" : "Open sidebar"}
+      aria-expanded={mobileOpen}
     >
       <Menu className="h-5 w-5" />
     </button>

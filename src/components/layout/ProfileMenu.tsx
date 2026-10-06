@@ -3,8 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Bell, ChevronDown, LogOut, Settings, Shield, User } from "lucide-react";
+import useAuth from "@/hooks/useAuth";
 
 export default function ProfileMenu() {
+  const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -20,9 +22,16 @@ export default function ProfileMenu() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleLogout = async () => {
+    await logout();
+    window.location.href = "/";
+  };
+
   return (
     <div className="flex items-center gap-3">
       <button
+        type="button"
+        aria-label="Notifications"
         className="
           relative
           flex
@@ -45,6 +54,9 @@ export default function ProfileMenu() {
 
       <div ref={menuRef} className="relative">
         <button
+          type="button"
+          aria-expanded={open}
+          aria-haspopup="menu"
           onClick={() => setOpen((v) => !v)}
           className="
             flex
@@ -61,12 +73,12 @@ export default function ProfileMenu() {
           "
         >
           <div className="flex h-9 w-9 items-center justify-center border border-border bg-primary/10 font-bold text-primary">
-            A
+            {user?.username.charAt(0).toUpperCase() ?? "U"}
           </div>
 
           <div className="hidden text-left lg:block">
-            <p className="text-sm font-semibold text-foreground">Anand Keshari</p>
-            <p className="text-[11px] text-muted-foreground">Cybersecurity Student</p>
+            <p className="text-sm font-semibold text-foreground">{user?.username ?? "Account"}</p>
+            <p className="text-[11px] text-muted-foreground">{user?.email ?? "Signed in"}</p>
           </div>
 
           <ChevronDown
@@ -121,7 +133,7 @@ export default function ProfileMenu() {
 
           <div className="my-2 border-t border-border" />
 
-          <button className="flex w-full items-center gap-3 px-3 py-2.5 text-sm text-destructive transition hover:bg-destructive/5">
+          <button type="button" onClick={handleLogout} className="flex w-full items-center gap-3 px-3 py-2.5 text-sm text-destructive transition hover:bg-destructive/5">
             <LogOut className="h-4 w-4" />
             Logout
           </button>

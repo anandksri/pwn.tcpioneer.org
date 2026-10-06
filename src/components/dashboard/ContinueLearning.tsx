@@ -1,4 +1,5 @@
 import { ArrowRight, BookOpen } from "lucide-react";
+import Link from "next/link";
 
 export default function ContinueLearning() {
   return (
@@ -30,10 +31,10 @@ export default function ContinueLearning() {
         </div>
       </div>
 
-      <button className="mt-8 inline-flex items-center gap-2 border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-hover">
+      <Link href="/modules/linux" className="mt-8 inline-flex items-center gap-2 border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-hover">
         Continue
         <ArrowRight className="h-4 w-4" />
-      </button>
+      </Link>
     </section>
   );
 }

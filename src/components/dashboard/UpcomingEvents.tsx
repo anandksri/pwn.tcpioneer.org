@@ -1,4 +1,5 @@
 import { Calendar, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const events = [
   {
@@ -46,10 +47,10 @@ export default function UpcomingEvents() {
         ))}
       </div>
 
-      <button className="mt-6 inline-flex w-full items-center justify-center gap-2 border border-border bg-secondary px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-elevated">
+      <Link href="/community" className="mt-6 inline-flex w-full items-center justify-center gap-2 border border-border bg-secondary px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-elevated">
         View All Events
         <ArrowRight className="h-4 w-4" />
-      </button>
+      </Link>
     </section>
   );
 }
