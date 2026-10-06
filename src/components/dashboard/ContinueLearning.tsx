@@ -10,9 +10,9 @@ export default function ContinueLearning() {
             Continue Learning
           </p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
-            Linux Fundamentals
+            No active module yet
           </h2>
-          <p className="mt-2 text-sm text-muted-foreground">Module 7 of 10</p>
+          <p className="mt-2 text-sm text-muted-foreground">Choose a module to begin learning.</p>
         </div>
 
         <div className="flex h-12 w-12 items-center justify-center border border-border bg-secondary">
@@ -20,19 +20,8 @@ export default function ContinueLearning() {
         </div>
       </div>
 
-      <div className="mt-8">
-        <div className="mb-2 flex items-center justify-between text-sm">
-          <span className="text-muted-foreground">Progress</span>
-          <span className="font-medium text-foreground">72%</span>
-        </div>
-
-        <div className="h-2 overflow-hidden border border-border bg-secondary">
-          <div className="h-full w-[72%] bg-primary" />
-        </div>
-      </div>
-
-      <Link href="/modules/linux" className="mt-8 inline-flex items-center gap-2 border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-hover">
-        Continue
+      <Link href="/modules" className="mt-8 inline-flex items-center gap-2 border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-hover">
+        Browse Modules
         <ArrowRight className="h-4 w-4" />
       </Link>
     </section>

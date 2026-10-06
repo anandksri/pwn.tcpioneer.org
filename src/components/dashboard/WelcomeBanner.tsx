@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Flame, Target } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import useAuth from "@/hooks/useAuth";
 
@@ -27,27 +27,6 @@ export default function WelcomeBanner() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-8">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center border border-border bg-secondary">
-                <Flame className="h-5 w-5 text-warning" />
-              </div>
-              <div>
-                <p className="text-xl font-semibold text-foreground">7</p>
-                <p className="text-sm text-muted-foreground">Day Streak</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center border border-border bg-secondary">
-                <Target className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-xl font-semibold text-foreground">82%</p>
-                <p className="text-sm text-muted-foreground">Weekly Goal</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         <Link href="/modules" className="inline-flex items-center justify-center gap-2 border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-hover">
