@@ -84,22 +84,22 @@ Architecture:
 `shadcn primitives → PWN domain components → sections/pages`
 
 ## Phase 4 — Public Navbar
-- [ ] Logo
-- [ ] Home
-- [ ] About
-- [ ] Modules
-- [ ] Practice
-- [ ] Resources
-- [ ] Community
-- [ ] Search
-- [ ] Login
-- [ ] Get Started
-- [ ] Active state
-- [ ] Violet interaction state
-- [ ] Mobile Sheet/drawer
-- [ ] Keyboard accessibility
-- [ ] Responsive layout
-- [ ] Dark navbar, no white background, no excessive blur
+- [x] Logo
+- [x] Home
+- [x] About
+- [x] Modules
+- [x] Practice
+- [x] Resources
+- [x] Community
+- [x] Search
+- [x] Login
+- [x] Get Started
+- [x] Active state
+- [x] Violet interaction state
+- [x] Mobile Sheet/drawer
+- [x] Keyboard accessibility
+- [x] Responsive layout
+- [x] Dark navbar, no white background, no excessive blur
 
 ## Phase 5 — Homepage `/`
 Sections: Navbar, Hero, EntryPoint, ThePath, WhyPwn, TrainingGrounds, Community, FAQ, Footer.

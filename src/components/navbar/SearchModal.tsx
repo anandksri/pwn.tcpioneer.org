@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { Search, X, ArrowRight } from "lucide-react";
 
 interface SearchModalProps {
@@ -54,6 +55,9 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site search"
       className="fixed inset-0 z-[999] flex items-start justify-center bg-background/75 pt-24"
       onClick={onClose}
     >
@@ -69,11 +73,12 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
           <input
             ref={inputRef}
             type="text"
+            aria-label="Search modules, labs, and resources"
             placeholder="Search modules, labs, resources..."
             className="flex-1 bg-transparent text-foreground outline-none placeholder:text-subtle-foreground"
           />
 
-          <button onClick={onClose} className="rounded-sm p-2 transition-colors hover:bg-secondary">
+          <button type="button" aria-label="Close search" onClick={onClose} className="rounded-sm p-2 transition-colors hover:bg-secondary">
             <X className="h-5 w-5 text-muted-foreground" />
           </button>
         </div>
@@ -87,8 +92,10 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
 
           <div className="space-y-2">
             {quickLinks.map((item) => (
-              <button
+              <Link
                 key={item.title}
+                href={item.href}
+                onClick={onClose}
                 className="flex w-full items-center justify-between rounded-sm border border-transparent p-4 text-left transition-colors hover:border-primary/40 hover:bg-secondary"
               >
                 <div>
@@ -100,7 +107,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                 </div>
 
                 <ArrowRight className="h-5 w-5 text-subtle-foreground" />
-              </button>
+              </Link>
             ))}
           </div>
         </div>

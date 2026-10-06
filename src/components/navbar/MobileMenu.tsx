@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { X, Search } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 import Logo from "./Logo";
 
@@ -48,10 +49,12 @@ export default function MobileMenu({
   onSearch,
   loggedIn,
 }: MobileMenuProps) {
+  const pathname = usePathname();
+
   return (
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-[999] lg:hidden">
+        <div id="mobile-navigation" role="dialog" aria-modal="true" aria-label="Mobile navigation" className="fixed inset-0 z-[999] lg:hidden">
           {/* Overlay */}
 
           <motion.div
@@ -92,6 +95,8 @@ export default function MobileMenu({
               <Logo />
 
               <button
+                type="button"
+                aria-label="Close menu"
                 onClick={onClose}
                 className="rounded-sm p-2 transition-colors hover:bg-secondary"
               >
@@ -106,7 +111,8 @@ export default function MobileMenu({
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className="w-full max-w-xs rounded-sm border border-transparent px-4 py-3 text-center text-secondary-foreground transition-colors hover:border-primary/30 hover:bg-secondary hover:text-primary"
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  className={pathname === item.href ? "w-full max-w-xs rounded-sm border border-primary/30 bg-secondary px-4 py-3 text-center text-primary transition-colors" : "w-full max-w-xs rounded-sm border border-transparent px-4 py-3 text-center text-secondary-foreground transition-colors hover:border-primary/30 hover:bg-secondary hover:text-primary"}
                 >
                   {item.name}
                 </Link>
@@ -117,6 +123,7 @@ export default function MobileMenu({
 
             <div className="space-y-3 border-t border-border p-6">
               <button
+                type="button"
                 onClick={() => {
                   onSearch();
                   onClose();

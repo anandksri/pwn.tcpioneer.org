@@ -34,7 +34,7 @@ export default function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <nav className="hidden items-center justify-center lg:flex">
+    <nav aria-label="Primary navigation" className="hidden items-center justify-center lg:flex">
       <ul className="flex items-center gap-2">
         {navigation.map((item) => {
           const active = pathname === item.href;
