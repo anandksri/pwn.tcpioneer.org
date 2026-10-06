@@ -40,3 +40,26 @@ export const resetPasswordSchema = otpSchema.extend({
 export const challengeFlagSchema = z.object({
   flag: z.string().trim().min(1).max(256),
 });
+
+const challengeFields = {
+  slug: z.string().trim().min(2).max(120).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  title: z.string().trim().min(2).max(120),
+  description: z.string().trim().min(10).max(2000),
+  category: z.string().trim().min(2).max(60),
+  difficulty: z.enum(["BEGINNER", "INTERMEDIATE", "ADVANCED"]),
+  points: z.number().int().min(1).max(10000),
+  moduleId: z.string().trim().min(1).nullable().optional(),
+  published: z.boolean().optional(),
+};
+
+export const adminChallengeCreateSchema = z.object({
+  ...challengeFields,
+  flag: z.string().trim().min(1).max(256),
+});
+
+export const adminChallengeUpdateSchema = z
+  .object({
+    ...challengeFields,
+    flag: z.string().trim().min(1).max(256).optional(),
+  })
+  .partial();
