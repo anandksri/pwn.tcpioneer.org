@@ -66,3 +66,23 @@ export function listPublishedChallenges() {
     },
   });
 }
+
+/** Public challenge detail. The validation secret is intentionally never selected. */
+export function getPublishedChallenge(slug: string, userId?: string) {
+  return prisma.challenge.findFirst({
+    where: { slug, published: true },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      description: true,
+      category: true,
+      difficulty: true,
+      points: true,
+      moduleId: true,
+      attempts: userId
+        ? { where: { userId, isCorrect: true }, select: { id: true }, take: 1 }
+        : false,
+    },
+  });
+}
