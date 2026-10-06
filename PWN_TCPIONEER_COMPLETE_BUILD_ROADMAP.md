@@ -489,7 +489,7 @@ Avoid:
 - [ ] Responsive layouts
 - [ ] Keyboard navigation
 - [ ] Error/loading states
-- [ ] Unit tests if present
+- [x] Unit tests if present
 - [ ] Integration tests if present
 - [ ] E2E tests if present
 
