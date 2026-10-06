@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { signToken } from "@/lib/jwt";
 import { getGitHubUser } from "@/lib/github";
+import { apiError } from "@/utils/api-error";
 
 export async function GET(req: NextRequest) {
   try {
@@ -74,15 +75,7 @@ export async function GET(req: NextRequest) {
     });
 
     return response;
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "GitHub authentication failed.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("github-callback", "GitHub authentication failed.");
   }
 }

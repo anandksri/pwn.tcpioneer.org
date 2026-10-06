@@ -5,6 +5,7 @@ import { hashPassword } from "@/utils/hash";
 import { generateOTP, hashOTP } from "@/lib/otp";
 import { sendVerificationEmail } from "@/utils/mail";
 import { rateLimitResponse } from "@/lib/rate-limit";
+import { apiError } from "@/utils/api-error";
 
 export async function POST(req: Request) {
   try {
@@ -102,15 +103,7 @@ export async function POST(req: Request) {
       },
       { status: 201 }
     );
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("register");
   }
 }

@@ -436,7 +436,7 @@ Every data-driven page:
 - [x] Server-side authorization preserved
 - [ ] Server-side challenge validation
 - [x] Input validation
-- [ ] Safe errors
+- [x] Safe errors
 - [x] No sensitive-data exposure
 - [x] No production debug data
 - [x] Safe auth state handling

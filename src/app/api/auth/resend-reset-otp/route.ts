@@ -5,6 +5,7 @@ import { sendResetPasswordEmail } from "@/utils/mail";
 import { generateOTP, hashOTP } from "@/lib/otp";
 import { emailSchema } from "@/lib/validators";
 import { rateLimitResponse } from "@/lib/rate-limit";
+import { apiError } from "@/utils/api-error";
 
 export async function POST(req: Request) {
   try {
@@ -65,16 +66,7 @@ export async function POST(req: Request) {
       message: "Reset code sent successfully.",
     });
 
-  } catch (error) {
-
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("resend-reset-otp");
   }
 }

@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { generateOTP, hashOTP } from "@/lib/otp";
 import { emailSchema } from "@/lib/validators";
 import { sendResetPasswordEmail } from "@/utils/mail";
+import { apiError } from "@/utils/api-error";
 import { rateLimitResponse } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
@@ -59,15 +60,7 @@ export async function POST(req: Request) {
       success: true,
       message: "Password reset code sent.",
     });
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("forgot-password");
   }
 }

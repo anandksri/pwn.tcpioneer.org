@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { hashOTP } from "@/lib/otp";
 import { otpSchema } from "@/lib/validators";
 import { rateLimitResponse } from "@/lib/rate-limit";
+import { apiError } from "@/utils/api-error";
 
 export async function POST(req: Request) {
   try {
@@ -91,15 +92,7 @@ export async function POST(req: Request) {
       success: true,
       message: "Email verified successfully.",
     });
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("verify-email");
   }
 }

@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { signToken } from "@/lib/jwt";
 import { getGoogleUser } from "@/lib/google";
+import { apiError } from "@/utils/api-error";
 
 export async function GET(req: NextRequest) {
   try {
@@ -67,15 +68,7 @@ export async function GET(req: NextRequest) {
     });
 
     return response;
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Google authentication failed.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("google-callback", "Google authentication failed.");
   }
 }
