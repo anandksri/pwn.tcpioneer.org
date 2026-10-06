@@ -53,12 +53,6 @@ export async function GET(req: NextRequest) {
       role: user.role,
     });
 
-    console.log("Origin:", req.nextUrl.origin);
-
-    const redirectUrl = new URL("/dashboard", req.nextUrl.origin);
-
-    console.log("Redirect URL:", redirectUrl.toString());
-
     const response = NextResponse.redirect(
       new URL("/dashboard", req.nextUrl.origin)
     );

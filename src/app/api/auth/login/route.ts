@@ -4,12 +4,13 @@ import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { comparePassword } from "@/utils/hash";
 import { signToken } from "@/lib/jwt";
+import { loginSchema } from "@/lib/validators";
 
 export async function POST(req: Request) {
   try {
-    const { identifier, password } = await req.json();
+    const result = loginSchema.safeParse(await req.json());
 
-    if (!identifier || !password) {
+    if (!result.success) {
       return NextResponse.json(
         {
           success: false,
@@ -18,6 +19,8 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    const { identifier, password } = result.data;
 
     // Find user by email OR username
     const user = await prisma.user.findFirst({

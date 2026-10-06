@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { registerSchema } from "@/lib/validators";
 import { hashPassword } from "@/utils/hash";
-import { generateOTP } from "@/lib/otp";
+import { generateOTP, hashOTP } from "@/lib/otp";
 import { sendVerificationEmail } from "@/utils/mail";
 
 export async function POST(req: Request) {
@@ -77,7 +77,7 @@ export async function POST(req: Request) {
     // Save OTP
     await prisma.oTP.create({
       data: {
-        code: otp,
+        code: hashOTP(user.id, "EMAIL_VERIFICATION", otp),
         type: "EMAIL_VERIFICATION",
         expiresAt: new Date(Date.now() + 10 * 60 * 1000),
         userId: user.id,

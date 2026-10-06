@@ -57,7 +57,9 @@ export default function Hero() {
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="#"
+              href="https://discord.gg/tcpioneer"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-md bg-primary px-6 py-3 font-medium text-foreground transition-all duration-300 hover:bg-primary"
             >
               Join Community

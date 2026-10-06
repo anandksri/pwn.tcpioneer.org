@@ -124,7 +124,7 @@ export default function ProfileMenu() {
           </Link>
 
           <Link
-            href="/security"
+            href="/settings"
             className="flex items-center gap-3 px-3 py-2.5 text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
           >
             <Shield className="h-4 w-4" />

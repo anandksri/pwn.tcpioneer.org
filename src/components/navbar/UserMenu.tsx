@@ -8,7 +8,6 @@ import {
   User,
   Settings,
   Bell,
-  Shield,
   LogOut,
 } from "lucide-react";
 
@@ -121,17 +120,11 @@ export default function UserMenu() {
               title="Notifications"
             />
 
-            {user.role === "ADMIN" && (
-              <MenuItem
-                href="/admin"
-                icon={<Shield size={18} />}
-                title="Admin Panel"
-              />
-            )}
           </div>
 
           <div className="border-t border-border p-2">
             <button
+              type="button"
               onClick={handleLogout}
               className="flex w-full items-center gap-3 rounded-sm px-4 py-3 text-destructive transition-colors hover:bg-destructive/10"
             >

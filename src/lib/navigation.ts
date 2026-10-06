@@ -2,8 +2,6 @@ import {
   Home,
   User,
   BookOpen,
-  FlaskConical,
-  Flag,
   Bell,
   Settings,
 } from "lucide-react";
@@ -25,14 +23,9 @@ export const navigation = [
     icon: BookOpen,
   },
   {
-    title: "Labs",
-    href: "/labs",
-    icon: FlaskConical,
-  },
-  {
-    title: "CTF",
-    href: "/ctf",
-    icon: Flag,
+    title: "Practice",
+    href: "/practice",
+    icon: BookOpen,
   },
   {
     title: "Notifications",

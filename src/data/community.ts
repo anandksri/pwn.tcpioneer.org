@@ -75,7 +75,7 @@ export const upcomingEvents = [
     date: "02 Aug",
     time: "7:00 PM",
     location: "Discord",
-    href: "#",
+    href: "https://discord.gg/tcpioneer",
   },
 
   {
@@ -83,7 +83,7 @@ export const upcomingEvents = [
     date: "10 Aug",
     time: "6:30 PM",
     location: "Google Meet",
-    href: "#",
+    href: "https://discord.gg/tcpioneer",
   },
 
   {
@@ -91,7 +91,7 @@ export const upcomingEvents = [
     date: "15 Aug",
     time: "8:00 PM",
     location: "PWN Platform",
-    href: "#",
+    href: "https://discord.gg/tcpioneer",
   },
 ];
 

@@ -6,6 +6,7 @@
 
 :root {
   color-scheme: dark;
+  --font-jetbrains-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --background: #09090b;
   --foreground: #f4f4f5;
   --card: #0f0f11;

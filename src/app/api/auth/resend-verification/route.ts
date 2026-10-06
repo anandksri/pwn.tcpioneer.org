@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendVerificationEmail } from "@/utils/mail";
+import { generateOTP, hashOTP } from "@/lib/otp";
+import { emailSchema } from "@/lib/validators";
 
 export async function POST(req: Request) {
   try {
-    const { email } = await req.json();
+    const result = emailSchema.safeParse(await req.json());
 
-    if (!email) {
+    if (!result.success) {
       return NextResponse.json(
         {
           success: false,
@@ -18,6 +20,7 @@ export async function POST(req: Request) {
       );
     }
 
+    const { email } = result.data;
     const user = await prisma.user.findUnique({
       where: {
         email,
@@ -25,15 +28,7 @@ export async function POST(req: Request) {
     });
 
     if (!user) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "User not found.",
-        },
-        {
-          status: 404,
-        }
-      );
+      return NextResponse.json({ success: true, message: "If an account exists, a verification code has been sent." });
     }
 
     if (user.verified) {
@@ -55,13 +50,11 @@ export async function POST(req: Request) {
       },
     });
 
-    const otp = Math.floor(
-      100000 + Math.random() * 900000
-    ).toString();
+    const otp = generateOTP();
 
     await prisma.oTP.create({
       data: {
-        code: otp,
+        code: hashOTP(user.id, "EMAIL_VERIFICATION", otp),
         type: "EMAIL_VERIFICATION",
         expiresAt: new Date(
           Date.now() + 10 * 60 * 1000

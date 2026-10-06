@@ -8,7 +8,7 @@ import { upcomingEvents } from "@/data/community";
 
 export default function UpcomingEvents() {
   return (
-    <section className="bg-background pb-24">
+    <section id="events" className="bg-background pb-24">
       <Container>
         <div className="flex items-end justify-between">
           <div>
@@ -22,7 +22,7 @@ export default function UpcomingEvents() {
           </div>
 
           <Link
-            href="#"
+            href="#events"
             className="text-sm font-medium text-secondary-foreground transition hover:text-brand-soft"
           >
             View All →
@@ -69,6 +69,8 @@ export default function UpcomingEvents() {
 
               <Link
                 href={event.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center gap-2 font-medium text-secondary-foreground transition-colors duration-300 group-hover:text-brand-soft"
               >
                 Register

@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
-import { generateOTP } from "@/lib/otp";
+import { generateOTP, hashOTP } from "@/lib/otp";
+import { emailSchema } from "@/lib/validators";
 import { sendResetPasswordEmail } from "@/utils/mail";
 
 export async function POST(req: Request) {
   try {
-    const { email } = await req.json();
+    const result = emailSchema.safeParse(await req.json());
 
-    if (!email) {
+    if (!result.success) {
       return NextResponse.json(
         {
           success: false,
@@ -18,6 +19,7 @@ export async function POST(req: Request) {
       );
     }
 
+    const { email } = result.data;
     const user = await prisma.user.findUnique({
       where: {
         email,
@@ -25,13 +27,7 @@ export async function POST(req: Request) {
     });
 
     if (!user) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "User not found.",
-        },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: true, message: "If an account exists, a reset code has been sent." });
     }
 
     // Remove previous reset OTPs
@@ -47,7 +43,7 @@ export async function POST(req: Request) {
     await prisma.oTP.create({
       data: {
         userId: user.id,
-        code: otp,
+        code: hashOTP(user.id, "PASSWORD_RESET", otp),
         type: "PASSWORD_RESET",
         expiresAt: new Date(Date.now() + 10 * 60 * 1000),
       },
