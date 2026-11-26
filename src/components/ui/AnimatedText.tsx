@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 interface AnimatedTextProps {
   texts: string[];
@@ -25,14 +25,14 @@ export default function AnimatedText({
     return Math.max(...texts.map((t) => t.length));
   }, [texts]);
 
-  const centerText = (text: string) => {
+  const centerText = useCallback((text: string) => {
     const total = maxLength - text.length;
 
     const left = Math.floor(total / 2);
     const right = total - left;
 
     return (" ".repeat(left) + text + " ".repeat(right)).split("");
-  };
+  }, [maxLength]);
 
   const [display, setDisplay] = useState(centerText(target));
 
@@ -40,6 +40,7 @@ export default function AnimatedText({
 
   useEffect(() => {
     const finalText = centerText(target);
+    let transitionTimeout: number | undefined;
 
     let frame = 0;
 
@@ -65,14 +66,19 @@ export default function AnimatedText({
       if (frame > Math.max(...stopFrames) + 3) {
         clearInterval(interval);
 
-        setTimeout(() => {
+        transitionTimeout = window.setTimeout(() => {
           setIndex((prev) => (prev + 1) % texts.length);
         }, PAUSE);
       }
     }, FRAME_SPEED);
 
-    return () => clearInterval(interval);
-  }, [index, target]);
+    return () => {
+      clearInterval(interval);
+      if (transitionTimeout !== undefined) {
+        window.clearTimeout(transitionTimeout);
+      }
+    };
+  }, [centerText, index, target, texts.length]);
   return (
     <div className="flex w-full justify-center overflow-hidden">
       <div
@@ -107,7 +113,7 @@ export default function AnimatedText({
               }}
             >
               <span
-                className={`bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent transition-all duration-200 ${
+                className={`text-primary transition-all duration-200 ${
                   finished ? "" : "blur-[0.4px]"
                 } `}
               >

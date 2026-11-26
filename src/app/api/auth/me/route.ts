@@ -16,7 +16,7 @@ export async function GET() {
           success: false,
           message: "Not authenticated",
         },
-        { status: 401 }
+        { status: 200 }
       );
     }
 
@@ -34,10 +34,11 @@ export async function GET() {
         verified: true,
         avatar: true,
         createdAt: true,
+        sessionVersion: true,
       },
     });
 
-    if (!user) {
+    if (!user || user.sessionVersion !== payload.sessionVersion) {
       return NextResponse.json(
         {
           success: false,
@@ -47,11 +48,21 @@ export async function GET() {
       );
     }
 
+    const safeUser = {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+      verified: user.verified,
+      avatar: user.avatar,
+      createdAt: user.createdAt,
+    };
+
     return NextResponse.json({
       success: true,
-      user,
+      user: safeUser,
     });
-  } catch (err) {
+  } catch {
     return NextResponse.json(
       {
         success: false,

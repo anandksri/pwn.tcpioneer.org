@@ -4,12 +4,18 @@ import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { comparePassword } from "@/utils/hash";
 import { signToken } from "@/lib/jwt";
+import { loginSchema } from "@/lib/validators";
+import { rateLimitResponse } from "@/lib/rate-limit";
+import { apiError } from "@/utils/api-error";
 
 export async function POST(req: Request) {
   try {
-    const { identifier, password } = await req.json();
+    const limited = await rateLimitResponse(req, "auth:login", 10, 15 * 60 * 1000);
+    if (limited) return limited;
 
-    if (!identifier || !password) {
+    const result = loginSchema.safeParse(await req.json());
+
+    if (!result.success) {
       return NextResponse.json(
         {
           success: false,
@@ -18,6 +24,8 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    const { identifier, password } = result.data;
 
     // Find user by email OR username
     const user = await prisma.user.findFirst({
@@ -73,6 +81,7 @@ export async function POST(req: Request) {
       email: user.email,
       username: user.username,
       role: user.role,
+      sessionVersion: user.sessionVersion,
     });
 
     // Save cookie
@@ -90,15 +99,7 @@ export async function POST(req: Request) {
       success: true,
       message: "Logged in successfully.",
     });
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("login");
   }
 }

@@ -1,48 +1,38 @@
-# PWN TCPioneer
+# PWN.TCPIONEER
 
-PWN TCPioneer is a cybersecurity learning platform built as part of the TC Pioneer project. It is designed to bring practical security learning, user accounts, and security-focused content into one application.
+PWN.TCPIONEER is a cybersecurity learning platform built around structured learning paths, practical challenges, and community-led growth.
 
-## About
+## Features
 
-This repository contains the current PWN TCPioneer web application.
-
-The application includes:
-
-- Cybersecurity learning content
-- User registration and authentication
-- Email verification and password reset flows
+- Cybersecurity learning modules and lessons
+- Hands-on practice challenges
 - GitHub and Google authentication
-- Role-based users, moderators, and administrators
-- PostgreSQL database integration with Prisma
-- A dedicated PWN-focused interface and branding
+- Email verification and password reset flows
+- User dashboards, profiles, notifications, and settings
+- Community posts, comments, events, and moderation
+- PostgreSQL integration with Prisma
+- Responsive GitHub-style dark interface
 
 ## Tech Stack
 
-- Next.js
-- React
-- TypeScript
+- Next.js 16 with the App Router
+- React and TypeScript
 - Tailwind CSS
-- Prisma
-- PostgreSQL
+- shadcn/ui with Base UI
+- Prisma and PostgreSQL
 - Better Auth and custom authentication flows
-- GitHub and Google OAuth
 
-## Getting Started
+## Development
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/anandksri/pwn.tcpioneer.org.git
 cd pwn.tcpioneer.org
-```
-
-Install dependencies:
-
-```bash
 npm install
 ```
 
-Create a local environment file and configure the required application and database variables. Do not commit real credentials, OAuth secrets, database credentials, or other sensitive values.
+Create a local environment file and configure the required application, database, OAuth, and email variables. Do not commit credentials or secrets.
 
 Run the development server:
 
@@ -50,36 +40,44 @@ Run the development server:
 npm run dev
 ```
 
-Open `http://localhost:3000` in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Database
+## Validation
 
-The project uses Prisma with PostgreSQL. The Prisma schema and migrations are available in the `prisma/` directory.
-
-Before using database-backed features locally, configure `DATABASE_URL` and run the required Prisma setup for your environment.
+```bash
+npm run lint
+npm test
+npm run build
+```
 
 ## Project Structure
 
 ```text
-src/app/        Next.js application routes and pages
-src/app/api/    API and authentication endpoints
-prisma/         Database schema and migrations
-public/         Static assets and project images
+src/
+├── app/              # App Router pages, layouts, and API routes
+├── components/       # Navigation, authentication, dashboard, and UI components
+├── sections/         # Page-level composed sections
+├── data/             # Static content and navigation data
+├── context/          # Client-side application state
+├── hooks/            # Reusable React hooks
+├── lib/              # Application helpers and integrations
+└── utils/            # Focused utility functions
+
+prisma/
+├── schema.prisma
+├── migrations/
+└── seed.ts
 ```
+
+## Database
+
+The project uses Prisma with PostgreSQL. The Prisma schema and migrations are in `prisma/`. Configure `DATABASE_URL` and run the required Prisma setup before using database-backed features.
 
 ## Security
 
-This project handles authentication, user accounts, OAuth integrations, and password-related workflows. Security issues should be reported responsibly rather than publicly disclosed before they can be investigated.
+This project handles authentication, user accounts, OAuth integrations, and password workflows. Report security issues responsibly rather than publicly disclosing vulnerabilities before they are investigated.
 
-Do not commit secrets or production credentials to the repository.
-
-## Project
-
-PWN TCPioneer is part of TC Pioneer, my broader work in cybersecurity education, security research, and software development.
-
-## Contributing
-
-Suggestions, improvements, bug reports, and pull requests are welcome. For larger changes, open an issue first so the proposed change can be discussed before implementation.
+Do not commit secrets or production credentials.
 
 ## Author
 

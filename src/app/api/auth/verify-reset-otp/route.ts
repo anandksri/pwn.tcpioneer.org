@@ -1,12 +1,19 @@
 import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
+import { hashOTP } from "@/lib/otp";
+import { otpSchema } from "@/lib/validators";
+import { rateLimitResponse } from "@/lib/rate-limit";
+import { apiError } from "@/utils/api-error";
 
 export async function POST(req: Request) {
   try {
-    const { email, otp } = await req.json();
+    const limited = await rateLimitResponse(req, "auth:verify-reset", 10, 15 * 60 * 1000);
+    if (limited) return limited;
 
-    if (!email || !otp) {
+    const result = otpSchema.safeParse(await req.json());
+
+    if (!result.success) {
       return NextResponse.json(
         {
           success: false,
@@ -15,6 +22,8 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    const { email, otp } = result.data;
 
     // Find user
     const user = await prisma.user.findUnique({
@@ -37,12 +46,12 @@ export async function POST(req: Request) {
     const otpRecord = await prisma.oTP.findFirst({
       where: {
         userId: user.id,
-        code: otp,
         type: "PASSWORD_RESET",
       },
+      orderBy: { createdAt: "desc" },
     });
 
-    if (!otpRecord) {
+    if (!otpRecord || otpRecord.code !== hashOTP(user.id, "PASSWORD_RESET", otp)) {
       return NextResponse.json(
         {
           success: false,
@@ -67,15 +76,7 @@ export async function POST(req: Request) {
       success: true,
       message: "OTP verified successfully.",
     });
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("verify-reset-otp");
   }
 }

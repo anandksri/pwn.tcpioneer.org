@@ -2,12 +2,19 @@ import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
 import { sendResetPasswordEmail } from "@/utils/mail";
+import { generateOTP, hashOTP } from "@/lib/otp";
+import { emailSchema } from "@/lib/validators";
+import { rateLimitResponse } from "@/lib/rate-limit";
+import { apiError } from "@/utils/api-error";
 
 export async function POST(req: Request) {
   try {
-    const { email } = await req.json();
+    const limited = await rateLimitResponse(req, "auth:resend-reset", 5, 15 * 60 * 1000);
+    if (limited) return limited;
 
-    if (!email) {
+    const result = emailSchema.safeParse(await req.json());
+
+    if (!result.success) {
       return NextResponse.json(
         {
           success: false,
@@ -17,6 +24,7 @@ export async function POST(req: Request) {
       );
     }
 
+    const { email } = result.data;
     const user = await prisma.user.findUnique({
       where: {
         email,
@@ -24,13 +32,7 @@ export async function POST(req: Request) {
     });
 
     if (!user) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "User not found.",
-        },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: true, message: "If an account exists, a reset code has been sent." });
     }
 
     await prisma.oTP.deleteMany({
@@ -40,13 +42,11 @@ export async function POST(req: Request) {
       },
     });
 
-    const otp = Math.floor(
-      100000 + Math.random() * 900000
-    ).toString();
+    const otp = generateOTP();
 
     await prisma.oTP.create({
       data: {
-        code: otp,
+        code: hashOTP(user.id, "PASSWORD_RESET", otp),
         type: "PASSWORD_RESET",
         expiresAt: new Date(
           Date.now() + 10 * 60 * 1000
@@ -66,16 +66,7 @@ export async function POST(req: Request) {
       message: "Reset code sent successfully.",
     });
 
-  } catch (error) {
-
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("resend-reset-otp");
   }
 }

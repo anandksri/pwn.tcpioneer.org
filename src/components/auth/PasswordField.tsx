@@ -19,7 +19,7 @@ const PasswordField = forwardRef<HTMLInputElement, Props>(
         <div className="group relative">
           {/* Lock Icon */}
 
-          <Icon className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-zinc-500 transition-colors duration-300 group-focus-within:text-violet-400" />
+          <Icon className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-subtle-foreground transition-colors duration-300 group-focus-within:text-brand-soft" />
 
           {/* Input */}
 
@@ -27,7 +27,7 @@ const PasswordField = forwardRef<HTMLInputElement, Props>(
             ref={ref}
             type={showPassword ? "text" : "password"}
             placeholder={placeholder}
-            className={`h-12 w-full rounded-xl border border-zinc-800 bg-zinc-900/80 pr-12 pl-12 text-white transition-all duration-300 outline-none placeholder:text-zinc-500 focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 ${error ? "border-red-500" : ""} ${className ?? ""} `}
+            className={`h-12 w-full rounded-md border border-border bg-card/80 pr-12 pl-12 text-foreground transition-all duration-300 outline-none placeholder:text-subtle-foreground focus:border-primary focus:ring-4 focus:ring-primary/10 ${error ? "border-destructive" : ""} ${className ?? ""} `}
             {...props}
           />
 
@@ -36,7 +36,7 @@ const PasswordField = forwardRef<HTMLInputElement, Props>(
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute top-1/2 right-4 -translate-y-1/2 text-zinc-500 transition hover:text-white"
+            className="absolute top-1/2 right-4 -translate-y-1/2 text-subtle-foreground transition hover:text-foreground"
           >
             {showPassword ? (
               <EyeOff className="h-5 w-5" />
@@ -46,7 +46,7 @@ const PasswordField = forwardRef<HTMLInputElement, Props>(
           </button>
         </div>
 
-        {error && <p className="text-sm text-red-400">{error}</p>}
+        {error && <p className="text-sm text-destructive">{error}</p>}
       </div>
     );
   }

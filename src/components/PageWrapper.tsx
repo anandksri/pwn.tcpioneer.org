@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 
 export default function PageWrapper({ children }: { children: ReactNode }) {
   return (
-    <motion.main
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
@@ -13,6 +13,6 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
       }}
     >
       {children}
-    </motion.main>
+    </motion.div>
   );
 }

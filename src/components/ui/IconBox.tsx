@@ -8,7 +8,7 @@ type IconBoxProps = {
 export default function IconBox({ children, className = "" }: IconBoxProps) {
   return (
     <div
-      className={`flex h-14 w-14 items-center justify-center rounded-2xl border border-violet-500/20 bg-violet-500/10 text-violet-400 transition-all duration-300 group-hover:scale-110 group-hover:border-violet-500/40 group-hover:bg-violet-500/15 ${className}`}
+      className={`flex h-12 w-12 items-center justify-center rounded-md border border-primary/30 bg-primary/10 text-primary transition-colors duration-300 group-hover:border-primary/50 group-hover:bg-primary/15 ${className}`}
     >
       {children}
     </div>

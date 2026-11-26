@@ -6,13 +6,13 @@ import { GraduationCap, Trophy, Users, Code2 } from "lucide-react";
 
 export default function Community() {
   return (
-    <section className="bg-[#09090B] py-28">
+    <section className="bg-background py-28">
       <Container>
         <div className="grid items-center gap-56 lg:grid-cols-[380px_1fr]">
           {/* LEFT */}
 
           <div className="flex justify-center">
-            <div className="group w-full max-w-sm rounded-3xl border border-zinc-800 bg-[#111114] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/30 hover:shadow-[0_0_35px_rgba(139,92,246,.12)]">
+            <div className="group w-full max-w-sm rounded-lg border border-border bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 ">
               <div className="flex flex-col items-center">
                 <Image
                   src="/images/tcp-logo.png"
@@ -22,9 +22,9 @@ export default function Community() {
                   className="h-auto w-52 transition-transform duration-300 group-hover:scale-105"
                 />
 
-                <div className="mt-8 h-px w-full bg-zinc-800" />
+                <div className="mt-8 h-px w-full bg-elevated" />
 
-                <h3 className="mt-6 text-xl font-semibold text-violet-400">
+                <h3 className="mt-6 text-xl font-semibold text-brand-soft">
                   TC Pioneer
                 </h3>
               </div>
@@ -34,24 +34,24 @@ export default function Community() {
           {/* RIGHT */}
 
           <div>
-            <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
+            <span className="text-sm font-semibold tracking-[0.15em] text-brand-soft uppercase">
               ABOUT TC PIONEER
             </span>
 
-            <h2 className="mt-5 text-4xl leading-tight font-bold text-white lg:text-5xl">
+            <h2 className="mt-5 text-4xl leading-tight font-bold text-foreground lg:text-5xl">
               Building the Next Generation
               <br />
               of Cybersecurity Leaders.
             </h2>
 
-            <p className="mt-8 max-w-2xl text-lg leading-6 text-zinc-400">
+            <p className="mt-8 max-w-2xl text-lg leading-6 text-secondary-foreground">
               TC Pioneer is a student-driven cybersecurity community focused on
               making practical cybersecurity education accessible through
               workshops, Capture The Flag competitions, mentoring and
               collaborative open-source projects.
             </p>
 
-            <p className="mt-6 max-w-2xl text-lg leading-6 text-zinc-400">
+            <p className="mt-6 max-w-2xl text-lg leading-6 text-secondary-foreground">
               Our mission is to help learners build real-world skills, connect
               with professionals and grow together through a supportive
               cybersecurity community.
@@ -59,7 +59,7 @@ export default function Community() {
 
             <Link
               href="https://tcpioneer.org"
-              className="group mt-10 inline-flex cursor-pointer items-center gap-2 font-medium transition-colors duration-300 hover:text-violet-300"
+              className="group mt-10 inline-flex cursor-pointer items-center gap-2 font-medium transition-colors duration-300 hover:text-brand-soft"
             >
               <span>Learn More</span>
 

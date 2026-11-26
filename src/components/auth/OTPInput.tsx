@@ -86,7 +86,7 @@ export default function OTPInput({ length = 6, onComplete }: Props) {
           onPaste={handlePaste}
           onChange={(e) => handleChange(e.target.value, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
-          className="h-12 w-12 rounded-2xl border border-zinc-800 bg-zinc-900/80 text-center text-xl font-bold text-white transition-all duration-300 outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10"
+          className="h-12 w-12 rounded-lg border border-border bg-card/80 text-center text-xl font-bold text-foreground transition-all duration-300 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10"
         />
       ))}
     </div>

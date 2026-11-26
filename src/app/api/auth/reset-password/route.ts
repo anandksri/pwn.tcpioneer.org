@@ -2,12 +2,19 @@ import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
 import { hashPassword } from "@/utils/hash";
+import { hashOTP } from "@/lib/otp";
+import { resetPasswordSchema } from "@/lib/validators";
+import { rateLimitResponse } from "@/lib/rate-limit";
+import { apiError } from "@/utils/api-error";
 
 export async function POST(req: Request) {
   try {
-    const { email, otp, password } = await req.json();
+    const limited = await rateLimitResponse(req, "auth:reset-password", 5, 15 * 60 * 1000);
+    if (limited) return limited;
 
-    if (!email || !otp || !password) {
+    const result = resetPasswordSchema.safeParse(await req.json());
+
+    if (!result.success) {
       return NextResponse.json(
         {
           success: false,
@@ -16,6 +23,8 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    const { email, otp, password } = result.data;
 
     // Find user
     const user = await prisma.user.findUnique({
@@ -38,12 +47,12 @@ export async function POST(req: Request) {
     const otpRecord = await prisma.oTP.findFirst({
       where: {
         userId: user.id,
-        code: otp,
         type: "PASSWORD_RESET",
       },
+      orderBy: { createdAt: "desc" },
     });
 
-    if (!otpRecord) {
+    if (!otpRecord || otpRecord.code !== hashOTP(user.id, "PASSWORD_RESET", otp)) {
       return NextResponse.json(
         {
           success: false,
@@ -74,6 +83,7 @@ export async function POST(req: Request) {
       },
       data: {
         password: hashedPassword,
+        sessionVersion: { increment: 1 },
       },
     });
 
@@ -89,15 +99,7 @@ export async function POST(req: Request) {
       success: true,
       message: "Password reset successfully.",
     });
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("reset-password");
   }
 }

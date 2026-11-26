@@ -98,26 +98,26 @@ export default function VerifyEmailOTP({
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-violet-500/10">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-primary/10">
           {verified ? (
             <CheckCircle2 className="h-8 w-8 text-emerald-400" />
           ) : (
-            <Mail className="h-8 w-8 text-violet-400" />
+            <Mail className="h-8 w-8 text-brand-soft" />
           )}
         </div>
 
-        <h2 className="mt-6 text-3xl font-bold text-white">
+        <h2 className="mt-6 text-3xl font-bold text-foreground">
           {verified ? "Verified!" : "Verify Your Email"}
         </h2>
 
-        <p className="mt-3 text-zinc-400">
+        <p className="mt-3 text-secondary-foreground">
           {verified
             ? "Your email has been verified successfully."
             : "We've sent a 6-digit verification code to"}
         </p>
 
         {!verified && (
-          <p className="mt-2 font-medium text-white">
+          <p className="mt-2 font-medium text-foreground">
             {email}
           </p>
         )}
@@ -128,7 +128,7 @@ export default function VerifyEmailOTP({
       )}
 
       {loading && (
-        <p className="text-center text-sm text-violet-400">
+        <p className="text-center text-sm text-brand-soft">
           Verifying...
         </p>
       )}
@@ -138,20 +138,20 @@ export default function VerifyEmailOTP({
           <button
             type="button"
             onClick={onBack}
-            className="text-zinc-400 transition hover:text-white"
+            className="text-secondary-foreground transition hover:text-foreground"
           >
             Change Email
           </button>
 
           {seconds > 0 ? (
-            <span className="text-zinc-500">
+            <span className="text-subtle-foreground">
               Resend in {seconds}s
             </span>
           ) : (
             <button
               type="button"
               onClick={resendCode}
-              className="font-medium text-violet-400 transition hover:text-violet-300"
+              className="font-medium text-brand-soft transition hover:text-brand-soft"
             >
               Resend Code
             </button>

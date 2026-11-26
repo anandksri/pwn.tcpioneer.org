@@ -1,82 +1,107 @@
 import Link from "next/link";
 
 import Container from "@/components/Container";
+import { prisma } from "@/lib/prisma";
 
-import { CalendarDays, Clock3, ArrowRight } from "lucide-react";
+function formatUtc(value: Date) {
+  return new Intl.DateTimeFormat("en", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "UTC",
+  }).format(value);
+}
 
-import { upcomingEvents } from "@/data/community";
+export default async function UpcomingEvents() {
+  const now = new Date();
+  const events = await prisma.communityEvent.findMany({
+    where: {
+      published: true,
+      OR: [
+        { startsAt: { gte: now } },
+        { endsAt: { gte: now } },
+      ],
+    },
+    orderBy: [{ startsAt: "asc" }, { title: "asc" }],
+    take: 12,
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      category: true,
+      startsAt: true,
+      endsAt: true,
+      location: true,
+      registrationUrl: true,
+    },
+  });
 
-export default function UpcomingEvents() {
   return (
-    <section className="bg-[#09090B] pb-24">
+    <section id="events" className="bg-background pb-24">
       <Container>
         <div className="flex items-end justify-between">
           <div>
-            <span className="text-sm font-semibold tracking-[0.3em] text-violet-400 uppercase">
+            <span className="text-sm font-semibold tracking-[0.3em] text-brand-soft uppercase">
               Upcoming Events
             </span>
-
-            <h2 className="mt-4 text-4xl font-bold text-white">
-              Dont miss whats next
+            <h2 className="mt-4 text-4xl font-bold text-foreground">
+              Don&apos;t miss what&apos;s next
             </h2>
           </div>
-
-          <Link
-            href="#"
-            className="text-sm font-medium text-zinc-400 transition hover:text-violet-400"
-          >
-            View All →
-          </Link>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {upcomingEvents.map((event, index) => (
-            <div
-              key={index}
-              className="group cursor-pointer rounded-2xl border border-zinc-800 bg-[#111114] p-6 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/40 hover:bg-[#18181d] hover:shadow-[0_15px_35px_rgba(139,92,246,.12)]"
+        {events.length ? (
+          <div className="mt-14 grid gap-5 md:grid-cols-2">
+            {events.map((event) => (
+              <article key={event.id} className="border border-border bg-card p-6">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <span className="border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-wide text-brand-soft uppercase">
+                    {event.category}
+                  </span>
+                  <time
+                    dateTime={event.startsAt.toISOString()}
+                    className="text-sm text-muted-foreground"
+                  >
+                    {formatUtc(event.startsAt)} UTC
+                  </time>
+                </div>
+                <h3 className="mt-5 text-2xl font-semibold text-foreground">{event.title}</h3>
+                <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-muted-foreground">
+                  {event.description}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-secondary-foreground">
+                  {event.endsAt ? (
+                    <span>Ends {formatUtc(event.endsAt)} UTC</span>
+                  ) : null}
+                  {event.location ? <span>{event.location}</span> : null}
+                </div>
+                {event.registrationUrl ? (
+                  <Link
+                    href={event.registrationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex border border-primary bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-hover"
+                  >
+                    Event details / registration
+                  </Link>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-14 border border-dashed border-border bg-card p-8 text-center">
+            <p className="text-muted-foreground">
+              No upcoming events have been published yet. Follow the community for announcements.
+            </p>
+            <Link
+              href="https://discord.gg/tcpioneer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex border border-border bg-secondary px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-elevated"
             >
-              {/* Date */}
-
-              <div className="inline-flex rounded-xl border border-violet-500/20 bg-violet-500/10 px-4 py-2">
-                <span className="text-sm font-semibold tracking-[0.15em] text-violet-400 uppercase">
-                  {event.date}
-                </span>
-              </div>
-
-              {/* Title */}
-
-              <h3 className="mt-6 text-2xl font-semibold text-white transition-colors duration-300 group-hover:text-violet-400">
-                {event.title}
-              </h3>
-
-              {/* Meta */}
-
-              <div className="mt-6 space-y-4">
-                <div className="flex items-center gap-3 text-zinc-400">
-                  <Clock3 className="h-5 w-5" />
-
-                  <span>{event.time}</span>
-                </div>
-
-                <div className="flex items-center gap-3 text-zinc-400">
-                  <CalendarDays className="h-5 w-5" />
-
-                  <span>{event.location}</span>
-                </div>
-              </div>
-
-              {/* Button */}
-
-              <Link
-                href={event.href}
-                className="mt-8 inline-flex items-center gap-2 font-medium text-zinc-300 transition-colors duration-300 group-hover:text-violet-400"
-              >
-                Register
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          ))}
-        </div>
+              Follow community updates
+            </Link>
+          </div>
+        )}
       </Container>
     </section>
   );

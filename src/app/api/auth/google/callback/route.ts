@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { signToken } from "@/lib/jwt";
 import { getGoogleUser } from "@/lib/google";
+import { apiError } from "@/utils/api-error";
 
 export async function GET(req: NextRequest) {
   try {
@@ -19,8 +20,13 @@ export async function GET(req: NextRequest) {
     }
 
     const googleUser = await getGoogleUser(code);
-
-    const email = googleUser.email!;
+    if (!googleUser.email) {
+      return NextResponse.json(
+        { success: false, message: "Google account email is unavailable." },
+        { status: 400 },
+      );
+    }
+    const email = googleUser.email.toLowerCase();
 
     let user = await prisma.user.findUnique({
       where: {
@@ -29,12 +35,21 @@ export async function GET(req: NextRequest) {
     });
 
     if (!user) {
+      const baseUsername = (googleUser.name ?? email.split("@")[0])
+        .toLowerCase()
+        .replace(/[^a-z0-9_]/g, "")
+        .slice(0, 16) || "googleuser";
+      let username = baseUsername.length >= 3 ? baseUsername : `${baseUsername}user`;
+      let suffix = 1;
+
+      while (await prisma.user.findUnique({ where: { username } })) {
+        const suffixText = String(suffix++);
+        username = `${baseUsername.slice(0, 20 - suffixText.length)}${suffixText}`;
+      }
+
       user = await prisma.user.create({
         data: {
-          username:
-            googleUser.name?.replace(/\s+/g, "").toLowerCase() ??
-            email.split("@")[0],
-
+          username,
           email,
 
           password: "",
@@ -51,13 +66,8 @@ export async function GET(req: NextRequest) {
       username: user.username,
       email: user.email,
       role: user.role,
+      sessionVersion: user.sessionVersion,
     });
-
-    console.log("Origin:", req.nextUrl.origin);
-
-    const redirectUrl = new URL("/dashboard", req.nextUrl.origin);
-
-    console.log("Redirect URL:", redirectUrl.toString());
 
     const response = NextResponse.redirect(
       new URL("/dashboard", req.nextUrl.origin)
@@ -72,15 +82,7 @@ export async function GET(req: NextRequest) {
     });
 
     return response;
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Google authentication failed.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("google-callback", "Google authentication failed.");
   }
 }

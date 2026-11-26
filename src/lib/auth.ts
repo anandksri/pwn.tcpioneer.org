@@ -25,12 +25,22 @@ export async function getCurrentUser() {
         email: true,
         role: true,
         verified: true,
-        image: true,
+        avatar: true,
+        sessionVersion: true,
       },
     });
+
+    if (!user || user.sessionVersion !== payload.sessionVersion) {
+      return null;
+    }
 
     return user;
   } catch {
     return null;
   }
+}
+
+export async function getCurrentAdmin() {
+  const user = await getCurrentUser();
+  return user?.role === "ADMIN" ? user : null;
 }

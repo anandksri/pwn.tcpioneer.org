@@ -2,11 +2,16 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { registerSchema } from "@/lib/validators";
 import { hashPassword } from "@/utils/hash";
-import { generateOTP } from "@/lib/otp";
+import { generateOTP, hashOTP } from "@/lib/otp";
 import { sendVerificationEmail } from "@/utils/mail";
+import { rateLimitResponse } from "@/lib/rate-limit";
+import { apiError } from "@/utils/api-error";
 
 export async function POST(req: Request) {
   try {
+    const limited = await rateLimitResponse(req, "auth:register", 5, 60 * 60 * 1000);
+    if (limited) return limited;
+
     // Read request body
     const body = await req.json();
 
@@ -77,7 +82,7 @@ export async function POST(req: Request) {
     // Save OTP
     await prisma.oTP.create({
       data: {
-        code: otp,
+        code: hashOTP(user.id, "EMAIL_VERIFICATION", otp),
         type: "EMAIL_VERIFICATION",
         expiresAt: new Date(Date.now() + 10 * 60 * 1000),
         userId: user.id,
@@ -98,15 +103,7 @@ export async function POST(req: Request) {
       },
       { status: 201 }
     );
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error.",
-      },
-      { status: 500 }
-    );
+  } catch {
+    return apiError("register");
   }
 }
