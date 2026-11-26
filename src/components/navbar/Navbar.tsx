@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
@@ -19,37 +19,19 @@ import useAuth from "@/hooks/useAuth";
 export default function Navbar() {
   const { user } = useAuth();
 
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 z-50 w-full transition-[padding] duration-200 ${
-          scrolled ? "pt-0" : "pt-4 lg:pt-6"
-        }`}
+        className="fixed top-0 left-0 z-50 w-full"
       >
-        <Container className={scrolled ? "!w-full !max-w-none !px-0" : ""}>
+        <Container className="!w-full !max-w-none !px-0">
           <nav
-            className={`relative flex h-[68px] items-center justify-between transition-colors duration-200 lg:grid lg:h-[68px] lg:grid-cols-[240px_1fr_220px] ${
-              scrolled
-                ? "w-full border-b border-border bg-card px-5 sm:px-6"
-                : "rounded-lg border border-border bg-card px-5 sm:px-6"
-            }`}
+            className="relative flex h-[68px] items-center justify-between border-b border-border bg-[#090a20] px-5 lg:grid lg:h-[68px] lg:grid-cols-[240px_1fr_220px] sm:px-6"
           >
             {/* Left */}
             <div className="flex items-center">

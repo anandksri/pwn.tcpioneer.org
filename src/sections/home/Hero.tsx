@@ -30,7 +30,7 @@ export default function Hero() {
               PWN • By TC Pioneer
             </div>
 
-            <h1 className="mt-7 max-w-[760px] text-[2.65rem] leading-[1.04] font-black tracking-[-0.045em] text-foreground sm:text-6xl lg:text-[4.25rem]">
+            <h1 className="mt-7 max-w-[760px] font-mono text-[2.65rem] leading-[1.04] font-bold tracking-[-0.045em] text-foreground sm:text-6xl lg:text-[4.25rem]">
               Learn Cybersecurity
               <span className="mt-2 block text-brand-soft">Through Practice</span>
             </h1>
