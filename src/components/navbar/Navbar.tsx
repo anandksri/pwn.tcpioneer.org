@@ -39,16 +39,16 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        className={`fixed top-0 left-0 z-50 w-full transition-[padding] duration-200 ${
           scrolled ? "pt-0" : "pt-4 lg:pt-6"
         }`}
       >
         <Container className={scrolled ? "!w-full !max-w-none !px-0" : ""}>
           <nav
-            className={`relative flex h-[68px] items-center justify-between transition-all duration-300 lg:grid lg:h-[68px] lg:grid-cols-[240px_1fr_220px] ${
+            className={`relative flex h-[68px] items-center justify-between transition-colors duration-200 lg:grid lg:h-[68px] lg:grid-cols-[240px_1fr_220px] ${
               scrolled
-                ? "w-full border-b border-border/90 bg-background/95 px-5 backdrop-blur-xl sm:px-6"
-                : "rounded-xl border border-border/80 bg-card/85 px-5 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-xl sm:px-6"
+                ? "w-full border-b border-border bg-card px-5 sm:px-6"
+                : "rounded-lg border border-border bg-card px-5 sm:px-6"
             }`}
           >
             {/* Left */}
@@ -77,7 +77,7 @@ export default function Navbar() {
 
                   <Link
                     href="/get-started"
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold whitespace-nowrap text-primary-foreground transition-colors hover:bg-brand-hover"
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold whitespace-nowrap text-white transition-colors hover:bg-brand-hover"
                   >
                     Get Started
                   </Link>

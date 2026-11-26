@@ -71,7 +71,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
 
   return (
     <div role="dialog" aria-modal="true" aria-label="Site search" className="fixed inset-0 z-[999] flex items-start justify-center bg-background/75 pt-24" onClick={onClose}>
-      <div onClick={(event) => event.stopPropagation()} className="w-full max-w-2xl overflow-hidden rounded-md border border-border bg-popover shadow-lg">
+      <div onClick={(event) => event.stopPropagation()} className="w-full max-w-2xl overflow-hidden rounded-lg border border-border bg-popover">
         <div className="flex items-center gap-4 border-b border-border p-5">
           <Search className="h-5 w-5 text-muted-foreground" />
           <input ref={inputRef} value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Search modules, lessons, and challenges" placeholder="Search modules, lessons, challenges..." className="flex-1 bg-transparent text-foreground outline-none placeholder:text-subtle-foreground" />

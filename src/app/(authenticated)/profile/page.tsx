@@ -27,7 +27,7 @@ export default async function ProfilePage() {
 
   return (
     <div className="space-y-8">
-      <section className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)] md:p-8">
+      <section className="rounded-lg border border-border bg-card p-6 md:p-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-5">
             <div className="flex h-20 w-20 shrink-0 items-center justify-center border border-primary/30 bg-primary/10 text-2xl font-bold text-primary">
@@ -48,7 +48,7 @@ export default async function ProfilePage() {
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {stats.map(({ label, value, detail, icon: Icon }) => (
-          <div key={label} className="rounded-xl border border-border/90 bg-card p-5 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
+          <div key={label} className="rounded-lg border border-border bg-card p-5">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-sm text-muted-foreground">{label}</p>
@@ -62,7 +62,7 @@ export default async function ProfilePage() {
       </section>
 
       <div className="grid gap-8 xl:grid-cols-2">
-        <section className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
+        <section className="rounded-lg border border-border bg-card p-6">
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
               <h2 className="text-xl font-semibold text-foreground">Learning progress</h2>
@@ -72,7 +72,7 @@ export default async function ProfilePage() {
           </div>
 
           {profile.modules.length ? (
-            <div className="space-y-4">
+            <div className="divide-y divide-border">
               {profile.modules.map((module) => {
                 const percentage = module.totalLessons
                   ? Math.round((module.completedLessons / module.totalLessons) * 100)
@@ -80,7 +80,7 @@ export default async function ProfilePage() {
                 const theme = getCategoryTheme(module.category);
 
                 return (
-                  <Link key={module.slug} href={`/modules/${module.slug}`} className={`block rounded-lg border border-border bg-secondary p-4 transition-colors hover:bg-elevated ${theme.hover}`}>
+                  <Link key={module.slug} href={`/modules/${module.slug}`} className={`block py-4 transition-colors hover:text-primary ${theme.hover}`}>
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <p className="font-medium text-foreground">{module.title}</p>
@@ -110,7 +110,7 @@ export default async function ProfilePage() {
           )}
         </section>
 
-        <section className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
+        <section className="rounded-lg border border-border bg-card p-6">
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
               <h2 className="text-xl font-semibold text-foreground">Solved challenges</h2>
@@ -120,11 +120,11 @@ export default async function ProfilePage() {
           </div>
 
           {profile.challenges.length ? (
-            <div className="space-y-3">
+            <div className="divide-y divide-border">
               {profile.challenges.map((challenge) => {
                 const theme = getCategoryTheme(challenge.category);
                 return (
-                <Link key={challenge.slug} href={`/practice/${challenge.slug}`} className={`flex items-center justify-between gap-4 rounded-lg border border-border bg-secondary p-4 transition-colors hover:bg-elevated ${theme.hover}`}>
+                <Link key={challenge.slug} href={`/practice/${challenge.slug}`} className={`flex items-center justify-between gap-4 py-4 transition-colors hover:text-primary ${theme.hover}`}>
                   <div className="min-w-0">
                     <p className="truncate font-medium text-foreground">{challenge.title}</p>
                     <p className="mt-1 text-xs text-muted-foreground">

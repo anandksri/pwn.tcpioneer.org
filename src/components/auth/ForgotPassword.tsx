@@ -64,7 +64,7 @@ export default function ForgotPassword({ onBack, onSuccess }: Props) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-md bg-primary py-3 font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-lg bg-primary py-3 font-semibold text-primary-foreground transition-colors duration-200 hover:bg-brand-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? "Sending..." : "Send Verification Code"}
       </button>

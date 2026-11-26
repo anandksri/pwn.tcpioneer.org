@@ -77,7 +77,7 @@ export default function TrainingGrounds() {
             return (
               <div
                 key={ground.title}
-                className={`group flex flex-col rounded-xl border border-border/90 bg-card p-5 shadow-[0_14px_40px_rgba(0,0,0,.10)] transition-all duration-300 hover:-translate-y-1 hover:bg-elevated ${theme.hover}`}
+                className={`group flex flex-col rounded-lg border border-border bg-card p-5 transition-colors duration-200 hover:bg-elevated ${theme.hover}`}
               >
                 {/* Header */}
 

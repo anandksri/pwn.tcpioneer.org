@@ -30,7 +30,7 @@ const actions = [
 
 export default function QuickActions() {
   return (
-    <section className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
+    <section className="rounded-lg border border-border bg-card p-6">
       <div className="mb-6">
         <h2 className="text-xl font-semibold tracking-tight text-foreground">
           Quick Actions
@@ -38,7 +38,7 @@ export default function QuickActions() {
         <p className="mt-1 text-sm text-muted-foreground">Jump into your next task</p>
       </div>
 
-      <div className="space-y-3">
+      <div className="divide-y divide-border">
         {actions.map((action) => {
           const Icon = action.icon;
 
@@ -51,13 +51,10 @@ export default function QuickActions() {
                 flex
                 items-center
                 justify-between
-                border
-                border-border
-                bg-secondary
-                p-4
+                py-3
                 transition-colors
-                hover:border-primary/40
-                hover:bg-elevated
+                duration-200
+                hover:text-primary
               "
             >
               <div className="flex items-center gap-4">

@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           {/* Badge */}
 
-          <span className="inline-flex rounded-full border border-primary/20 bg-primary/8 px-4 py-1.5 font-mono text-[10px] font-semibold tracking-[0.2em] text-brand-soft uppercase">
+          <span className="font-mono text-[11px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
             About PWN
           </span>
 

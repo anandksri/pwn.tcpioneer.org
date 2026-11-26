@@ -66,7 +66,7 @@ export default function UserMenu() {
       {/* Dropdown */}
 
       {open && (
-        <div className="absolute right-0 mt-3 w-80 overflow-hidden rounded-md border border-border bg-popover shadow-lg">
+        <div className="absolute right-0 mt-3 w-80 overflow-hidden rounded-lg border border-border bg-popover">
           {/* Header */}
 
           <div className="border-b border-border p-5">

@@ -61,7 +61,7 @@ export default function WhyPwn() {
             return (
               <div
                 key={item.title}
-                className={`group rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)] transition-all duration-300 hover:-translate-y-1 hover:bg-elevated ${theme.hover}`}
+                className={`group rounded-lg border border-border bg-card p-6 transition-colors duration-200 hover:bg-elevated ${theme.hover}`}
               >
                 {/* Top */}
 

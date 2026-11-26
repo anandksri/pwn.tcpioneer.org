@@ -106,7 +106,7 @@ export default function MobileMenu({
             transition={{
               duration: 0.25,
             }}
-            className="absolute top-24 left-1/2 w-[92%] max-w-md -translate-x-1/2 overflow-hidden rounded-md border border-border bg-popover shadow-lg"
+            className="absolute top-24 left-1/2 w-[92%] max-w-md -translate-x-1/2 overflow-hidden rounded-lg border border-border bg-popover"
           >
             {/* Header */}
 

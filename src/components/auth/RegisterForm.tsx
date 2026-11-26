@@ -152,13 +152,13 @@ export default function RegisterForm({ onLogin, onSuccess }: Props) {
             disabled={loading || !agreed || password !== confirmPassword}
             className={`w-full rounded-md py-2.5 font-semibold transition-all duration-300 ${
               agreed && password === confirmPassword
-                ? "bg-primary text-foreground hover:bg-primary hover:shadow-lg"
+                ? "bg-primary text-primary-foreground hover:bg-brand-hover"
                 : "cursor-not-allowed bg-elevated text-subtle-foreground"
             } `}
           >
             {loading ? (
               <>
-                <Loader2 className="mr-2 inline h-4 w-4 animate-spin" />
+                <Loader2 className="mr-2 inline h-4 w-4" strokeWidth={1.75} />
                 Creating Account...
               </>
             ) : (

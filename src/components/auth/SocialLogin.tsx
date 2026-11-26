@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
+import { GitBranch, Mail } from "lucide-react";
 
 export default function SocialLogin() {
   const [loading, setLoading] = useState<"google" | "github" | null>(null);
@@ -34,7 +33,6 @@ transition-all
 duration-300
 hover:border-primary/50
 hover:bg-elevated
-hover:shadow-lg
 disabled:cursor-not-allowed
 disabled:opacity-50
 `;
@@ -49,7 +47,7 @@ disabled:opacity-50
         onClick={() => handleLogin("google")}
         className={buttonClass}
       >
-        <FcGoogle className="h-5 w-5 shrink-0" />
+        <Mail className="h-5 w-5 shrink-0" strokeWidth={1.75} />
 
         <span className="whitespace-nowrap">
           {loading === "google" ? "Connecting..." : "Continue with Google"}
@@ -62,7 +60,7 @@ disabled:opacity-50
         onClick={() => handleLogin("github")}
         className={buttonClass}
       >
-        <FaGithub className="h-5 w-5 shrink-0" />
+        <GitBranch className="h-5 w-5 shrink-0" strokeWidth={1.75} />
 
         <span className="whitespace-nowrap">
           {loading === "github" ? "Connecting..." : "Continue with GitHub"}

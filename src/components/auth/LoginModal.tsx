@@ -24,7 +24,7 @@ export default function LoginModal({ open, onClose }: Props) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="fixed inset-0 z-[90] bg-background/70 backdrop-blur-md"
+            className="fixed inset-0 z-[90] bg-foreground/20"
           />
 
           {/* Modal */}
@@ -51,7 +51,7 @@ export default function LoginModal({ open, onClose }: Props) {
             }}
             className="fixed top-1/2 left-1/2 z-[100] w-[92%] max-w-md -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="relative rounded-lg border border-border/50 bg-card p-8 shadow-2xl">
+            <div className="relative rounded-lg border border-border bg-card p-8">
               {/* Close */}
 
               <button

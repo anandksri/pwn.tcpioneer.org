@@ -32,7 +32,7 @@ export default function PracticeCard({
 }: PracticeCardProps) {
   const theme = getCategoryTheme(category);
   return (
-    <article className={`group rounded-xl border border-border/90 bg-card p-5 shadow-[0_14px_40px_rgba(0,0,0,.10)] transition-all duration-300 hover:-translate-y-1 hover:bg-elevated ${theme.hover}`}>
+    <article className={`group rounded-lg border border-border bg-card p-5 transition-colors duration-200 hover:bg-elevated ${theme.hover}`}>
       <div className="flex items-start justify-between gap-3">
         <div className={`flex h-12 w-12 items-center justify-center rounded-md border ${theme.bg} ${theme.border}`}>
           <Flag className={`h-6 w-6 ${theme.icon}`} />

@@ -28,7 +28,7 @@ export default function FAQ() {
             return (
               <div
                 key={faq.question}
-                className="group overflow-hidden rounded-xl border border-border/90 bg-card transition-all hover:border-primary/40 hover:bg-elevated"
+                className="group overflow-hidden rounded-lg border border-border bg-card transition-colors duration-200 hover:border-primary/40 hover:bg-elevated"
               >
                 <button
                   type="button"

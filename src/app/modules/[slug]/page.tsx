@@ -74,7 +74,7 @@ export default async function ModulePage({
                 </div>
               </div>
 
-              <aside className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
+              <aside className="rounded-lg border border-border bg-card p-6">
                 <p className="text-sm font-medium text-muted-foreground">Your progress</p>
                 <p className="mt-3 text-3xl font-semibold text-foreground">
                   {completedLessons}/{learningModule.lessons.length}

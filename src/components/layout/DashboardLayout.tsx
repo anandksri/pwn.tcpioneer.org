@@ -19,7 +19,7 @@ export default function DashboardLayout({
       <Sidebar />
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-40 border-b border-border/90 bg-background/95 backdrop-blur-xl">
+        <header className="sticky top-0 z-40 border-b border-border bg-card">
           <div className="flex h-16 items-center justify-between gap-6 px-4 md:px-6">
             <div className="flex items-center gap-3">
               <div className="lg:hidden">

@@ -64,7 +64,7 @@ export default function AuthModal({ open, onClose }: Props) {
               duration: 0.2,
             }}
             onClick={handleClose}
-            className="fixed inset-0 z-[90] bg-background/70 backdrop-blur-md"
+            className="fixed inset-0 z-[90] bg-foreground/20"
           />
 
           <motion.div
@@ -90,7 +90,7 @@ export default function AuthModal({ open, onClose }: Props) {
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
           >
             <div
-              className={`relative w-full overflow-hidden rounded-lg border border-border/50 bg-card shadow-2xl transition-all duration-300 ${
+              className={`relative w-full overflow-hidden rounded-lg border border-border bg-card transition-colors duration-200 ${
                 view === "register" ? "max-w-sm lg:max-w-2xl" : "max-w-sm"
               }`}
             >

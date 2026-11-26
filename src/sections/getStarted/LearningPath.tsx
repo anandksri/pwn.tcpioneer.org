@@ -62,7 +62,7 @@ export default function LearningPath() {
         <div className="relative mx-auto mt-20 max-w-5xl">
           {/* Timeline */}
 
-          <div className="absolute top-0 left-8 h-full w-px bg-gradient-to-b from-primary via-border to-transparent lg:left-1/2 lg:-translate-x-1/2" />
+          <div className="absolute top-0 left-8 h-full w-px bg-border lg:left-1/2 lg:-translate-x-1/2" />
 
           <div className="space-y-12">
             {path.map((step, index) => {
