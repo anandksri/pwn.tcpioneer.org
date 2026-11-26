@@ -31,7 +31,7 @@ export default function Navbar() {
       >
         <Container className="!w-full !max-w-none !px-0">
           <nav
-            className="relative flex h-[68px] items-center justify-between border-b border-border bg-[#090a20] px-5 lg:grid lg:h-[68px] lg:grid-cols-[240px_1fr_220px] sm:px-6"
+            className="relative flex h-[68px] items-center justify-between border-b border-border bg-[#09090b] px-5 lg:grid lg:h-[68px] lg:grid-cols-[240px_1fr_220px] sm:px-6"
           >
             {/* Left */}
             <div className="flex items-center">
