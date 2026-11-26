@@ -40,6 +40,7 @@ export default function AnimatedText({
 
   useEffect(() => {
     const finalText = centerText(target);
+    let transitionTimeout: number | undefined;
 
     let frame = 0;
 
@@ -65,13 +66,18 @@ export default function AnimatedText({
       if (frame > Math.max(...stopFrames) + 3) {
         clearInterval(interval);
 
-        setTimeout(() => {
+        transitionTimeout = window.setTimeout(() => {
           setIndex((prev) => (prev + 1) % texts.length);
         }, PAUSE);
       }
     }, FRAME_SPEED);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      if (transitionTimeout !== undefined) {
+        window.clearTimeout(transitionTimeout);
+      }
+    };
   }, [centerText, index, target, texts.length]);
   return (
     <div className="flex w-full justify-center overflow-hidden">

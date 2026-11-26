@@ -37,13 +37,16 @@ export default function NavLinks() {
     <nav aria-label="Primary navigation" className="hidden items-center justify-center lg:flex">
       <ul className="flex items-center gap-2">
         {navigation.map((item) => {
-          const active = pathname === item.href;
+          const active =
+            item.href === "/"
+              ? pathname === "/"
+              : pathname === item.href || pathname.startsWith(`${item.href}/`);
 
           return (
             <li key={item.name}>
               <Link
                 href={item.href}
-                className={`group relative rounded-sm px-4 py-2 text-sm font-medium transition-colors ${
+                className={`group relative rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   active
                     ? "text-primary"
                     : "text-secondary-foreground hover:bg-secondary hover:text-foreground"

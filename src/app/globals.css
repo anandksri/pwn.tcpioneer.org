@@ -96,7 +96,37 @@ body {
   overflow-x: hidden;
   line-height: 1.5;
   letter-spacing: -0.01em;
-  background: var(--background);
+  background:
+    radial-gradient(circle at 50% -20%, oklch(0.6056 0.2189 292.72 / 8%), transparent 32rem),
+    var(--background);
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 main {

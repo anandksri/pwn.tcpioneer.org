@@ -18,7 +18,7 @@ export const trainingGrounds = [
     description:
       "Master the Linux command line, users, permissions and shell scripting.",
     topics: ["Bash", "File System", "Permissions"],
-    href: "/modules/linux",
+    href: "/modules/linux-foundations",
   },
 
   {
@@ -30,7 +30,7 @@ export const trainingGrounds = [
     level: "Beginner",
     description: "Understand TCP/IP, DNS, HTTP and network communication.",
     topics: ["TCP/IP", "DNS", "HTTP"],
-    href: "/modules/networking",
+    href: "/modules",
   },
 
   {
@@ -42,7 +42,7 @@ export const trainingGrounds = [
     level: "Intermediate",
     description: "Learn how modern web applications are attacked and secured.",
     topics: ["SQLi", "XSS", "SSRF"],
-    href: "/modules/web-security",
+    href: "/modules",
   },
 
   {
@@ -55,7 +55,7 @@ export const trainingGrounds = [
     description:
       "Build Python and Bash skills for automation and offensive security.",
     topics: ["Python", "Bash", "Automation"],
-    href: "/modules/programming",
+    href: "/modules",
   },
 
   {
@@ -68,7 +68,7 @@ export const trainingGrounds = [
     description:
       "Understand encryption, hashing and modern cryptographic concepts.",
     topics: ["AES", "RSA", "Hashing"],
-    href: "/modules/cryptography",
+    href: "/modules",
   },
 
   {
@@ -81,6 +81,6 @@ export const trainingGrounds = [
     description:
       "Explore memory corruption, debugging and binary exploitation.",
     topics: ["GDB", "ROP", "Pwntools"],
-    href: "/modules/pwn",
+    href: "/practice",
   },
 ] as const;

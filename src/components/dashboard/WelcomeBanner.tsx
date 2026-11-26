@@ -14,7 +14,7 @@ export default function WelcomeBanner() {
   else if (hour < 18) greeting = "Good Afternoon";
 
   return (
-    <section className="border border-border bg-card p-6 md:p-8">
+    <section className="rounded-xl border border-border/90 bg-[radial-gradient(circle_at_85%_20%,rgba(139,92,246,.12),transparent_24rem)] bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)] md:p-8">
       <div className="flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between">
         <div className="space-y-6">
           <div>

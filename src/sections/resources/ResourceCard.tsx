@@ -7,6 +7,7 @@ import {
   LucideIcon,
   PlayCircle,
 } from "lucide-react";
+import { getCategoryTheme } from "@/lib/category-theme";
 
 type Color = "emerald" | "sky" | "violet" | "orange" | "rose" | "amber";
 
@@ -22,55 +23,6 @@ type ResourceCardProps = {
   color: Color;
 };
 
-const colors = {
-  emerald: {
-    icon: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
-    hover: "hover:border-emerald-500/40",
-    text: "group-hover:text-emerald-400",
-  },
-
-  sky: {
-    icon: "text-sky-400",
-    bg: "bg-sky-500/10",
-    border: "border-sky-500/20",
-    hover: "hover:border-sky-500/40",
-    text: "group-hover:text-sky-400",
-  },
-
-  violet: {
-    icon: "text-brand-soft",
-    bg: "bg-primary/10",
-    border: "border-primary/20",
-    hover: "hover:border-primary/40",
-    text: "group-hover:text-brand-soft",
-  },
-
-  orange: {
-    icon: "text-warning",
-    bg: "bg-warning/10",
-    border: "border-warning/20",
-    hover: "hover:border-warning/40",
-    text: "group-hover:text-warning",
-  },
-
-  rose: {
-    icon: "text-rose-400",
-    bg: "bg-rose-500/10",
-    border: "border-rose-500/20",
-    hover: "hover:border-rose-500/40",
-    text: "group-hover:text-rose-400",
-  },
-
-  amber: {
-    icon: "text-amber-400",
-    bg: "bg-amber-500/10",
-    border: "border-amber-500/20",
-    hover: "hover:border-amber-500/40",
-    text: "group-hover:text-amber-400",
-  },
-};
 
 export default function ResourceCard({
   title,
@@ -81,7 +33,21 @@ export default function ResourceCard({
   icon: Icon,
   color,
 }: ResourceCardProps) {
-  const theme = colors[color];
+  const categoryKey =
+    color === "emerald"
+      ? "linux"
+      : color === "sky"
+        ? "networking"
+        : color === "violet"
+          ? "web"
+          : color === "amber"
+            ? "forensics"
+            : color === "rose"
+              ? "pwn"
+              : color === "orange"
+                ? "cryptography"
+                : "fundamentals";
+  const theme = getCategoryTheme(categoryKey);
 
   const action = {
     download: {
@@ -114,7 +80,7 @@ export default function ResourceCard({
 
   return (
     <div
-      className={`group rounded-lg border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-2 hover:bg-secondary ${theme.hover}`}
+      className={`group rounded-xl border border-border/90 bg-card p-5 shadow-[0_14px_40px_rgba(0,0,0,.10)] transition-all duration-300 hover:-translate-y-1 hover:bg-elevated ${theme.hover}`}
     >
       <div className="flex items-center justify-between">
         <div

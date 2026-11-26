@@ -8,6 +8,7 @@ import Navbar from "@/components/navbar/Navbar";
 import PageWrapper from "@/components/PageWrapper";
 import { getCurrentUser } from "@/lib/auth";
 import { getPublishedModule } from "@/lib/content";
+import { getCategoryTheme } from "@/lib/category-theme";
 
 export const dynamic = "force-dynamic";
 
@@ -33,12 +34,13 @@ export default async function ModulePage({
   const completedLessons = learningModule.lessons.filter(
     (lesson) => Array.isArray(lesson.progress) && lesson.progress[0]?.completedAt,
   ).length;
+  const theme = getCategoryTheme(learningModule.category);
 
   return (
     <>
       <Navbar />
       <PageWrapper>
-        <main className="bg-background py-36">
+        <main className="bg-background py-28 sm:py-32">
           <Container>
             <Link
               href="/modules"
@@ -50,7 +52,7 @@ export default async function ModulePage({
 
             <div className="mt-10 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
               <div>
-                <p className="font-mono text-xs font-semibold tracking-[0.2em] text-brand-soft uppercase">
+                <p className={`inline-flex rounded-full border px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase ${theme.bg} ${theme.border} ${theme.icon}`}>
                   {learningModule.category} · {learningModule.difficulty}
                 </p>
                 <h1 className="mt-5 text-4xl font-bold text-foreground md:text-6xl">
@@ -72,7 +74,7 @@ export default async function ModulePage({
                 </div>
               </div>
 
-              <aside className="border border-border bg-card p-6">
+              <aside className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
                 <p className="text-sm font-medium text-muted-foreground">Your progress</p>
                 <p className="mt-3 text-3xl font-semibold text-foreground">
                   {completedLessons}/{learningModule.lessons.length}

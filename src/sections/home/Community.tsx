@@ -51,7 +51,7 @@ const stats = [
 
 export default function Community() {
   return (
-    <section className="py-32">
+    <section className="border-t border-border/60 py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-5xl">
           <SectionHeading
@@ -70,7 +70,7 @@ export default function Community() {
               return (
                 <div
                   key={item.label}
-                  className="group cursor-pointer rounded-lg border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:bg-elevated"
+                  className="group rounded-xl border border-border/90 bg-card p-5 shadow-[0_14px_40px_rgba(0,0,0,.10)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-elevated"
                 >
                   <div className="flex items-center gap-4">
                     <div

@@ -37,14 +37,14 @@ const colors = {
 
 export default function WhyPwn() {
   return (
-    <section className="py-32">
+    <section className="border-t border-border/60 py-20 sm:py-24">
       <Container>
         <div className="max-w-3xl">
           <span className="font-mono text-xs font-medium tracking-[0.16em] text-brand-soft uppercase">
             Why PWN.TCPIONEER
           </span>
 
-          <h2 className="mt-4 text-5xl font-bold text-foreground">
+          <h2 className="mt-4 text-4xl font-bold text-foreground sm:text-5xl">
             Built for Practical Learning.
           </h2>
 
@@ -61,7 +61,7 @@ export default function WhyPwn() {
             return (
               <div
                 key={item.title}
-                className={`group cursor-pointer rounded-lg border border-border bg-card p-5 transition-colors hover:bg-elevated ${theme.hover}`}
+                className={`group rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)] transition-all duration-300 hover:-translate-y-1 hover:bg-elevated ${theme.hover}`}
               >
                 {/* Top */}
 

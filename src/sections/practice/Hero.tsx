@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-background pt-36 pb-10">
+    <section className="relative isolate overflow-hidden border-b border-border/70 bg-background pt-28 pb-16 sm:pt-32 lg:pt-36">
       {/* Background */}
 
       <div className="absolute inset-0 -z-50 bg-background" />
@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           {/* Badge */}
 
-          <span className="rounded-md border border-primary/20 bg-primary/10 px-5 py-2 text-xs font-semibold tracking-[0.35em] text-brand-soft uppercase">
+          <span className="inline-flex rounded-full border border-rose-400/20 bg-rose-400/8 px-4 py-1.5 font-mono text-[10px] font-semibold tracking-[0.2em] text-rose-300 uppercase">
             PWN PRACTICE
           </span>
 

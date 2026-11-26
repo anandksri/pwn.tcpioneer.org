@@ -13,11 +13,11 @@ const platform = [
   },
   {
     label: "Learning Paths",
-    href: "/roadmaps",
+    href: "/get-started",
   },
   {
     label: "Training Grounds",
-    href: "/training",
+    href: "/practice",
   },
   {
     label: "Community",
@@ -65,7 +65,7 @@ const community = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-10">
+    <footer className="border-t border-border/70 bg-card/30 py-14">
       <Container>
         <div className="grid gap-16 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Brand */}

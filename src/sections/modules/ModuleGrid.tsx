@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { BookOpen, Code2, Globe, Network, Terminal } from "lucide-react";
 
 import Container from "@/components/Container";
@@ -70,8 +71,20 @@ export default function ModuleGrid({ modules, selectedCategory, error }: Props) 
             Modules are temporarily unavailable. Please try again later.
           </div>
         ) : filteredModules.length === 0 ? (
-          <div className="border border-dashed border-border bg-card p-12 text-center text-muted-foreground">
-            No published modules are available yet.
+          <div className="rounded-xl border border-dashed border-border bg-card/60 p-10 text-center sm:p-14">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg border border-primary/20 bg-primary/10">
+              <BookOpen className="h-5 w-5 text-primary" />
+            </div>
+            <h3 className="mt-5 text-xl font-semibold text-foreground">No modules published yet</h3>
+            <p className="mx-auto mt-3 max-w-md leading-7 text-muted-foreground">
+              New learning modules will appear here as they become available.
+            </p>
+            <Link
+              href="/get-started"
+              className="mt-6 inline-flex h-11 items-center justify-center rounded-md border border-border bg-secondary px-5 text-sm font-semibold text-secondary-foreground transition-colors hover:border-primary/50 hover:bg-elevated hover:text-foreground"
+            >
+              Explore learning paths
+            </Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
@@ -81,6 +94,7 @@ export default function ModuleGrid({ modules, selectedCategory, error }: Props) 
               return (
                 <ModuleCard
                   key={module.id}
+                  category={module.category}
                   title={module.title}
                   description={module.description}
                   slug={module.slug}

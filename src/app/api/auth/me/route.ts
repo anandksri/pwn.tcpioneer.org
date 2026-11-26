@@ -16,7 +16,7 @@ export async function GET() {
           success: false,
           message: "Not authenticated",
         },
-        { status: 401 }
+        { status: 200 }
       );
     }
 

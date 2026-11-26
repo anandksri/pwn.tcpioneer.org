@@ -12,7 +12,7 @@ export default function FAQ() {
   const [active, setActive] = useState<number | null>(0);
 
   return (
-    <section className="py-32">
+    <section className="border-t border-border/60 py-20 sm:py-24">
       <Container>
         <SectionHeading
           badge="FAQ"
@@ -28,7 +28,7 @@ export default function FAQ() {
             return (
               <div
                 key={faq.question}
-                className="group overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-primary/40 hover:bg-elevated"
+                className="group overflow-hidden rounded-xl border border-border/90 bg-card transition-all hover:border-primary/40 hover:bg-elevated"
               >
                 <button
                   type="button"

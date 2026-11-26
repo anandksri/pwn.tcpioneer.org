@@ -15,7 +15,7 @@ export default function SectionHeading({
     <div
       className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
-      <span className="font-mono text-xs font-medium tracking-[0.16em] text-brand-soft uppercase">
+      <span className="inline-flex rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[0.16em] text-brand-soft uppercase">
         {badge}
       </span>
 

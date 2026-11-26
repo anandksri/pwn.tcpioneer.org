@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Clock3, LucideIcon } from "lucide-react";
+import { getCategoryTheme } from "@/lib/category-theme";
 
 type Color = "emerald" | "sky" | "violet" | "orange" | "rose" | "amber";
 
@@ -12,6 +13,7 @@ type ModuleCardProps = {
   difficulty: "Beginner" | "Intermediate" | "Advanced";
   icon: LucideIcon;
   color: Color;
+  category?: string;
 };
 
 const colors = {
@@ -73,12 +75,13 @@ export default function ModuleCard({
   difficulty,
   icon: Icon,
   color,
+  category,
 }: ModuleCardProps) {
-  const theme = colors[color];
+  const theme = category ? getCategoryTheme(category) : colors[color];
 
   return (
     <div
-      className={`group rounded-lg border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-2 hover:bg-secondary ${theme.hover}`}
+      className={`group rounded-xl border border-border/90 bg-card p-7 shadow-[0_14px_40px_rgba(0,0,0,.10)] transition-all duration-300 hover:-translate-y-1 hover:bg-elevated ${theme.hover}`}
     >
       {/* Top */}
 

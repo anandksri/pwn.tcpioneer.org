@@ -66,7 +66,7 @@ export default function Sidebar() {
         flex-col
         border-r
         border-border
-        bg-background
+        bg-card/30
         transition-all
         duration-200
         ease-in-out

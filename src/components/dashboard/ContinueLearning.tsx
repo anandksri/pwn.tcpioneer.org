@@ -14,7 +14,7 @@ export default function ContinueLearning({ data }: { data: ContinueLearningData 
     : 0;
 
   return (
-    <section className="border border-border bg-card p-6">
+    <section className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-xs uppercase tracking-[0.12em] text-muted-foreground">

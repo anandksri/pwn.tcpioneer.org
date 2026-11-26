@@ -6,7 +6,7 @@ import { entryPoint } from "@/data/entryPoint";
 
 export default function EntryPoint() {
   return (
-    <section className="pb-32">
+    <section className="py-20 sm:py-24">
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>

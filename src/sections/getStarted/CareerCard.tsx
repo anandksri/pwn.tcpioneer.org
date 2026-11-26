@@ -56,7 +56,6 @@ const colors = {
 };
 
 export default function CareerCard({
-  slug,
   title,
   description,
   icon: Icon,
@@ -107,7 +106,7 @@ export default function CareerCard({
       {/* Button */}
 
       <Link
-        href={`/paths/${slug}`}
+        href="/modules"
         className={`inline-flex items-center gap-2 font-medium text-secondary-foreground transition-all duration-300 ${theme.text}`}
       >
         Start Learning

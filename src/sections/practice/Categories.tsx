@@ -3,6 +3,7 @@
 import { Search } from "lucide-react";
 
 import Container from "@/components/Container";
+import { getCategoryTheme } from "@/lib/category-theme";
 
 type CategoriesProps = {
   categories: string[];
@@ -34,20 +35,21 @@ export default function Categories({
       <Container>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap gap-3">
-            {categories.map((category) => (
-              <button
+            {categories.map((category) => {
+              const theme = getCategoryTheme(category);
+              return <button
                 key={category}
                 type="button"
                 onClick={() => onCategoryChange(category)}
                 className={`cursor-pointer rounded-md border px-4 py-2.5 text-sm font-medium transition-colors ${
                   selectedCategory === category
-                    ? "border-primary bg-primary text-foreground"
-                    : "border-border bg-background text-secondary-foreground hover:border-primary hover:bg-primary/10 hover:text-foreground"
+                    ? `${theme.solid} ${theme.border}`
+                    : `border-border bg-card text-secondary-foreground ${theme.hover} ${theme.text}`
                 }`}
               >
                 {category}
-              </button>
-            ))}
+              </button>;
+            })}
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">

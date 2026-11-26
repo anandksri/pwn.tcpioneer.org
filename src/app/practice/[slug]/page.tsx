@@ -9,6 +9,7 @@ import Navbar from "@/components/navbar/Navbar";
 import PageWrapper from "@/components/PageWrapper";
 import { getCurrentUser } from "@/lib/auth";
 import { getPublishedChallenge, listPublishedChallenges } from "@/lib/content";
+import { getCategoryTheme } from "@/lib/category-theme";
 
 export const dynamic = "force-dynamic";
 
@@ -33,12 +34,13 @@ export default async function ChallengePage({
   const solved = Array.isArray(challenge.attempts) && challenge.attempts.length > 0;
   const challengeIndex = challenges.findIndex((item) => item.slug === slug);
   const nextChallenge = challenges[challengeIndex + 1];
+  const theme = getCategoryTheme(challenge.category);
 
   return (
     <>
       <Navbar />
       <PageWrapper>
-        <main className="bg-background py-36">
+        <main className="bg-background py-28 sm:py-32">
           <Container>
             <Link
               href="/practice"
@@ -49,8 +51,8 @@ export default async function ChallengePage({
             </Link>
 
             <article className="mx-auto mt-12 max-w-4xl">
-              <div className="flex flex-wrap items-center gap-3 text-xs font-semibold tracking-[0.2em] text-brand-soft uppercase">
-                <span>{challenge.category}</span>
+              <div className="flex flex-wrap items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase">
+                <span className={`rounded-full border px-3 py-1.5 ${theme.bg} ${theme.border} ${theme.icon}`}>{challenge.category}</span>
                 <span className="text-muted-foreground">·</span>
                 <span>{formatDifficulty(challenge.difficulty)}</span>
               </div>

@@ -21,7 +21,7 @@ export default async function SettingsPage() {
       </div>
 
       <section className="grid gap-4 md:grid-cols-2">
-        <div className="border border-border bg-card p-6">
+        <div className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
           <div className="flex items-start gap-4">
             <div className="flex h-11 w-11 items-center justify-center border border-border bg-secondary">
               <Mail className="h-5 w-5 text-primary" />
@@ -37,7 +37,7 @@ export default async function SettingsPage() {
           </div>
         </div>
 
-        <div className="border border-border bg-card p-6">
+        <div className="rounded-xl border border-border/90 bg-card p-6 shadow-[0_14px_40px_rgba(0,0,0,.10)]">
           <div className="flex items-start gap-4">
             <div className="flex h-11 w-11 items-center justify-center border border-border bg-secondary">
               <ShieldCheck className="h-5 w-5 text-primary" />
